@@ -10,6 +10,10 @@ os.makedirs(OUT_DIR, exist_ok=True)
 os.makedirs(f'{OUT_DIR}/ja', exist_ok=True)
 os.makedirs(f'{OUT_DIR}/en', exist_ok=True)
 
+# 暂时禁用的章节（规则未定，灰显示 + 不可点击 + 加 🚧 标签）
+# 4 = 团队与权限, 18 = 营销视频, 28 = 计费与发票, 29 = 联系我们
+DISABLED_CHAPTERS = {4, 18, 28, 29}
+
 # 资源版本戳
 def asset_hash(path):
     try:
@@ -197,6 +201,8 @@ body{display:flex;min-height:100vh}
 .nav-list a{display:block;padding:8px 12px;color:var(--text-dim);text-decoration:none;border-radius:6px;font-size:13.5px;transition:all .15s}
 .nav-list a:hover{background:var(--bg-card);color:var(--text)}
 .nav-list a.active{background:var(--accent-soft);color:var(--accent);font-weight:500}
+.nav-list li.disabled span{display:block;padding:8px 12px;color:#555;font-size:13.5px;cursor:not-allowed;border-radius:6px;user-select:none}
+.nav-list li.disabled span:hover{background:transparent}
 
 .main{flex:1;margin-left:280px;padding:80px 0 120px;min-height:100vh}
 .page{max-width:760px;margin:0 auto;padding:0 64px}
@@ -402,7 +408,20 @@ function escapeHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;
 function titleHtml(t){return escapeHtml(t).split('|||').join('<br>');}
 function titleText(t){return String(t).split('|||').join(' ');}
 
+const DISABLED = __DISABLED_JSON__;
+function isDisabled(n){return DISABLED.indexOf(n) !== -1;}
+function nextEnabled(n, dir){
+  let i = n + dir;
+  while(i >= 1 && i <= CHAPTERS.length){
+    if(!isDisabled(i)) return CHAPTERS[i-1];
+    i += dir;
+  }
+  return null;
+}
+
 function goto(num){
+  // 禁用章节 → 跳到第 1 章
+  if(isDisabled(num)){ num = 1; }
   const c = CHAPTERS[num-1];
   if(!c) return;
   const group = chapterCrumb(num);
@@ -410,8 +429,8 @@ function goto(num){
   document.getElementById('title').innerHTML = titleHtml(c.title);
   document.getElementById('content').innerHTML = c.html;
   const pager = document.getElementById('pager');
-  const prev = num > 1 ? CHAPTERS[num-2] : null;
-  const next = num < CHAPTERS.length ? CHAPTERS[num] : null;
+  const prev = nextEnabled(num, -1);
+  const next = nextEnabled(num, +1);
   pager.innerHTML = `
     ${prev ? `<a class="pager-prev" href="javascript:void(0)" onclick="goto(${prev.num})">
        <div class="pager-dir">← ${PREV_LABEL}</div>
@@ -483,7 +502,10 @@ def build_for_lang(lang_code, cfg):
             if n <= len(chapters):
                 c = chapters[n-1]
                 sidebar_title = c["title"].replace("|||", " ")
-                sidebar_parts.append(f'<li><a href="javascript:void(0)" onclick="goto({n})" data-ch="{n}">{sidebar_title}</a></li>')
+                if n in DISABLED_CHAPTERS:
+                    sidebar_parts.append(f'<li class="disabled"><span data-ch="{n}">🚧 {sidebar_title}</span></li>')
+                else:
+                    sidebar_parts.append(f'<li><a href="javascript:void(0)" onclick="goto({n})" data-ch="{n}">{sidebar_title}</a></li>')
         sidebar_parts.append('</ul></div>')
     sidebar_html = '\n'.join(sidebar_parts)
 
@@ -542,6 +564,7 @@ def build_for_lang(lang_code, cfg):
     site = site.replace('__LOGO_PNG_V__', LOGO_PNG_V)
     site = site.replace('__CHAPTERS_JSON__', json.dumps(chapters_data, ensure_ascii=False))
     site = site.replace('__GROUPS_JSON__', json.dumps(groups_for_js, ensure_ascii=False))
+    site = site.replace('__DISABLED_JSON__', json.dumps(sorted(DISABLED_CHAPTERS)))
 
     with open(cfg['out_path'], 'w') as f:
         f.write(site)
