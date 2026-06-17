@@ -122,9 +122,67 @@ body{display:flex;min-height:100vh}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:#222;border-radius:4px}
 ::-webkit-scrollbar-thumb:hover{background:#333}
+
+/* ==================== 移动端抽屉边缘热区 + Mask ==================== */
+.edge-trigger{position:fixed;top:0;left:0;width:18px;height:100vh;z-index:8;display:none;background:linear-gradient(to right,rgba(139,139,255,.08),transparent);cursor:e-resize}
+.edge-trigger::after{content:'';position:absolute;top:50%;left:4px;width:3px;height:48px;border-radius:2px;background:var(--border-hover);transform:translateY(-50%)}
+.sidebar-mask{position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(2px);z-index:19;opacity:0;pointer-events:none;transition:opacity .25s ease}
+body.drawer-open .sidebar-mask{opacity:1;pointer-events:auto}
+
+/* ==================== 移动端响应式 ≤900px ==================== */
+@media(max-width:900px){
+  /* 侧栏：默认隐藏，从左边缘滑入 */
+  .sidebar{transform:translateX(-100%);transition:transform .28s cubic-bezier(.4,0,.2,1);width:84vw;max-width:320px;z-index:20;box-shadow:0 0 30px rgba(0,0,0,.6)}
+  body.drawer-open .sidebar{transform:translateX(0)}
+  .edge-trigger{display:block}
+
+  /* 主内容区：全宽 */
+  .main{margin-left:0;padding:64px 0 80px}
+  .topbar{left:0;padding:0 18px;height:52px}
+  .topbar-sub{display:none}
+  .topbar-pill{font-size:10px;padding:2px 10px}
+  .lang-switcher a{padding:5px 10px;font-size:11px}
+  .page{padding:0 22px;max-width:100%}
+
+  /* 字号缩小 */
+  .page-title{font-size:38px;letter-spacing:-1px;line-height:1.15;margin-bottom:20px}
+  .crumb{font-size:11px;margin-bottom:12px}
+  .content{font-size:15px;line-height:1.7}
+  .content h2{font-size:24px;margin:36px 0 14px;padding-top:28px}
+  .content h2:first-child{margin-top:24px}
+  .content h3{font-size:16.5px;margin:24px 0 10px}
+  .content h4{font-size:13.5px;margin:18px 0 8px}
+  .content blockquote{padding:12px 16px;font-size:14px}
+  .content blockquote em,.content blockquote i{font-size:13.5px}
+  .content ul,.content ol{padding-left:20px}
+  .content pre{padding:12px 14px;font-size:11.5px}
+  .content code{font-size:12px;padding:1.5px 6px}
+
+  /* 表格：横向滚动，不再 nowrap 第一列 */
+  .content table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;font-size:13px;border-radius:8px}
+  .content th,.content td{padding:10px 12px}
+  .content td:first-child{white-space:nowrap}
+
+  /* SVG 图：保持比例，可横向滚动兜底 */
+  .content figure.diagram{margin:24px -8px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .content figure svg{min-width:520px}
+
+  /* 翻页改成上下排列 */
+  .pager{grid-template-columns:1fr;gap:10px;margin-top:56px;padding-top:24px}
+  .pager a{padding:14px 18px}
+  .pager-next{text-align:left}
+}
+@media(max-width:480px){
+  .page-title{font-size:32px}
+  .content h2{font-size:21px}
+}
+
 </style>
 </head>
 <body>
+
+<div class="edge-trigger" id="edgeTrigger" aria-label="打开导航"></div>
+<div class="sidebar-mask" id="sidebarMask"></div>
 
 <aside class="sidebar">
   <a class="brand" href="/en/">
@@ -246,7 +304,26 @@ function goto(num){
   document.querySelectorAll('.nav-list a').forEach(a => a.classList.toggle('active', Number(a.dataset.ch) === num));
   window.scrollTo({top:0, behavior:'smooth'});
   history.replaceState(null, '', '#ch-' + num);
+  closeDrawer();
 }
+
+// === 移动端抽屉控制 ===
+function openDrawer(){document.body.classList.add('drawer-open');}
+function closeDrawer(){document.body.classList.remove('drawer-open');}
+document.getElementById('edgeTrigger').addEventListener('click', openDrawer);
+document.getElementById('sidebarMask').addEventListener('click', closeDrawer);
+// 触摸边缘滑动也能开
+let touchStartX = null;
+document.addEventListener('touchstart', e=>{
+  if(window.innerWidth > 900) return;
+  if(e.touches[0].clientX < 24) touchStartX = e.touches[0].clientX;
+}, {passive:true});
+document.addEventListener('touchmove', e=>{
+  if(touchStartX === null) return;
+  const dx = e.touches[0].clientX - touchStartX;
+  if(dx > 50){openDrawer(); touchStartX = null;}
+}, {passive:true});
+document.addEventListener('touchend', ()=>{ touchStartX = null; }, {passive:true});
 
 const initial = parseInt((location.hash.match(/ch-(\d+)/)||[])[1]||'1', 10);
 goto(initial);
