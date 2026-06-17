@@ -257,7 +257,7 @@ body.drawer-open .sidebar-mask{opacity:1;pointer-events:auto}
 <li><a href="javascript:void(0)" onclick="goto(26)" data-ch="26">Style Guide</a></li>
 </ul></div>
 <div class="nav-group"><div class="nav-group-title"><span class="nav-emoji">📚</span>Help</div><ul class="nav-list">
-<li><a href="javascript:void(0)" onclick="goto(27)" data-ch="27">FAQ</a></li>
+<li class="disabled"><span data-ch="27">🚧 FAQ</span></li>
 <li class="disabled"><span data-ch="28">🚧 Billing & Invoices</span></li>
 <li class="disabled"><span data-ch="29">🚧 Contact Us</span></li>
 </ul></div>
@@ -311,7 +311,7 @@ function escapeHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;
 function titleHtml(t){return escapeHtml(t).split('|||').join('<br>');}
 function titleText(t){return String(t).split('|||').join(' ');}
 
-const DISABLED = [4, 18, 28, 29];
+const DISABLED = [4, 18, 27, 28, 29];
 function isDisabled(n){return DISABLED.indexOf(n) !== -1;}
 function nextEnabled(n, dir){
   let i = n + dir;
