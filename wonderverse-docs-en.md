@@ -2239,12 +2239,54 @@ In drama storyboards, prompts must also speak **cinematic language**:
 
 ## 25. Multilingual Localization
 
-Wonderverse's core users span **China and Japan**, so localization is the platform's moat.
 This chapter gives you practical tips for shipping to Japan, the US/UK, and Korea.
 
 ### Three levels of localization
 
-[Diagram: Localization three levels]
+<figure class="diagram">
+<svg viewBox="0 0 720 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three levels of localization" class="wv-svg">
+  <defs>
+    <filter id="softShadowLoc" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <linearGradient id="locL1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a1a26"/><stop offset="100%" stop-color="#16161f"/></linearGradient>
+    <linearGradient id="locL2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1e1e2e"/><stop offset="100%" stop-color="#16161f"/></linearGradient>
+    <linearGradient id="locL3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#262638"/><stop offset="100%" stop-color="#16161f"/></linearGradient>
+  </defs>
+  <g class="wv-card">
+    <rect x="40" y="50" width="200" height="150" rx="14" fill="url(#locL1)" stroke="#3a3a4a" stroke-width="1.2" filter="url(#softShadowLoc)"/>
+    <circle cx="62" cy="74" r="13" fill="#8b8bff" opacity="0.35"/>
+    <text x="62" y="78" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#8b8bff">①</text>
+    <text x="140" y="115" text-anchor="middle" font-size="32">📝</text>
+    <text x="140" y="148" text-anchor="middle" font-family="Inter,'Noto Serif SC',sans-serif" font-size="14" font-weight="600" fill="#e8e8f0">Subtitles</text>
+    <text x="140" y="171" text-anchor="middle" font-family="Inter,'Noto Serif SC',sans-serif" font-size="11.5" fill="#9a9aaa">Translate text</text>
+    <text x="140" y="188" text-anchor="middle" font-family="Inter,'Noto Serif SC',sans-serif" font-size="11.5" fill="#9a9aaa">One click done</text>
+  </g>
+  <line x1="240" y1="125" x2="278" y2="125" stroke="#8b8bff" stroke-width="1.4" opacity="0.6"/>
+  <polygon points="272,121 280,125 272,129" fill="#8b8bff" opacity="0.6"/>
+  <g class="wv-card">
+    <rect x="280" y="50" width="200" height="150" rx="14" fill="url(#locL2)" stroke="#4a4a5e" stroke-width="1.2" filter="url(#softShadowLoc)"/>
+    <circle cx="302" cy="74" r="13" fill="#8b8bff" opacity="0.55"/>
+    <text x="302" y="78" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#0a0a0a">②</text>
+    <text x="380" y="115" text-anchor="middle" font-size="32">🎙️</text>
+    <text x="380" y="148" text-anchor="middle" font-family="Inter,'Noto Serif SC',sans-serif" font-size="14" font-weight="600" fill="#e8e8f0">Dubbing</text>
+    <text x="380" y="171" text-anchor="middle" font-family="Inter,'Noto Serif SC',sans-serif" font-size="11.5" fill="#9a9aaa">Replace voice</text>
+    <text x="380" y="188" text-anchor="middle" font-family="Inter,'Noto Serif SC',sans-serif" font-size="11.5" fill="#9a9aaa">Voice + emotion</text>
+  </g>
+  <line x1="480" y1="125" x2="518" y2="125" stroke="#8b8bff" stroke-width="1.4" opacity="0.6"/>
+  <polygon points="512,121 520,125 512,129" fill="#8b8bff" opacity="0.6"/>
+  <g class="wv-card">
+    <rect x="520" y="50" width="200" height="150" rx="14" fill="url(#locL3)" stroke="#5e5e7a" stroke-width="1.4" filter="url(#softShadowLoc)"/>
+    <circle cx="542" cy="74" r="13" fill="#8b8bff"/>
+    <text x="542" y="78" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#0a0a0a">③</text>
+    <text x="620" y="115" text-anchor="middle" font-size="32">🎭</text>
+    <text x="620" y="148" text-anchor="middle" font-family="Inter,'Noto Serif SC',sans-serif" font-size="14" font-weight="600" fill="#e8e8f0">Cultural</text>
+    <text x="620" y="171" text-anchor="middle" font-family="Inter,'Noto Serif SC',sans-serif" font-size="11.5" fill="#9a9aaa">Aesthetics & references</text>
+    <text x="620" y="188" text-anchor="middle" font-family="Inter,'Noto Serif SC',sans-serif" font-size="11.5" fill="#9a9aaa">Local team needed</text>
+  </g>
+  <text x="360" y="225" text-anchor="middle" font-family="Inter,'Noto Serif SC',sans-serif" font-size="11" fill="#5a5a6a" letter-spacing="2">F R O M   L I G H T   T O   D E E P</text>
+</svg>
+</figure>
 
 | Level | Tool | Time cost | Best for |
 |---|---|---|---|
@@ -2331,7 +2373,55 @@ This chapter gives you cheat-sheet presets + pitfalls for three major scenarios.
 
 #### Drama style decision tree
 
-[Diagram: Drama style decision tree]
+<figure class="diagram">
+<svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Drama style decision tree" class="wv-svg">
+  <defs>
+    <filter id="softShadowTree" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  <g class="wv-card">
+    <rect x="270" y="20" width="180" height="58" rx="10" fill="#1a1a26" stroke="#8b8bff" stroke-width="1.4" filter="url(#softShadowTree)"/>
+    <text x="360" y="44" text-anchor="middle" font-family="Inter,'Noto Serif SC',sans-serif" font-size="11" font-weight="600" fill="#a8a8b8" letter-spacing="2">S T A R T</text>
+    <text x="360" y="64" text-anchor="middle" font-family="Inter,'Noto Serif SC',sans-serif" font-size="14" font-weight="500" fill="#e8e8f0">Does the IP have a source?</text>
+  </g>
+  <line x1="320" y1="78" x2="180" y2="115" stroke="#8b8bff" stroke-width="1.3" opacity="0.7"/>
+  <text x="232" y="102" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#8b8bff">Yes</text>
+  <g class="wv-card">
+    <rect x="40" y="116" width="240" height="52" rx="10" fill="#16161f" stroke="#3a3a4a" stroke-width="1.2" filter="url(#softShadowTree)"/>
+    <text x="160" y="138" text-anchor="middle" font-family="Inter,'Noto Serif SC',sans-serif" font-size="13" font-weight="600" fill="#e8e8f0">Inherit source style</text>
+    <text x="160" y="158" text-anchor="middle" font-family="Inter,'Noto Serif SC',sans-serif" font-size="11" fill="#9a9aaa">Stay consistent with fans</text>
+  </g>
+  <line x1="400" y1="78" x2="540" y2="115" stroke="#8b8bff" stroke-width="1.3" opacity="0.7"/>
+  <text x="478" y="102" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#8b8bff">No</text>
+  <g class="wv-card">
+    <rect x="440" y="116" width="240" height="52" rx="10" fill="#1a1a26" stroke="#8b8bff" stroke-width="1.4" filter="url(#softShadowTree)"/>
+    <text x="560" y="138" text-anchor="middle" font-family="Inter,'Noto Serif SC',sans-serif" font-size="11" font-weight="600" fill="#a8a8b8" letter-spacing="2">N E X T</text>
+    <text x="560" y="158" text-anchor="middle" font-family="Inter,'Noto Serif SC',sans-serif" font-size="14" font-weight="500" fill="#e8e8f0">Target market?</text>
+  </g>
+  <line x1="500" y1="168" x2="180" y2="240" stroke="#8b8bff" stroke-width="1.1" opacity="0.6"/>
+  <line x1="560" y1="168" x2="430" y2="240" stroke="#8b8bff" stroke-width="1.1" opacity="0.6"/>
+  <line x1="620" y1="168" x2="620" y2="240" stroke="#8b8bff" stroke-width="1.1" opacity="0.6"/>
+  <text x="320" y="200" text-anchor="middle" font-family="Inter,'Noto Serif SC',sans-serif" font-size="11" font-weight="600" fill="#8b8bff">J A P A N</text>
+  <text x="495" y="200" text-anchor="middle" font-family="Inter,'Noto Serif SC',sans-serif" font-size="11" font-weight="600" fill="#8b8bff">C H I N A</text>
+  <text x="620" y="200" text-anchor="middle" font-family="Inter,'Noto Serif SC',sans-serif" font-size="11" font-weight="600" fill="#8b8bff">G L O B A L</text>
+  <g class="wv-card">
+    <rect x="60" y="248" width="240" height="80" rx="10" fill="#16161f" stroke="#3a3a4a" stroke-width="1.2" filter="url(#softShadowTree)"/>
+    <text x="180" y="278" text-anchor="middle" font-size="22">🇯🇵</text>
+    <text x="180" y="305" text-anchor="middle" font-family="Inter,'Noto Serif SC',sans-serif" font-size="13" font-weight="500" fill="#e8e8f0">Anime / 3D realism</text>
+  </g>
+  <g class="wv-card">
+    <rect x="310" y="248" width="240" height="80" rx="10" fill="#16161f" stroke="#3a3a4a" stroke-width="1.2" filter="url(#softShadowTree)"/>
+    <text x="430" y="278" text-anchor="middle" font-size="22">🇨🇳</text>
+    <text x="430" y="305" text-anchor="middle" font-family="Inter,'Noto Serif SC',sans-serif" font-size="13" font-weight="500" fill="#e8e8f0">Ink wash / Realism / Costume</text>
+  </g>
+  <g class="wv-card">
+    <rect x="560" y="248" width="140" height="80" rx="10" fill="#16161f" stroke="#3a3a4a" stroke-width="1.2" filter="url(#softShadowTree)"/>
+    <text x="630" y="278" text-anchor="middle" font-size="22">🌍</text>
+    <text x="630" y="305" text-anchor="middle" font-family="Inter,'Noto Serif SC',sans-serif" font-size="12" font-weight="500" fill="#e8e8f0">3D realism (universal)</text>
+  </g>
+</svg>
+</figure>
 
 ### E-commerce styles
 
