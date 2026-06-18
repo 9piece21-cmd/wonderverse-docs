@@ -903,18 +903,9 @@ No node-building required — follow the prompts and go from idea to finished cu
 | Scenario | Audience | One-liner | Link |
 |---|---|---|---|
 | 🎬 AI Drama Generator Agent | Drama / short-form studios | Script to 100 episodes, end-to-end | [→](#15--ai-drama-generator-agent) |
-| 🎮 Game / Match Highlights | Game / esports teams | Hours of footage, auto-edited to shorts | [→](#16--game--match-highlights) |
+| 🎮 AI Highlights | Game / esports / drama / film teams | Hours of footage, auto-edited to shorts | [→](#16--ai-highlights) |
 | 🛒 E-commerce Content | E-commerce / cross-border brands | Product photos / models / scenes, one click | [→](#17--e-commerce-content) |
-| 📢 Marketing Videos | Brand / marketing teams | Script to multi-platform shorts, batched | [→](#18--marketing-videos) |
-
-### Atomic tools behind each scenario
-
-```
-🎬 Drama:      Image Gen + Video Gen + AI Dubbing + Subtitles
-🎮 Highlights: Video detection + Auto-edit + Subtitles + Horizontal→Vertical
-🛒 E-commerce: Image Gen + Smart Erase + Super Resolution + AI Dubbing
-📢 Marketing:  Image Gen + Video Gen + AI Dubbing + Horizontal→Vertical
-```
+| 📢 Marketing Videos 🚧 Coming soon | Brand / marketing teams | Script to multi-platform shorts, batched | — |
 
 ### Scenarios vs Studio
 
