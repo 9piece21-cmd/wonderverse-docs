@@ -353,7 +353,7 @@ Wonderverse の AI ツールはプラットフォームの**原子的機能層**
     </filter>
   </defs>
   <rect x="20" y="20" width="680" height="400" rx="18" fill="url(#cardBg5ja)" stroke="#2a2a36" stroke-width="1.2"/>
-  <text x="360" y="68" text-anchor="middle" font-family="'Playfair Display',serif" font-style="italic" font-size="28" font-weight="900" fill="#f0f0f0" letter-spacing="3">AI · TOOLS</text>
+  <text x="360" y="68" text-anchor="middle" font-family="'Playfair Display','Noto Sans JP',serif" font-style="italic" font-size="28" font-weight="900" fill="#f0f0f0" letter-spacing="3">AI · ツール</text>
   <line x1="270" y1="84" x2="450" y2="84" stroke="url(#divider5ja)" stroke-width="1.5"/>
   <text x="200" y="135" text-anchor="middle" font-family="'Inter',sans-serif" font-size="13" font-weight="700" fill="#a8a8b8" letter-spacing="4">生 成</text>
   <text x="520" y="135" text-anchor="middle" font-family="'Inter',sans-serif" font-size="13" font-weight="700" fill="#a8a8b8" letter-spacing="4">編 集</text>
