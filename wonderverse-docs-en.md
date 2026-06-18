@@ -931,139 +931,479 @@ No node-building required — follow the prompts and go from idea to finished cu
 
 ## 15. 🎬 AI Drama Generator Agent
 
-Hand the full pipeline of an AI drama — character extraction, asset building, storyboard design, video generation, and editing — to an end-to-end agent.
-You only do two things: **give it a story, pick its outputs**.
+> 📍 Accessed via the **AI Short Drama** entry in the left sidebar (BETA).
+> Audience: AI drama / short-drama studios, IP teams, international distribution teams.
 
-> 📍 Accessed from the **AI Drama** entry in the left sidebar.
-> Audience: AI drama / short-form studios, IP houses, overseas distribution teams.
-> Typical cadence: Single episode 60-180 seconds, **~30 minutes from script to first cut**.
+Turn a single concept into a full drama — script expansion, character extraction, asset building, storyboarding, and video export — all handled by one end-to-end agent. Your job is to feed it a story and curate the output.
 
-### What it solves for you
+### Project management
 
-| Traditional drama pipeline pain | What Wonderverse does |
+The platform **automatically saves** every project you create. Once inside AI Short Drama:
+
+- Click **+ New project** at the top right to start a new piece
+- Click the drawer icon next to it to **browse and reopen any past project** to continue editing
+- Projects can be renamed, deleted, or duplicated at any time
+
+### Three steps end-to-end
+
+Each project advances through three tabs — **Script › Assets › Storyboard** — with the top progress bar highlighting where you are.
+
+<figure class="diagram">
+<svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI Drama 3-step flow" class="wv-svg">
+  <rect width="720" height="200" fill="#0a0a0e" rx="8"/>
+
+  <!-- 三个步骤卡 -->
+  <g font-family="-apple-system,'Noto Sans SC','Noto Sans JP'">
+    <!-- Step 1 当前高亮 -->
+    <rect x="40" y="50" width="180" height="100" rx="10" fill="#1c1736" stroke="#5b3d96" stroke-width="1.5"/>
+    <circle cx="68" cy="78" r="12" fill="#8b8bff"/>
+    <text x="68" y="82" text-anchor="middle" font-weight="700" font-size="13" fill="#0a0a0e">1</text>
+    <text x="68" y="120" text-anchor="middle" font-size="24">📜</text>
+    <text x="130" y="100" text-anchor="middle" font-size="14" font-weight="600" fill="#d4c4ff">Script</text>
+    <text x="130" y="130" text-anchor="middle" font-size="10" fill="#9a9aaa">Script & Style</text>
+
+    <!-- 箭头 -->
+    <text x="240" y="105" text-anchor="middle" font-size="20" fill="#5a5a6a">›</text>
+
+    <!-- Step 2 -->
+    <rect x="260" y="50" width="180" height="100" rx="10" fill="#16161f" stroke="#3a3a4a"/>
+    <circle cx="288" cy="78" r="12" fill="#3a3a4a"/>
+    <text x="288" y="82" text-anchor="middle" font-weight="700" font-size="13" fill="#a0a0b0">2</text>
+    <text x="288" y="120" text-anchor="middle" font-size="24">🎭</text>
+    <text x="350" y="100" text-anchor="middle" font-size="14" font-weight="600" fill="#e8e8f0">Assets</text>
+    <text x="350" y="130" text-anchor="middle" font-size="10" fill="#7a7a8a">Project assets</text>
+
+    <!-- 箭头 -->
+    <text x="460" y="105" text-anchor="middle" font-size="20" fill="#5a5a6a">›</text>
+
+    <!-- Step 3 -->
+    <rect x="480" y="50" width="180" height="100" rx="10" fill="#16161f" stroke="#3a3a4a"/>
+    <circle cx="508" cy="78" r="12" fill="#3a3a4a"/>
+    <text x="508" y="82" text-anchor="middle" font-weight="700" font-size="13" fill="#a0a0b0">3</text>
+    <text x="508" y="120" text-anchor="middle" font-size="24">🎬</text>
+    <text x="570" y="100" text-anchor="middle" font-size="14" font-weight="600" fill="#e8e8f0">Storyboard</text>
+    <text x="570" y="130" text-anchor="middle" font-size="10" fill="#7a7a8a">Storyboard</text>
+  </g>
+</svg>
+</figure>
+
+---
+
+### Step 1 · Script
+
+The script page uses a **split layout**:
+
+<figure class="diagram">
+<svg viewBox="0 0 880 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Script page layout" class="wv-svg">
+  <rect width="880" height="460" fill="#0a0a0e" rx="8"/>
+
+  <!-- 顶部导航 -->
+  <rect x="0" y="0" width="880" height="36" fill="#13131a"/>
+  <line x1="0" y1="36" x2="880" y2="36" stroke="#23232e"/>
+  <g font-family="-apple-system,'Noto Sans SC','Noto Sans JP'" font-size="11">
+    <rect x="356" y="8" width="60" height="22" rx="11" fill="#1c1736" stroke="#5b3d96"/>
+    <text x="386" y="23" fill="#d4c4ff" text-anchor="middle">📜 Script</text>
+    <text x="426" y="23" fill="#5a5a6a">›</text>
+    <text x="448" y="23" fill="#7a7a8a">🎭 Assets</text>
+    <text x="498" y="23" fill="#5a5a6a">›</text>
+    <text x="520" y="23" fill="#7a7a8a">🎬 Storyboard</text>
+  </g>
+
+  <!-- 左栏：剧本与风格 -->
+  <rect x="20" y="56" width="320" height="384" rx="8" fill="#0e0e14" stroke="#23232e"/>
+  <g font-family="-apple-system,'Noto Sans SC','Noto Sans JP'">
+    <text x="36" y="80" fill="#e8e8f0" font-size="13" font-weight="600">Script & Style</text>
+    <text x="36" y="98" fill="#7a7a8a" font-size="10">Give a one-line idea — AI expands it into a full script</text>
+
+    <!-- Tab 切换 -->
+    <rect x="36" y="110" width="140" height="26" rx="5" fill="#1c1736" stroke="#3d2d7a"/>
+    <text x="106" y="127" fill="#d4c4ff" font-size="11" text-anchor="middle">✨ AI write</text>
+    <rect x="182" y="110" width="120" height="26" rx="5" fill="#16161f" stroke="#2a2a35"/>
+    <text x="242" y="127" fill="#7a7a8a" font-size="11" text-anchor="middle">✏ Write myself</text>
+
+    <!-- 剧本灵感 -->
+    <text x="36" y="160" fill="#9a9aaa" font-size="10.5">Script idea</text>
+    <rect x="36" y="168" width="268" height="80" rx="5" fill="#16161f" stroke="#2a2a35"/>
+    <text x="48" y="186" fill="#7a7a8a" font-size="10">A typical Japanese high school with a baseball club...</text>
+
+    <!-- 集数 -->
+    <text x="36" y="276" fill="#9a9aaa" font-size="10.5">Episodes</text>
+    <rect x="36" y="284" width="268" height="28" rx="5" fill="#16161f" stroke="#2a2a35"/>
+    <text x="48" y="302" fill="#e8e8f0" font-size="11">5 eps</text>
+    <text x="292" y="302" fill="#7a7a8a" font-size="9">▾</text>
+
+    <!-- 画风 -->
+    <text x="36" y="328" fill="#9a9aaa" font-size="10.5">Art style</text>
+    <rect x="36" y="336" width="268" height="28" rx="5" fill="#16161f" stroke="#2a2a35"/>
+    <text x="48" y="354" fill="#e8e8f0" font-size="11">Anime (JP)</text>
+    <text x="292" y="354" fill="#7a7a8a" font-size="9">▾</text>
+
+    <!-- 画面比例 -->
+    <text x="36" y="382" fill="#9a9aaa" font-size="10.5">Aspect ratio</text>
+    <g font-family="-apple-system,'Noto Sans SC','Noto Sans JP'" font-size="9.5">
+      <rect x="36" y="390" width="42" height="22" rx="4" fill="#16161f" stroke="#2a2a35"/>
+      <text x="57" y="404" fill="#a0a0b0" text-anchor="middle">9:16</text>
+      <rect x="84" y="390" width="42" height="22" rx="4" fill="#1c1736" stroke="#5b3d96"/>
+      <text x="105" y="404" fill="#d4c4ff" text-anchor="middle">16:9</text>
+      <rect x="132" y="390" width="36" height="22" rx="4" fill="#16161f" stroke="#2a2a35"/>
+      <text x="150" y="404" fill="#a0a0b0" text-anchor="middle">1:1</text>
+      <rect x="174" y="390" width="36" height="22" rx="4" fill="#16161f" stroke="#2a2a35"/>
+      <text x="192" y="404" fill="#a0a0b0" text-anchor="middle">4:5</text>
+      <rect x="216" y="390" width="36" height="22" rx="4" fill="#16161f" stroke="#2a2a35"/>
+      <text x="234" y="404" fill="#a0a0b0" text-anchor="middle">3:4</text>
+    </g>
+
+    <!-- 生成按钮 -->
+    <rect x="36" y="424" width="268" height="0" fill="none"/>
+  </g>
+
+  <!-- 右栏：AI 输出 -->
+  <rect x="360" y="56" width="500" height="384" rx="8" fill="#0e0e14" stroke="#23232e"/>
+  <g font-family="-apple-system,'Noto Sans SC','Noto Sans JP'">
+    <!-- chip -->
+    <rect x="376" y="72" width="170" height="24" rx="12" fill="#1c1736" stroke="#3d2d7a"/>
+    <text x="461" y="89" fill="#d4c4ff" font-size="11" text-anchor="middle">✨ AI generated · Anime (JP)</text>
+
+    <!-- 下一步按钮 -->
+    <rect x="690" y="72" width="156" height="24" rx="5" fill="#16161f" stroke="#3a3a4a"/>
+    <text x="768" y="89" fill="#a0a0b0" font-size="10" text-anchor="middle">Next: generate per-episode script</text>
+
+    <!-- 项目标题 -->
+    <text x="376" y="126" fill="#e8e8f0" font-size="18" font-weight="600">Project name</text>
+    <text x="376" y="146" fill="#7a7a8a" font-size="11">5 eps</text>
+
+    <!-- 折叠卡 1: 剧本摘要 -->
+    <rect x="376" y="162" width="468" height="32" rx="5" fill="#16161f" stroke="#2a2a35"/>
+    <text x="392" y="183" fill="#e8e8f0" font-size="12">📑 Script summary</text>
+    <text x="826" y="183" fill="#7a7a8a" font-size="10">▾</text>
+
+    <!-- 折叠卡 2: 剧本 -->
+    <rect x="376" y="206" width="468" height="32" rx="5" fill="#16161f" stroke="#2a2a35"/>
+    <text x="392" y="227" fill="#e8e8f0" font-size="12">📜 Script</text>
+    <text x="826" y="227" fill="#7a7a8a" font-size="10">▾</text>
+  </g>
+</svg>
+</figure>
+
+#### Left panel · Script & Style
+
+| Setting | Notes |
 |---|---|
-| Manual storyboarding takes 3-5 days per episode | Agent **auto-parses the script** — storyboard in 5 minutes |
-| Characters / scenes drift across episodes | **Library locks** characters, voices, and scenes — consistent throughout |
-| Voiceover is expensive, slow to iterate, hard to localize | **AI dubbing + cloning** — Chinese / Japanese / English in one click |
-| Output specs are complex (horizontal / vertical / long / short) | **All ratios exported at once**, fits every platform |
+| **AI write / Write myself** | Two tabs — the first expands a one-line idea, the second pastes an existing script |
+| **Script idea** | A prompt, e.g. "A typical Japanese high school has a baseball club, and two prodigy players enter..." |
+| **Episodes** | Presets 10 / 30 / 50, or click "Custom" to enter any number |
+| **Art style** | Chinese manhua, Japanese anime, Korean Webtoon, American Comic, Costume, Modern, 2D, Chinese ink wash, Photoreal CG — **the style library keeps growing** |
+| **Aspect ratio** | 9:16 / 16:9 / 1:1 / 4:5 / 3:4 |
 
-### Workflow (5 steps)
+When ready, click **✨ Generate summary**.
 
-[Diagram: 5-step drama workflow]
+#### Right panel · AI output
 
-### Step 1 · Input the script
+The AI first outputs a **Script summary** (collapsible panel): episodes, story type, target audience, core hook, one-line story, character bios, per-episode outline.
 
-Go to **Scenarios → 🎬 AI Drama Generator Agent**. The main interface is a chat box. Two options to provide your script:
+After confirming, click **Next: generate per-episode script** at the top right. The AI expands the **Script** panel with the full per-episode script — including **dialogue, action, inner monologue** — each episode independently editable.
 
-#### Option A · Paste an existing script
-Paste Word, TXT, or plain-text scripts. Long-form supported (up to 100,000 chars at once). The Agent auto-splits by episode.
+---
 
-#### Option B · Let AI write it
-Enter a story logline, e.g.:
-> *"Shibuya, Tokyo — a retired hitman with amnesia meets his daughter at a convenience store."*
+### Step 2 · Assets
 
-The Agent generates a complete script from your setup.
+After the script is confirmed, the agent automatically extracts **three asset types**:
 
-#### Configuration
-| Option | Notes |
-|---|---|
-| 🎨 **Style** | Anime, 3D realism, ink wash, cyberpunk, chibi, and more built-in |
-| 📺 **Episodes** | 1 - 100 |
-| ⏱️ **Per-episode duration** | 60s / 90s / 120s / 180s |
-| 🎞️ **Aspect ratio** | 9:16 vertical · 16:9 horizontal · 1:1 square (multi-select) |
-| 🌏 **Language** | Chinese / Japanese / English |
+<figure class="diagram">
+<svg viewBox="0 0 880 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Assets page layout" class="wv-svg">
+  <rect width="880" height="420" fill="#0a0a0e" rx="8"/>
 
-[Diagram: Script input dialog + config panel]
+  <!-- 顶部导航 -->
+  <rect x="0" y="0" width="880" height="36" fill="#13131a"/>
+  <line x1="0" y1="36" x2="880" y2="36" stroke="#23232e"/>
+  <g font-family="-apple-system,'Noto Sans SC','Noto Sans JP'" font-size="11">
+    <text x="356" y="23" fill="#7a7a8a">📜 Script</text>
+    <text x="406" y="23" fill="#5a5a6a">›</text>
+    <rect x="426" y="8" width="80" height="22" rx="11" fill="#1c1736" stroke="#5b3d96"/>
+    <text x="466" y="23" fill="#d4c4ff" text-anchor="middle">🎭 Assets</text>
+    <text x="516" y="23" fill="#5a5a6a">›</text>
+    <text x="538" y="23" fill="#7a7a8a">🎬 Storyboard</text>
+  </g>
 
-### Step 2 · Build the asset library
+  <!-- 标题 + 副标 -->
+  <g font-family="-apple-system,'Noto Sans SC','Noto Sans JP'">
+    <text x="36" y="74" fill="#e8e8f0" font-size="16" font-weight="600">Project assets</text>
+    <text x="36" y="94" fill="#7a7a8a" font-size="10.5">Assets extracted from script · characters / scenes / props auto-generated</text>
 
-After submitting the script, the Agent auto-extracts three asset types:
+    <!-- 下一步 -->
+    <rect x="708" y="62" width="136" height="26" rx="5" fill="#1c1736" stroke="#5b3d96"/>
+    <text x="776" y="79" fill="#d4c4ff" font-size="10.5" text-anchor="middle">Next: generate storyboard</text>
 
-#### 🧑 Characters
-For each character, a **portrait card + personality card + voice card** is generated. You can:
-- Replace the portrait (upload reference / regenerate / pick from library)
-- **Clone a real voice** (upload 30 seconds of clean speech)
-- Pick from the built-in voice library (Chinese / Japanese / English options)
+    <!-- Tab 3 项 -->
+    <line x1="36" y1="124" x2="844" y2="124" stroke="#23232e"/>
+    <text x="48" y="118" fill="#d4c4ff" font-size="12" font-weight="600">Characters 2/2</text>
+    <line x1="36" y1="124" x2="120" y2="124" stroke="#8b8bff" stroke-width="2"/>
+    <text x="160" y="118" fill="#7a7a8a" font-size="12">Scenes 1/1</text>
+    <text x="248" y="118" fill="#7a7a8a" font-size="12">Props 1/1</text>
 
-#### 🏞️ Scenes
-Auto-grouped by location, with main visuals generated. Tunable:
-- Time (dawn / dusk / midnight)
-- Weather (clear / rain / snow / fog)
-- Lighting mood (warm / cool / high-contrast)
+    <!-- 资产卡 1 -->
+    <rect x="36" y="148" width="248" height="240" rx="8" fill="#0e0e14" stroke="#2a2a35"/>
+    <rect x="52" y="164" width="216" height="120" rx="5" fill="#1a1a23" stroke="#2a2a35"/>
+    <text x="160" y="226" text-anchor="middle" font-size="36">👤</text>
+    <text x="52" y="306" fill="#e8e8f0" font-size="12.5" font-weight="600">Character name</text>
+    <text x="52" y="324" fill="#7a7a8a" font-size="10">Character description...</text>
+    <!-- 4 按钮 -->
+    <g font-family="-apple-system,'Noto Sans SC','Noto Sans JP'" font-size="9">
+      <rect x="52" y="336" width="50" height="20" rx="3" fill="#16161f" stroke="#2a2a35"/>
+      <text x="77" y="349" fill="#a0a0b0" text-anchor="middle">⬆ Upload</text>
+      <rect x="108" y="336" width="60" height="20" rx="3" fill="#1c1736" stroke="#3d2d7a"/>
+      <text x="138" y="349" fill="#d4c4ff" text-anchor="middle">✨ AI gen</text>
+      <rect x="174" y="336" width="56" height="20" rx="3" fill="#16161f" stroke="#2a2a35"/>
+      <text x="202" y="349" fill="#a0a0b0" text-anchor="middle">⬇ Download</text>
+      <text x="252" y="349" fill="#5a5a6a">🗑</text>
+    </g>
+    <!-- 底部音色行 -->
+    <line x1="52" y1="366" x2="268" y2="366" stroke="#23232e"/>
+    <text x="52" y="380" fill="#7a7a8a" font-size="9">Voice · default</text>
+    <rect x="216" y="370" width="52" height="14" rx="3" fill="#16161f" stroke="#2a2a35"/>
+    <text x="242" y="380" fill="#a0a0b0" font-size="8.5" text-anchor="middle">Configure</text>
 
-#### 🎭 Props
-Key props (weapons, mementos, plot objects) are managed separately to ensure consistency across shots.
+    <!-- 资产卡 2 -->
+    <rect x="300" y="148" width="248" height="240" rx="8" fill="#0e0e14" stroke="#2a2a35"/>
+    <rect x="316" y="164" width="216" height="120" rx="5" fill="#1a1a23" stroke="#2a2a35"/>
+    <text x="424" y="226" text-anchor="middle" font-size="36">👨</text>
+    <text x="316" y="306" fill="#e8e8f0" font-size="12.5" font-weight="600">Character name</text>
+    <text x="316" y="324" fill="#7a7a8a" font-size="10">Character description...</text>
 
-> 💡 **Assets compound** — Characters, voices, and scenes from this episode can be saved to the team Library, ready for next project's reuse.
+    <!-- 新增空卡 -->
+    <rect x="564" y="148" width="248" height="240" rx="8" fill="none" stroke="#3a3a4a" stroke-dasharray="4 4"/>
+    <text x="688" y="262" text-anchor="middle" font-size="32" fill="#5a5a6a">+</text>
+    <text x="688" y="290" text-anchor="middle" font-size="11" fill="#7a7a8a">+ Add character</text>
+  </g>
+</svg>
+</figure>
 
-### Step 3 · AI storyboard
-
-The Agent cuts the script into shots, outputting a **storyboard table** where each shot includes:
-
-| Field | Example |
-|---|---|
-| Shot # | 01-007 |
-| Framing | Medium / Close-up / Wide |
-| Characters | Lead A + Bystander B |
-| Scene | Shibuya convenience store · rainy night |
-| Action | Lead A slowly turns, gaze landing on the register |
-| Dialogue | "So… it's you." |
-| Duration | 3.2 sec |
-
-Each row is **individually editable** — rewrite copy, change framing, adjust duration, add notes.
-
-### Step 4 · Generate videos
-
-Once you confirm the storyboard, hit **Generate**:
-
-- **Per-shot generation**: Preview shot by shot, re-roll until satisfied
-- **Batch generation**: Run the whole episode in one go, Agent queues automatically
-- **Whole-series generation**: 100-episode batches run overnight (**ideal for overnight queues**)
-
-> Video generation uses Wonderverse's video engine. Supports 720p / 1080p. Set 1× / 2× / 4× re-rolls per shot.
-
-### Step 5 · Edit and export
-
-After videos render, enter the editor:
-
-- **Basic editing**: Trim, splice, transitions, subtitles, BGM
-- **Multi-aspect export**: Horizontal / vertical / square in one click, auto-reframed (powered by Horizontal → Vertical)
-- **Multilingual versions**: Pick target languages — AI Dubbing + Subtitles run automatically, localized version delivered
-- **Export formats**: MP4 (H.264 / H.265), MOV, up to 1080p
-
-> 🚧 **The editor is evolving** — Advanced timeline, multi-track mixing, AI auto-edit are on the roadmap.
-
-### A complete example
-
-> **Scenario**: Japanese e-commerce brand "Hanatoritori" wants a 12-episode vertical drama to promote a new fragrance line, targeting TikTok Japan.
-
-| Stage | Action | Time |
+| Asset | Auto-generated | What you can do |
 |---|---|---|
-| Input | Paste 8,000-char script, pick "Anime / 9:16 / 90s / Japanese" | 2 min |
-| Library | Accept default characters, replace 2 scenes, clone voice actor sample | 8 min |
-| Storyboard | Adjust framing and dialogue on 6 shots | 10 min |
-| Generate | 12 episodes generated overnight | One night |
-| Edit | Add brand intro + subtitles, export vertical 1080p | 15 min |
-| **Total** | **From script to 12 finished episodes** | **~4 hours hands-on + one night batch** |
+| 🧑 **Characters** | Multi-angle portraits + name + personality | Upload references, AI regen, download, configure voice |
+| 🏞️ **Scenes** | Hero visual + description | Same as above |
+| 🎭 **Props** | Key item images + description | Same as above |
 
-### FAQ
+> 💡 The top bar shows the status "Characters 2/2 generated · ready for storyboard". **Scenes and props are optional** — the storyboard stage can auto-fill them.
 
-**Q: What if my script is too long?**
-A: Up to 100,000 chars at once — longer scripts auto-split into chapter projects.
+#### Configure character voice
 
-**Q: How is character consistency guaranteed across episodes?**
-A: Lock the character portrait + voice ID in Library — the entire series references the same asset, ensuring consistency.
+Click **Configure** at the bottom of any character card to open the voice panel:
 
-**Q: Can I go back to an earlier step?**
-A: Yes — every step is an independent node. Editing one **only re-runs downstream**, never wasting already-generated assets.
+<figure class="diagram">
+<svg viewBox="0 0 880 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Voice configuration panel" class="wv-svg">
+  <rect width="880" height="480" fill="#0a0a0e" rx="8"/>
 
-**Q: How long a sample for voice cloning?**
-A: 30 seconds of clean neutral voice (no background music, no echo).
+  <!-- 弹层主体 -->
+  <rect x="20" y="20" width="840" height="440" rx="10" fill="#13131a" stroke="#2a2a35"/>
+
+  <!-- 标题栏 -->
+  <g font-family="-apple-system,'Noto Sans SC','Noto Sans JP'">
+    <text x="40" y="50" fill="#e8e8f0" font-size="15" font-weight="600">Configure voice</text>
+    <text x="828" y="50" fill="#7a7a8a" font-size="14" text-anchor="end">✕</text>
+
+    <!-- 两 Tab -->
+    <text x="40" y="82" fill="#7a7a8a" font-size="11">Info</text>
+    <text x="100" y="82" fill="#d4c4ff" font-size="11" font-weight="600">Voice</text>
+    <line x1="92" y1="88" x2="148" y2="88" stroke="#8b8bff" stroke-width="2"/>
+
+    <!-- 左半：生成新音色 -->
+    <rect x="40" y="100" width="400" height="220" rx="6" fill="#0e0e14" stroke="#23232e"/>
+    <text x="56" y="124" fill="#e8e8f0" font-size="13" font-weight="600">Generate new voice</text>
+    <text x="56" y="148" fill="#9a9aaa" font-size="10">Name</text>
+    <rect x="56" y="156" width="368" height="26" rx="4" fill="#16161f" stroke="#2a2a35"/>
+    <text x="56" y="200" fill="#9a9aaa" font-size="10">Voice description</text>
+    <text x="358" y="200" fill="#7a7a8a" font-size="9">↻ Reset</text>
+    <rect x="56" y="208" width="368" height="64" rx="4" fill="#16161f" stroke="#2a2a35"/>
+    <!-- 生成按钮 -->
+    <rect x="56" y="284" width="368" height="28" rx="5" fill="#1c1736" stroke="#5b3d96"/>
+    <text x="240" y="302" fill="#d4c4ff" font-size="12" text-anchor="middle">✨ Generate</text>
+
+    <!-- 右半：上传 mp3 -->
+    <rect x="460" y="100" width="380" height="220" rx="6" fill="#0e0e14" stroke="#23232e"/>
+    <text x="476" y="124" fill="#e8e8f0" font-size="13" font-weight="600">Upload mp3</text>
+    <text x="476" y="148" fill="#9a9aaa" font-size="10">Language</text>
+    <rect x="476" y="156" width="60" height="22" rx="4" fill="#1c1736" stroke="#5b3d96"/>
+    <text x="506" y="171" fill="#d4c4ff" font-size="10.5" text-anchor="middle">Chinese</text>
+    <rect x="542" y="156" width="60" height="22" rx="4" fill="#16161f" stroke="#2a2a35"/>
+    <text x="572" y="171" fill="#a0a0b0" font-size="10.5" text-anchor="middle">English</text>
+
+    <text x="476" y="206" fill="#9a9aaa" font-size="10">Pick file</text>
+    <rect x="476" y="214" width="348" height="30" rx="4" fill="#16161f" stroke="#2a2a35" stroke-dasharray="3 3"/>
+    <text x="650" y="232" fill="#5a5a6a" font-size="10" text-anchor="middle">MP3 / WAV · 10s ~ 5min · ≤20MB</text>
+
+    <rect x="476" y="284" width="348" height="28" rx="5" fill="#16161f" stroke="#3a3a4a"/>
+    <text x="650" y="302" fill="#a0a0b0" font-size="11" text-anchor="middle">⬆ Upload & bind</text>
+
+    <!-- 系统音色 -->
+    <text x="40" y="356" fill="#e8e8f0" font-size="12" font-weight="600">System voices · Vidu</text>
+    <text x="828" y="356" fill="#7a7a8a" font-size="9.5" text-anchor="end">Only active when picking Vidu video models</text>
+
+    <!-- 系统音色卡片 3 张示例 -->
+    <g font-family="-apple-system,'Noto Sans SC','Noto Sans JP'" font-size="11">
+      <rect x="40" y="370" width="260" height="50" rx="5" fill="#0e0e14" stroke="#23232e"/>
+      <circle cx="64" cy="395" r="11" fill="#1c1736" stroke="#5b3d96"/>
+      <text x="64" y="399" fill="#d4c4ff" font-size="11" text-anchor="middle">▶</text>
+      <text x="82" y="392" fill="#e8e8f0">• Young girl</text>
+      <text x="82" y="408" fill="#7a7a8a" font-size="9">Chinese</text>
+
+      <rect x="310" y="370" width="260" height="50" rx="5" fill="#0e0e14" stroke="#23232e"/>
+      <circle cx="334" cy="395" r="11" fill="#1c1736" stroke="#5b3d96"/>
+      <text x="334" y="399" fill="#d4c4ff" font-size="11" text-anchor="middle">▶</text>
+      <text x="352" y="392" fill="#e8e8f0">• Mature lady</text>
+      <text x="352" y="408" fill="#7a7a8a" font-size="9">Chinese</text>
+
+      <rect x="580" y="370" width="260" height="50" rx="5" fill="#0e0e14" stroke="#23232e"/>
+      <circle cx="604" cy="395" r="11" fill="#1c1736" stroke="#5b3d96"/>
+      <text x="604" y="399" fill="#d4c4ff" font-size="11" text-anchor="middle">▶</text>
+      <text x="622" y="392" fill="#e8e8f0">• Mature female</text>
+      <text x="622" y="408" fill="#7a7a8a" font-size="9">Chinese</text>
+    </g>
+  </g>
+</svg>
+</figure>
+
+- **Left · Generate new voice**: enter a name and voice description (up to 500 chars), then click ✨ Generate. The system uses a unified demo line for previewing, so voices are easy to A/B.
+- **Right · Upload mp3**: pick Chinese or English, upload 10s ~ 5min · ≤20MB MP3 / WAV — **the upload itself is the preview** (no AI generation needed).
+- **Below · System voices**: 58 built-in Vidu voices (21 female, 37 male, etc.). Click ▶ to preview, then "Select". **Active only when picking a Vidu video model**.
+
+> The actual line-by-line voice synthesis happens in the Storyboard stage.
+
+Once all assets are confirmed, click **Next: generate storyboard** at the top right.
+
+---
+
+### Step 3 · Storyboard
+
+<figure class="diagram">
+<svg viewBox="0 0 880 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Storyboard page layout" class="wv-svg">
+  <rect width="880" height="460" fill="#0a0a0e" rx="8"/>
+
+  <!-- 顶部导航 -->
+  <rect x="0" y="0" width="880" height="36" fill="#13131a"/>
+  <line x1="0" y1="36" x2="880" y2="36" stroke="#23232e"/>
+  <g font-family="-apple-system,'Noto Sans SC','Noto Sans JP'" font-size="11">
+    <text x="356" y="23" fill="#7a7a8a">📜 Script</text>
+    <text x="406" y="23" fill="#5a5a6a">›</text>
+    <text x="428" y="23" fill="#7a7a8a">🎭 Assets</text>
+    <text x="478" y="23" fill="#5a5a6a">›</text>
+    <rect x="498" y="8" width="80" height="22" rx="11" fill="#1c1736" stroke="#5b3d96"/>
+    <text x="538" y="23" fill="#d4c4ff" text-anchor="middle">🎬 Storyboard</text>
+  </g>
+
+  <!-- 左侧集数切换 -->
+  <rect x="20" y="56" width="64" height="384" rx="6" fill="#0e0e14" stroke="#23232e"/>
+  <g font-family="-apple-system,'Noto Sans SC','Noto Sans JP'">
+    <text x="52" y="80" fill="#7a7a8a" font-size="9" text-anchor="middle">Episode</text>
+    <rect x="30" y="92" width="44" height="44" rx="6" fill="#1c1736" stroke="#5b3d96"/>
+    <text x="52" y="115" fill="#d4c4ff" font-size="16" font-weight="700" text-anchor="middle">1</text>
+    <text x="52" y="128" fill="#b89dff" font-size="7" text-anchor="middle">●</text>
+    <rect x="30" y="144" width="44" height="44" rx="6" fill="#16161f" stroke="#2a2a35"/>
+    <text x="52" y="170" fill="#a0a0b0" font-size="16" font-weight="700" text-anchor="middle">2</text>
+    <rect x="30" y="196" width="44" height="44" rx="6" fill="#16161f" stroke="#2a2a35"/>
+    <text x="52" y="222" fill="#a0a0b0" font-size="16" font-weight="700" text-anchor="middle">3</text>
+    <rect x="30" y="248" width="44" height="44" rx="6" fill="#16161f" stroke="#2a2a35"/>
+    <text x="52" y="274" fill="#a0a0b0" font-size="16" font-weight="700" text-anchor="middle">4</text>
+    <rect x="30" y="300" width="44" height="44" rx="6" fill="#16161f" stroke="#2a2a35"/>
+    <text x="52" y="326" fill="#a0a0b0" font-size="16" font-weight="700" text-anchor="middle">5</text>
+    <rect x="30" y="352" width="44" height="44" rx="6" fill="none" stroke="#3a3a4a" stroke-dasharray="3 3"/>
+    <text x="52" y="378" fill="#5a5a6a" font-size="18" text-anchor="middle">+</text>
+  </g>
+
+  <!-- 主内容区 -->
+  <g font-family="-apple-system,'Noto Sans SC','Noto Sans JP'">
+    <text x="100" y="80" fill="#e8e8f0" font-size="15" font-weight="600">Storyboard</text>
+    <text x="100" y="98" fill="#7a7a8a" font-size="10">1 scene · 8 shots · each shot generates image/video independently</text>
+
+    <!-- 顶部右侧按钮 -->
+    <rect x="668" y="60" width="92" height="24" rx="5" fill="#16161f" stroke="#2a2a35"/>
+    <text x="714" y="76" fill="#a0a0b0" font-size="10" text-anchor="middle">▶ Preview episode</text>
+    <rect x="768" y="60" width="80" height="24" rx="5" fill="#16161f" stroke="#2a2a35"/>
+    <text x="808" y="76" fill="#a0a0b0" font-size="10" text-anchor="middle">⬇ Export</text>
+
+    <!-- 场景 Tab -->
+    <rect x="100" y="112" width="68" height="22" rx="3" fill="#1c1736"/>
+    <text x="134" y="127" fill="#d4c4ff" font-size="10.5" text-anchor="middle">Scene 1 · 8</text>
+
+    <!-- 分镜卡片 4 张 -->
+    <g>
+      <!-- 卡 1 已完成 -->
+      <rect x="100" y="144" width="180" height="240" rx="6" fill="#0e0e14" stroke="#2a2a35"/>
+      <rect x="116" y="160" width="148" height="160" rx="4" fill="#1a1a23"/>
+      <text x="190" y="244" text-anchor="middle" font-size="36">🎬</text>
+      <text x="124" y="180" fill="#9a9aaa" font-size="9">S1-1</text>
+      <rect x="116" y="328" width="44" height="14" rx="3" fill="#1a3a1a" stroke="#2d6b2d"/>
+      <text x="138" y="338" fill="#7cd97c" font-size="8" text-anchor="middle">Done</text>
+      <text x="170" y="338" fill="#7a7a8a" font-size="8">0-3s</text>
+      <text x="116" y="358" fill="#9a9aaa" font-size="8">Camera+Frame: [0-3s]</text>
+      <text x="116" y="372" fill="#7a7a8a" font-size="8">中景——雨幕中......</text>
+
+      <!-- 卡 2 已完成 -->
+      <rect x="292" y="144" width="180" height="240" rx="6" fill="#0e0e14" stroke="#2a2a35"/>
+      <rect x="308" y="160" width="148" height="160" rx="4" fill="#1a1a23"/>
+      <text x="382" y="244" text-anchor="middle" font-size="36">🎬</text>
+      <text x="316" y="180" fill="#9a9aaa" font-size="9">S1-2</text>
+      <rect x="308" y="328" width="44" height="14" rx="3" fill="#1a3a1a" stroke="#2d6b2d"/>
+      <text x="330" y="338" fill="#7cd97c" font-size="8" text-anchor="middle">Done</text>
+      <text x="362" y="338" fill="#7a7a8a" font-size="8">3-6s</text>
+
+      <!-- 卡 3 待生成 -->
+      <rect x="484" y="144" width="180" height="240" rx="6" fill="#0e0e14" stroke="#2a2a35"/>
+      <rect x="500" y="160" width="148" height="160" rx="4" fill="#16161f"/>
+      <text x="574" y="244" text-anchor="middle" font-size="32" fill="#3a3a4a">⊞</text>
+      <text x="508" y="180" fill="#9a9aaa" font-size="9">S1-3</text>
+      <rect x="500" y="328" width="56" height="14" rx="3" fill="#23232e" stroke="#3a3a4a"/>
+      <text x="528" y="338" fill="#a0a0b0" font-size="8" text-anchor="middle">Pending</text>
+      <text x="566" y="338" fill="#7a7a8a" font-size="8">6-9s</text>
+
+      <!-- 卡 4 待生成 -->
+      <rect x="676" y="144" width="180" height="240" rx="6" fill="#0e0e14" stroke="#2a2a35"/>
+      <rect x="692" y="160" width="148" height="160" rx="4" fill="#16161f"/>
+      <text x="766" y="244" text-anchor="middle" font-size="32" fill="#3a3a4a">⊞</text>
+      <text x="700" y="180" fill="#9a9aaa" font-size="9">S1-4</text>
+      <rect x="692" y="328" width="56" height="14" rx="3" fill="#23232e" stroke="#3a3a4a"/>
+      <text x="720" y="338" fill="#a0a0b0" font-size="8" text-anchor="middle">Pending</text>
+      <text x="758" y="338" fill="#7a7a8a" font-size="8">9-12s</text>
+    </g>
+
+    <!-- 底部提示 -->
+    <text x="100" y="416" fill="#5a5a6a" font-size="9.5">Visual: Camera: Sound: Dialogue: Duration</text>
+  </g>
+</svg>
+</figure>
+
+The storyboard page:
+
+- **Left**: episode switcher (add new episodes here)
+- **Top**: scene tab + Vidu model picker + ▶ Preview episode + ⬇ Export
+- **Main**: a grid of storyboard cards — each with **preview / status (Done · Pending) / duration / camera-and-frame description / referenced character & scene asset chips**
+
+#### Edit a single shot
+
+Click any shot card → opens the **edit panel**:
+
+| Field | Content |
+|---|---|
+| **Visual** | Shot size + subject action + scene description |
+| **Camera** | Camera move (Dolly In / Track / push-pull etc.) + focal length + depth of field |
+| **Sound** | Ambient SFX + music mood |
+| **Dialogue** | Character lines (with emotion tags + character chip refs) |
+| **Duration** | 5s / 6s / 7s / 8s / 9s / 10s |
+
+After editing, click **🔄 Regenerate video**. The Vidu model can be switched per shot.
+
+---
+
+### 🚧 Coming soon · AI Narration Drama
+
+Upload any source material, and AI automatically adds narration, synthesizes the commentary audio track, and produces a narrated short drama in one click.
+
+---
 
 ### Next
 
 → [E-commerce Content](#17--e-commerce-content)
-→ [Studio](#19-meet-the-canvas)
+→ [Studio Canvas](#19-meet-the-canvas)
 → [Prompt Techniques](#24-prompt-techniques)
 
 ---
