@@ -2489,12 +2489,7 @@ Platform algorithms decide push within the first 3 seconds. **The first frame mu
 
 ### Style crystallization
 
-Save your brand's winning styles as **team assets**:
-
-1. Tune the style combination in the parameter panel
-2. Right-click → **Save as Style Asset**
-3. Set name / cover / keywords
-4. Bind workflows to this style → consistent team output
+Save the style images you create to the Library for easy reuse.
 
 ### Next
 
