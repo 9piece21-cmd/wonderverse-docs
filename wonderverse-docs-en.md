@@ -1408,103 +1408,340 @@ Upload any source material, and AI automatically adds narration, synthesizes the
 
 ---
 
-## 16. 🎮 Game / Match Highlights
+## 16. 🎮 AI Highlights
 
-Auto-edit hours of esports streams, matches, or player footage into **30-90 second high-impact shorts** —
-subtitles, voiceover, vertical reframing, and brand intros done in one breath. **Ready to distribute 30 minutes after match end.**
+> 📍 Accessed via the **AI Highlights** entry in the left sidebar (BETA).
+> Audience: long-video repurposing, e-sports / sports highlights, drama / film promo edits, KOL secondary edits.
 
-> 📍 Accessed from the **AI Highlights** entry in the left sidebar.
-> Audience: Game studios, esports clubs, tournament ops, gaming creators.
-> Typical cadence: From raw footage to multi-platform first cut, **30-60 minutes**.
+Upload a long video — AI picks the best moments and helps you cut a marketing short.
 
-### What it solves for you
+### Project management
 
-| Traditional highlights pain | What Wonderverse does |
+The platform **automatically saves** every project. Once inside AI Highlights:
+
+- Click **+ New project** at the top right to start something new
+- Click the drawer icon next to it to **browse and reopen past projects** and continue editing
+- Projects can be renamed, deleted, or duplicated at any time. The project name shows an "Auto-saved" status to the right
+
+---
+
+### Step 1 · Upload & configure
+
+<figure class="diagram">
+<svg viewBox="0 0 880 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI Highlights main view" class="wv-svg">
+  <rect width="880" height="520" fill="#0a0a0e" rx="8"/>
+
+  <!-- 顶栏 -->
+  <g font-family="-apple-system,'Noto Sans SC','Noto Sans JP'">
+    <text x="20" y="32" fill="#7a7a8a" font-size="13">←</text>
+    <text x="40" y="34" fill="#e8e8f0" font-size="15" font-weight="600">AI Highlights</text>
+    <text x="20" y="56" fill="#7a7a8a" font-size="10">Upload a long video — AI picks the best moments and helps you cut a marketing short.</text>
+    <text x="20" y="78" fill="#c9c9d3" font-size="11">Untitled marketing project</text>
+    <text x="180" y="78" fill="#5a5a6a" font-size="10">· Auto-saved</text>
+    <rect x="744" y="22" width="116" height="24" rx="5" fill="#16161f" stroke="#3a3a4a"/>
+    <text x="802" y="38" fill="#a0a0b0" font-size="11" text-anchor="middle">+ New project</text>
+  </g>
+
+  <!-- 左栏：输入与配置 -->
+  <rect x="20" y="98" width="260" height="402" rx="8" fill="#0e0e14" stroke="#23232e"/>
+  <g font-family="-apple-system,'Noto Sans SC','Noto Sans JP'">
+    <!-- 原始视频 -->
+    <text x="36" y="118" fill="#9a9aaa" font-size="10">Source video</text>
+    <rect x="36" y="126" width="228" height="52" rx="5" fill="#16161f" stroke="#2a2a35"/>
+    <rect x="44" y="134" width="36" height="36" rx="3" fill="#1a1a23"/>
+    <text x="62" y="156" text-anchor="middle" font-size="14">🎬</text>
+    <text x="88" y="148" fill="#e8e8f0" font-size="10">v1e00fgi...</text>
+    <text x="88" y="164" fill="#7a7a8a" font-size="9">14:41 · 50.2 MB</text>
+    <rect x="222" y="148" width="36" height="16" rx="3" fill="#23232e"/>
+    <text x="240" y="159" fill="#a0a0b0" font-size="8" text-anchor="middle">Replace</text>
+
+    <!-- 内容类型 -->
+    <text x="36" y="206" fill="#9a9aaa" font-size="10">Content type</text>
+    <g font-family="-apple-system,'Noto Sans SC','Noto Sans JP'" font-size="9.5">
+      <!-- 4x2 网格 + 1 项底部 -->
+      <rect x="36" y="216" width="108" height="24" rx="4" fill="#16161f" stroke="#2a2a35"/>
+      <text x="90" y="231" fill="#a0a0b0" text-anchor="middle">LoL</text>
+      <rect x="152" y="216" width="108" height="24" rx="4" fill="#16161f" stroke="#2a2a35"/>
+      <text x="206" y="231" fill="#a0a0b0" text-anchor="middle">Honor of Kings</text>
+      <rect x="36" y="246" width="108" height="24" rx="4" fill="#16161f" stroke="#2a2a35"/>
+      <text x="90" y="261" fill="#a0a0b0" text-anchor="middle">HoK Pro</text>
+      <rect x="152" y="246" width="108" height="24" rx="4" fill="#16161f" stroke="#2a2a35"/>
+      <text x="206" y="261" fill="#a0a0b0" text-anchor="middle">Football</text>
+      <rect x="36" y="276" width="108" height="24" rx="4" fill="#16161f" stroke="#2a2a35"/>
+      <text x="90" y="291" fill="#a0a0b0" text-anchor="middle">Basketball</text>
+      <!-- 当前选中 -->
+      <rect x="152" y="276" width="108" height="24" rx="4" fill="#1c1736" stroke="#5b3d96"/>
+      <text x="200" y="291" fill="#d4c4ff" text-anchor="middle">Drama / Film ✨</text>
+      <text x="252" y="291" fill="#b89dff" font-size="9">✓</text>
+      <rect x="36" y="306" width="108" height="24" rx="4" fill="#16161f" stroke="#2a2a35"/>
+      <text x="90" y="321" fill="#a0a0b0" text-anchor="middle">General ✨</text>
+    </g>
+
+    <!-- AI 提示 -->
+    <rect x="36" y="342" width="228" height="22" rx="4" fill="#1a1736" opacity="0.5"/>
+    <text x="42" y="357" fill="#b89dff" font-size="9">✨ Large-model version: each segment gets a natural-language description</text>
+
+    <!-- 一键成片开关 -->
+    <rect x="36" y="380" width="228" height="46" rx="5" fill="#16161f" stroke="#2a2a35"/>
+    <rect x="50" y="396" width="24" height="14" rx="7" fill="#3a3a4a"/>
+    <circle cx="57" cy="403" r="5" fill="#7a7a8a"/>
+    <text x="86" y="400" fill="#e8e8f0" font-size="11" font-weight="600">One-click cut ✨</text>
+    <text x="86" y="418" fill="#7a7a8a" font-size="8.5">AI outputs one merged video directly — no manual stitching</text>
+
+    <!-- 重新生成 -->
+    <defs>
+      <linearGradient id="grad-regen" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#ff9b80"/>
+        <stop offset="100%" stop-color="#b89dff"/>
+      </linearGradient>
+    </defs>
+    <rect x="36" y="450" width="228" height="32" rx="6" fill="url(#grad-regen)"/>
+    <text x="150" y="470" fill="#0a0a0e" font-size="12" text-anchor="middle" font-weight="600">Regenerate</text>
+  </g>
+
+  <!-- 右栏：播放器 + 集锦列表 -->
+  <rect x="296" y="98" width="564" height="402" rx="8" fill="#0e0e14" stroke="#23232e"/>
+
+  <!-- 播放器 -->
+  <rect x="312" y="114" width="532" height="146" rx="6" fill="#0a0a0e" stroke="#23232e"/>
+  <rect x="500" y="140" width="156" height="88" rx="4" fill="#1a1a23"/>
+  <text x="578" y="190" text-anchor="middle" font-size="36">🎬</text>
+  <text x="578" y="214" fill="#e8e8f0" font-size="9" text-anchor="middle">第 X 集</text>
+
+  <!-- 时间轴 -->
+  <g font-family="-apple-system,'Noto Sans SC','Noto Sans JP'" font-size="9">
+    <text x="312" y="278" fill="#7a7a8a">▶ 00:00 / 14:41</text>
+    <rect x="396" y="270" width="80" height="14" rx="3" fill="#16161f" stroke="#2a2a35"/>
+    <text x="436" y="280" fill="#a0a0b0" text-anchor="middle">✂ Trim selection</text>
+    <!-- 彩色片段标记 -->
+    <line x1="496" y1="277" x2="844" y2="277" stroke="#23232e" stroke-width="3"/>
+    <g>
+      <rect x="500" y="273" width="14" height="8" fill="#8b8bff"/>
+      <rect x="520" y="273" width="14" height="8" fill="#ff9b80"/>
+      <rect x="540" y="273" width="14" height="8" fill="#7cd97c"/>
+      <rect x="566" y="273" width="14" height="8" fill="#8b8bff"/>
+      <rect x="590" y="273" width="14" height="8" fill="#e8b56b"/>
+      <rect x="616" y="273" width="14" height="8" fill="#ff9b80"/>
+      <rect x="638" y="273" width="14" height="8" fill="#7cd97c"/>
+      <rect x="664" y="273" width="14" height="8" fill="#8b8bff"/>
+      <rect x="692" y="273" width="14" height="8" fill="#e8b56b"/>
+      <rect x="718" y="273" width="14" height="8" fill="#ff9b80"/>
+      <rect x="748" y="273" width="14" height="8" fill="#8b8bff"/>
+      <rect x="780" y="273" width="14" height="8" fill="#7cd97c"/>
+      <rect x="814" y="273" width="14" height="8" fill="#8b8bff"/>
+    </g>
+  </g>
+
+  <!-- 集锦列表标题栏 -->
+  <g font-family="-apple-system,'Noto Sans SC','Noto Sans JP'">
+    <text x="312" y="306" fill="#e8e8f0" font-size="13" font-weight="600">Highlights</text>
+    <text x="844" y="306" fill="#7a7a8a" font-size="10" text-anchor="end">AI 24 · total 06:03</text>
+
+    <!-- 集锦卡 1 -->
+    <rect x="312" y="318" width="532" height="84" rx="6" fill="#0a0a0e" stroke="#23232e"/>
+    <rect x="324" y="328" width="92" height="64" rx="4" fill="#1c2347"/>
+    <circle cx="370" cy="360" r="14" fill="rgba(255,255,255,0.15)"/>
+    <text x="370" y="365" fill="#fff" font-size="13" text-anchor="middle">▶</text>
+    <text x="408" y="385" fill="#fff" font-size="8" text-anchor="end" opacity="0.7">00:03</text>
+
+    <!-- chip 行 -->
+    <g font-family="-apple-system,'Noto Sans SC','Noto Sans JP'" font-size="8">
+      <rect x="428" y="328" width="22" height="14" rx="3" fill="#1c1736" stroke="#5b3d96"/>
+      <text x="439" y="338" fill="#d4c4ff" text-anchor="middle">AI</text>
+      <rect x="456" y="328" width="50" height="14" rx="3" fill="#23232e"/>
+      <text x="481" y="338" fill="#c9c9d3" text-anchor="middle">言承旭</text>
+      <rect x="512" y="328" width="50" height="14" rx="3" fill="#23232e"/>
+      <text x="537" y="338" fill="#c9c9d3" text-anchor="middle">周渝民</text>
+      <rect x="568" y="328" width="50" height="14" rx="3" fill="#23232e"/>
+      <text x="593" y="338" fill="#c9c9d3" text-anchor="middle">徐熙媛</text>
+    </g>
+    <text x="428" y="358" fill="#e8e8f0" font-size="12" font-weight="600">Clip 1</text>
+    <text x="428" y="374" fill="#7a7a8a" font-size="9">Natural-language description of the highlight...</text>
+    <text x="428" y="390" fill="#5a5a6a" font-size="8.5">01:04 › 01:07</text>
+    <!-- 勾选 -->
+    <rect x="824" y="328" width="14" height="14" rx="3" fill="#1c1736" stroke="#5b3d96"/>
+    <text x="831" y="338" fill="#b89dff" font-size="10" text-anchor="middle">✓</text>
+  </g>
+
+  <!-- 底部双按钮 -->
+  <g font-family="-apple-system,'Noto Sans SC','Noto Sans JP'">
+    <rect x="312" y="450" width="252" height="32" rx="6" fill="#16161f" stroke="#3a3a4a"/>
+    <text x="438" y="470" fill="#a0a0b0" font-size="11" text-anchor="middle">⬇ Download all (.zip)</text>
+    <defs>
+      <linearGradient id="grad-merge" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#ff9b80"/>
+        <stop offset="100%" stop-color="#b89dff"/>
+      </linearGradient>
+    </defs>
+    <rect x="580" y="450" width="264" height="32" rx="6" fill="url(#grad-merge)"/>
+    <text x="712" y="470" fill="#0a0a0e" font-size="11.5" text-anchor="middle" font-weight="600">✨ Merge into one video (24)</text>
+  </g>
+</svg>
+</figure>
+
+The page uses a split layout: **left for config / right for the player + AI highlight list**.
+
+#### Upload source video
+
+| Item | Spec |
 |---|---|
-| Humans scrubbing hours of footage is slow | AI auto-detects **kills / teamfights / goals / key plays** |
-| Platform-specific specs require re-edits | **Edit once, export all platform formats** in one click |
-| Player voice → subtitles takes time | Auto-recognition + multilingual subtitle burn-in |
-| Localizing overseas events is expensive | Subtitle / dubbing batch localization |
+| Formats | MP4 / MOV / WebM |
+| File size | **< 1 GB** |
+| Duration | **Unlimited** |
 
-### Workflow
+> 🚧 **Coming soon**: URL ingestion (YouTube / Twitch / livestream replays) + direct API (OB systems / live platforms).
 
-[Diagram: 5-step highlights workflow]
+#### Pick a content type
 
-### Step 1 · Import footage
+7 built-in types, **single select**:
 
-Three options:
-
-- **File upload**: MP4 / MOV / WebM, < 1 GB, **no time limit**
-- 🚧 **Link pull** (YouTube / Twitch / replay links — coming soon)
-- 🚧 **Direct API ingest** (OB systems / streaming platforms — coming soon)
-
-### Step 2 · Highlight detection
-
-The Agent picks the strategy based on game type:
-
-| Game type | Detection axes |
+| Category | Type |
 |---|---|
-| MOBA | Kills / teamfights / first blood / pushes / dragon |
-| FPS | Kills / multikills / lo-hp comebacks / headshots |
-| Sports | Goals / assists / saves |
-| Fighting | Perfect combos / KOs / counters |
-| Custom | Manual marker via keyword or timestamp |
+| 🎮 Games | LoL / Honor of Kings / HoK Pro |
+| ⚽ Sports | Football / Basketball |
+| 🎬 Large-model version ✨ | **Drama / Film** · **General** |
 
-Each highlight gets auto-tagged — you add / remove on the timeline.
+> ✨ **Key difference**: when you pick **Drama / Film** or **General**, the **large-model version** activates — AI auto-detects faces and dialogue, tagging each Clip with a **character chip** (e.g. "Jerry Yan", "Barbie Hsu") and a **natural-language description**. Game / sports types use dedicated recognition strategies and won't carry character chips.
 
-### Step 3 · Auto-edit
+#### One-click cut toggle
 
-The Agent splices to beat:
+There's a ✨ **One-click cut** toggle at the bottom:
 
-- **Beat library**: Hype / fast / slow / emotional (built-in BGM library)
-- **Transitions**: Hard cut / flash white / slide / zoom
-- **Intro / outro**: Bind to club / brand-specific package
-- **Length target**: 30s / 60s / 90s / custom
+- **Off** (default): AI lists all Clips, you **manually pick** them before stitching
+- **On**: AI produces **one merged video directly**, skipping manual selection
 
-### Step 4 · Subtitles + voiceover
+After configuring, click the bottom peach-purple gradient **Regenerate** button — AI re-runs the highlight detection.
 
-- Player / commentator voice auto-recognized as subtitles
-- 🚧 AI commentary (auto-generated hype voiceover from match data) — coming soon
-- Multilingual subtitle burn-in + voiceover
+---
 
-### Step 5 · Multi-platform export
+### Step 2 · Browse the AI-picked highlights
 
-| Platform | Recommended spec |
+The top of the right column is the **player** + timeline:
+
+- The timeline shows colored segment markers — each marker = one AI-detected highlight
+- Click **✂ Trim selection** to drag a time range and extract that span as a supplemental Clip
+
+Below the timeline is the **highlight card list**:
+
+| Field | Notes |
 |---|---|
-| Douyin / TikTok | 9:16 · 1080p · 30-60s |
-| YouTube Shorts | 9:16 · 1080p · 60s |
-| Twitter / X | 16:9 · 720p · 90s |
-| WeChat Channels | 9:16 · 1080p · 60s |
-| Bilibili | 16:9 · 1080p · any |
+| **Thumbnail** | Key frame of the segment + ▶ play |
+| **AI chip** | Marks the segment as AI-detected |
+| **Character chip** | Only shown for "Drama / Film" or "General" — AI uses face + dialogue to tag |
+| **Clip title** | Clip 1, Clip 2, ... sequentially |
+| **Description** | The large-model version auto-generates a natural-language description |
+| **Time range** | Format like `01:04 › 01:07` |
+| **Checkbox** | Multi-select — decides which Clips enter the final stitch |
 
-One edit → check target platforms → batch export to matching specs.
+Top right shows the summary `AI 24 · total 06:03`: AI picked 24 segments totaling 6 min 03 sec.
 
-### A complete example
+---
 
-> **Scenario**: A MOBA team plays at Shanghai home venue against a Korean team — single match runs 90 minutes; aiming to distribute simultaneously across China / Japan / Korea / global within 1 hour after the match.
+### Step 3 · Stitch / download
 
-| Stage | Action | Time |
-|---|---|---|
-| Import | Upload 90-min footage (~800 MB) | 3 min |
-| Detection | AI auto-tags 28 highlights | 5 min |
-| Edit | Remove 5, add 2 manual markers | 6 min |
-| Edit cut | Pick "Hype / 60s / 9:16" | 4 min auto |
-| Voiceover | Player voice subs + Chinese / Japanese / Korean burn-in | 12 min |
-| Export | 4-region 4-platform batch export | 5 min |
-| **Total** | **From post-match to distribution** | **~40 min** |
+Two output buttons at the bottom:
 
-### FAQ
+- **⬇ Download all (.zip)**: bundles every selected Clip into a zip — **keeps each clip's original format** so you can re-edit elsewhere
+- **✨ Merge into one video (24)**: the number in parens is the current selection count. Click to open the "Final preview" panel
 
-**Q: What if it misses a moment I want?**
-A: Manually mark on the timeline + add "custom detection keywords" to train Agent preference.
+#### Final preview panel
 
-**Q: Will it get flagged for copyright?**
-A: Confirm the rights policy of the source event / streamer first. Wonderverse doesn't bypass platform protections.
+<figure class="diagram">
+<svg viewBox="0 0 880 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Final preview panel" class="wv-svg">
+  <rect width="880" height="500" fill="#0a0a0e" rx="8"/>
+
+  <!-- 弹层主体 -->
+  <rect x="20" y="20" width="840" height="460" rx="10" fill="#13131a" stroke="#2a2a35"/>
+
+  <!-- 标题栏 -->
+  <g font-family="-apple-system,'Noto Sans SC','Noto Sans JP'">
+    <text x="40" y="50" fill="#e8e8f0" font-size="15" font-weight="600">Final preview</text>
+    <text x="40" y="68" fill="#7a7a8a" font-size="10">24 segments · auto sequential playback · current 2 / 24</text>
+    <text x="828" y="50" fill="#7a7a8a" font-size="14" text-anchor="end">✕</text>
+  </g>
+
+  <!-- 左半：大播放器 -->
+  <rect x="40" y="84" width="460" height="320" rx="6" fill="#0a0a0e" stroke="#23232e"/>
+  <rect x="180" y="160" width="180" height="120" rx="4" fill="#1a1a23"/>
+  <text x="270" y="232" text-anchor="middle" font-size="36">🎬</text>
+  <text x="270" y="260" fill="#e8e8f0" font-size="11" text-anchor="middle">第 X 集</text>
+
+  <!-- 进度条 + 段标 -->
+  <g font-family="-apple-system,'Noto Sans SC','Noto Sans JP'" font-size="9">
+    <text x="58" y="424" fill="#7a7a8a">⏸  00:07</text>
+    <line x1="120" y1="420" x2="460" y2="420" stroke="#23232e" stroke-width="3"/>
+    <g>
+      <rect x="124" y="416" width="14" height="8" fill="#8b8bff"/>
+      <rect x="148" y="416" width="14" height="8" fill="#ff9b80"/>
+      <rect x="170" y="416" width="14" height="8" fill="#7cd97c"/>
+      <rect x="198" y="416" width="14" height="8" fill="#e8b56b"/>
+      <rect x="226" y="416" width="14" height="8" fill="#8b8bff"/>
+      <rect x="252" y="416" width="14" height="8" fill="#ff9b80"/>
+      <rect x="280" y="416" width="14" height="8" fill="#7cd97c"/>
+      <rect x="306" y="416" width="14" height="8" fill="#8b8bff"/>
+      <rect x="334" y="416" width="14" height="8" fill="#e8b56b"/>
+      <rect x="360" y="416" width="14" height="8" fill="#8b8bff"/>
+      <rect x="388" y="416" width="14" height="8" fill="#ff9b80"/>
+      <rect x="416" y="416" width="14" height="8" fill="#7cd97c"/>
+    </g>
+    <text x="466" y="424" fill="#7a7a8a" text-anchor="end">06:03</text>
+  </g>
+
+  <!-- 右半：表单 -->
+  <g font-family="-apple-system,'Noto Sans SC','Noto Sans JP'">
+    <!-- 标题 -->
+    <text x="524" y="106" fill="#9a9aaa" font-size="10">Title</text>
+    <rect x="524" y="114" width="316" height="32" rx="5" fill="#16161f" stroke="#2a2a35"/>
+    <text x="536" y="134" fill="#c9c9d3" font-size="11">Untitled marketing project · Final cut</text>
+
+    <!-- AI 摘要 -->
+    <text x="524" y="170" fill="#9a9aaa" font-size="10">AI summary</text>
+    <rect x="744" y="160" width="96" height="22" rx="11" fill="#1c1736" stroke="#5b3d96"/>
+    <text x="792" y="174" fill="#d4c4ff" font-size="9" text-anchor="middle">✨ Generate AI summary</text>
+    <rect x="524" y="186" width="316" height="116" rx="5" fill="#16161f" stroke="#2a2a35"/>
+    <text x="536" y="206" fill="#5a5a6a" font-size="10">Click "✨ Generate AI summary" on the right, or write it yourself</text>
+
+    <!-- 转场及自定义（灰，即将推出） -->
+    <rect x="524" y="318" width="316" height="32" rx="5" fill="#16161f" stroke="#2a2a35"/>
+    <text x="536" y="338" fill="#5a5a6a" font-size="10.5">Transitions & customization</text>
+    <rect x="772" y="326" width="64" height="16" rx="3" fill="#23232e"/>
+    <text x="804" y="337" fill="#7a7a8a" font-size="8.5" text-anchor="middle">Coming soon</text>
+
+    <!-- 生成 mp4 大按钮 -->
+    <defs>
+      <linearGradient id="grad-mp4" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#ff9b80"/>
+        <stop offset="100%" stop-color="#b89dff"/>
+      </linearGradient>
+    </defs>
+    <rect x="524" y="362" width="316" height="36" rx="6" fill="url(#grad-mp4)"/>
+    <text x="682" y="384" fill="#0a0a0e" font-size="12" text-anchor="middle" font-weight="600">✨ Generate & download final mp4</text>
+    <text x="682" y="412" fill="#7a7a8a" font-size="9" text-anchor="middle">Cloud-side stitching, ~192s</text>
+
+    <!-- 关闭 -->
+    <rect x="524" y="424" width="316" height="28" rx="5" fill="#16161f" stroke="#3a3a4a"/>
+    <text x="682" y="442" fill="#a0a0b0" font-size="11" text-anchor="middle">Close</text>
+  </g>
+</svg>
+</figure>
+
+Left side is the player (auto-plays in selected order); right side is the form:
+
+| Field | Notes |
+|---|---|
+| **Title** | Defaults to "Project name · Final cut", editable |
+| **AI summary** | Click ✨ Generate AI summary to have AI write it, or type it yourself |
+| 🚧 **Transitions & customization** | Coming soon — will support custom transitions, intros / outros, BGM, etc. |
+| **Generate & download final mp4** | Cloud-side stitching; **time scales with duration** (example: ~192s) |
+| **Close** | Dismiss the panel and return to the main page to keep tweaking |
+
+---
 
 ### Next
 
-→ [Horizontal → Vertical](#12-horizontal--vertical)
-→ [Subtitles & Translation](#10-subtitles--translation)
+→ [E-commerce Content](#17--e-commerce-content)
+→ [Subtitle Generation / Translation](#10--subtitle-generation--translation)
+→ [Horizontal to Vertical](#12--horizontal-to-vertical)
 
 ---
 
