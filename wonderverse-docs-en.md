@@ -2003,9 +2003,11 @@ Nodes have inputs and outputs, like LEGO bricks that snap together.
 Connect several nodes with lines — that's a **workflow**.
 Workflows can be saved, named, reused, shared — your team's true productivity asset.
 
-#### 📦 Asset
+#### 📦 Asset 🚧 Coming soon
 What you produce on the canvas — materials, characters, styles, voices, templates —
 is stored in the **Library**. Any node can call any asset. Your team's style carries through every project.
+
+> 🚧 This module is **coming soon** — rules are still being polished. Stay tuned.
 
 ### Canvas layout
 
