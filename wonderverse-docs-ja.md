@@ -1999,7 +1999,41 @@ Wonderverse には 7 大カテゴリのノードが組み込み、すべての�
 #### ステップ 2 · ポートを接続
 上流ノードの**出力ポート**を下流ノードの**入力ポート**にドラッグ：
 
-[図：3 ノード接続]
+<figure class="diagram">
+<svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ノード接続例" class="wv-svg">
+  <defs>
+    <filter id="softShadowConn" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  <g class="wv-card">
+    <rect x="40" y="60" width="160" height="80" rx="12" fill="#16161f" stroke="#3a3a4a" stroke-width="1.2" filter="url(#softShadowConn)"/>
+    <text x="120" y="95" text-anchor="middle" font-size="24">🎨</text>
+    <text x="120" y="120" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="13" font-weight="600" fill="#e8e8f0">画像生成</text>
+    <text x="120" y="160" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="11" fill="#9a9aaa">出力 · 画像</text>
+    <circle cx="200" cy="100" r="6" fill="#8b8bff" stroke="#0a0a10" stroke-width="2"/>
+  </g>
+  <line x1="200" y1="100" x2="270" y2="100" stroke="#8b8bff" stroke-width="1.5" opacity="0.8"/>
+  <polygon points="264,96 272,100 264,104" fill="#8b8bff" opacity="0.8"/>
+  <g class="wv-card">
+    <rect x="280" y="60" width="160" height="80" rx="12" fill="#16161f" stroke="#3a3a4a" stroke-width="1.2" filter="url(#softShadowConn)"/>
+    <circle cx="280" cy="100" r="6" fill="#8b8bff" stroke="#0a0a10" stroke-width="2"/>
+    <text x="360" y="95" text-anchor="middle" font-size="24">🔍</text>
+    <text x="360" y="120" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="13" font-weight="600" fill="#e8e8f0">超解像強化</text>
+    <text x="360" y="160" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="11" fill="#9a9aaa">入力 · 画像</text>
+    <circle cx="440" cy="100" r="6" fill="#8b8bff" stroke="#0a0a10" stroke-width="2"/>
+  </g>
+  <line x1="440" y1="100" x2="510" y2="100" stroke="#8b8bff" stroke-width="1.5" opacity="0.8"/>
+  <polygon points="504,96 512,100 504,104" fill="#8b8bff" opacity="0.8"/>
+  <g class="wv-card">
+    <rect x="520" y="60" width="160" height="80" rx="12" fill="#16161f" stroke="#3a3a4a" stroke-width="1.2" filter="url(#softShadowConn)"/>
+    <circle cx="520" cy="100" r="6" fill="#8b8bff" stroke="#0a0a10" stroke-width="2"/>
+    <text x="600" y="95" text-anchor="middle" font-size="24">🎬</text>
+    <text x="600" y="120" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="13" font-weight="600" fill="#e8e8f0">動画生成</text>
+    <text x="600" y="160" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="11" fill="#9a9aaa">入力 · 開始フレーム</text>
+  </g>
+</svg>
+</figure>
 
 
 ### 上級 · 分岐と合流
