@@ -1986,7 +1986,7 @@ Try the same prompt 4 times, pick the best. Faster than re-running manually, als
 ## 21. Build a Workflow
 
 Connect single nodes into a **complete pipeline** — that's a Workflow.
-Saved workflows can be named, reused, and shared — Wonderverse's most important kind of team asset.
+Saved workflows can be named, reused, and shared — one of Wonderverse's most important kinds of assets.
 
 ### Three steps to your first workflow
 
@@ -1999,13 +1999,6 @@ Drag from an upstream **output port** to a downstream **input port**:
 
 [Diagram: Three-node connection]
 
-Type mismatches are visually flagged red.
-
-#### Step 3 · Run with one click
-Click ▶ on the final node. The system **traces the chain upstream**:
-- Unrun upstream nodes execute automatically
-- Already-generated nodes reuse their results (no resource waste)
-- Real-time status per node: ⏳ pending → 🟡 running → 🟢 done / 🔴 failed
 
 ### Advanced · Branching and merging
 
@@ -2013,34 +2006,24 @@ Workflows aren't always linear — branches and merges work too:
 
 #### Fork (one-to-many)
 A single output can connect to multiple downstreams.
-> Example: One source image enters two "Image Gen" nodes with different styles for side-by-side comparison.
+> Example: A source image enters two "Image Gen" nodes with different styles for side-by-side comparison.
 
 #### Merge (many-to-one)
 Some nodes accept multiple inputs.
-> Example: Three storyboard videos → Video Stitch node → finished short 〔node availability TBD〕
+> Example: 3 reference images (character, scene, prop) → one generated video
 
-### Save and reuse
+### Create groups
 
-After your workflow runs:
-
-1. Click **Save Workflow** in the top bar
-2. Set name, cover, description
-3. Pick visibility: private / team / public
-
-To re-call:
-- **New project from template** → start a fresh project on this workflow
-- **Drag into a new canvas** → embed in existing project
-- **API call** 〔Enterprise〕 → expose the workflow as a service to your business systems
+Drag your cursor to select multiple nodes at once and group them — move, copy, and operate on them together.
 
 ### Workflow template library
 
-Dozens of built-in templates by scenario:
+Multiple built-in templates by scenario:
 
-- 🎬 Drama storyboard flow (anime / realism / ink wash variants)
-- 🎮 Match highlights edit flow
-- 🛒 E-commerce main image batch flow
-- 📢 Marketing video flow
-- 🌏 Multilingual localization flow
+- 🎬 Drama storyboard flow
+- 🛒 E-commerce main image batch flow (products, apparel)
+- 📢 Marketing short video flow
+- and more
 
 Templates can be forked into your canvas for customization.
 
