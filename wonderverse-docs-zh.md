@@ -1433,8 +1433,6 @@ Agent 输出 3-5 个版本的脚本，每版本含：
 你之前所有的"剧本 → 素材 → 剪辑"都发生在一张张孤立的工具页里；
 在这里，它们汇聚到**同一张可以无限延展的画布**上，由你串联、由 AI 接力。
 
-[配图：无限画布全屏视图——画布上散落的节点与连线]
-
 ### 它和传统创作工具有什么不同
 
 | 维度 | 传统工具 | 无限画布 |
@@ -1462,71 +1460,256 @@ Agent 输出 3-5 个版本的脚本，每版本含：
 ### 画布的基本布局
 
 <figure class="diagram">
-<svg viewBox="0 0 720 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="无限画布基本布局" class="wv-svg">
+<svg viewBox="0 0 880 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="无限画布主界面" class="wv-svg">
   <defs>
-    <filter id="softShadowCanvas" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/>
+    <filter id="canvasShadow1" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.45"/>
     </filter>
+    <pattern id="dotGrid" width="14" height="14" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.8" fill="#2a2a36"/>
+    </pattern>
   </defs>
-  <rect x="20" y="20" width="680" height="420" rx="16" fill="#0f0f15" stroke="#2a2a36" stroke-width="1.2"/>
-  <!-- topbar -->
-  <rect x="40" y="40" width="640" height="48" rx="8" fill="#16161f" stroke="#3a3a4a" stroke-width="1" filter="url(#softShadowCanvas)"/>
-  <text x="60" y="70" font-family="'Inter','Noto Serif SC',sans-serif" font-size="13" fill="#9a9aaa">☰ 菜单</text>
-  <text x="130" y="70" font-family="'Inter','Noto Serif SC',sans-serif" font-size="13" font-weight="500" fill="#e8e8f0">我的项目</text>
-  <text x="300" y="70" font-family="'Inter','Noto Serif SC',sans-serif" font-size="13" fill="#9a9aaa">⤺ ⤻ 撤销</text>
-  <text x="540" y="70" font-family="'Inter','Noto Serif SC',sans-serif" font-size="13" fill="#9a9aaa">👥 协作</text>
-  <text x="630" y="70" font-family="'Inter','Noto Serif SC',sans-serif" font-size="13" fill="#9a9aaa">⚙ 设置</text>
-  <!-- left tool sidebar -->
-  <rect x="40" y="100" width="100" height="290" rx="8" fill="#16161f" stroke="#3a3a4a" stroke-width="1" filter="url(#softShadowCanvas)"/>
-  <text x="90" y="135" text-anchor="middle" font-family="'Inter',sans-serif" font-size="11" fill="#a8a8b8" letter-spacing="2">工 具 栏</text>
-  <line x1="60" y1="148" x2="120" y2="148" stroke="#3a3a4a" stroke-width="1"/>
-  <text x="90" y="180" text-anchor="middle" font-size="18">＋</text>
-  <text x="90" y="200" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="10.5" fill="#9a9aaa">添加节点</text>
-  <text x="90" y="240" text-anchor="middle" font-size="18">📦</text>
-  <text x="90" y="260" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="10.5" fill="#9a9aaa">工作流模板</text>
-  <text x="90" y="300" text-anchor="middle" font-size="18">🎭</text>
-  <text x="90" y="320" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="10.5" fill="#9a9aaa">资源库</text>
-  <!-- right asset panel -->
-  <rect x="580" y="100" width="100" height="290" rx="8" fill="#16161f" stroke="#3a3a4a" stroke-width="1" filter="url(#softShadowCanvas)"/>
-  <text x="630" y="135" text-anchor="middle" font-family="'Inter',sans-serif" font-size="11" fill="#a8a8b8" letter-spacing="2">资 产 面 板</text>
-  <line x1="600" y1="148" x2="660" y2="148" stroke="#3a3a4a" stroke-width="1"/>
-  <rect x="595" y="165" width="70" height="40" rx="6" fill="#0f0f15" stroke="#2a2a36"/>
-  <text x="630" y="190" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="10.5" fill="#9a9aaa">🧑 角色</text>
-  <rect x="595" y="215" width="70" height="40" rx="6" fill="#0f0f15" stroke="#2a2a36"/>
-  <text x="630" y="240" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="10.5" fill="#9a9aaa">🏞️ 场景</text>
-  <rect x="595" y="265" width="70" height="40" rx="6" fill="#0f0f15" stroke="#2a2a36"/>
-  <text x="630" y="290" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="10.5" fill="#9a9aaa">🎙️ 声音</text>
-  <rect x="595" y="315" width="70" height="40" rx="6" fill="#0f0f15" stroke="#2a2a36"/>
-  <text x="630" y="340" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="10.5" fill="#9a9aaa">🎨 风格</text>
-  <!-- center canvas area -->
-  <rect x="152" y="100" width="416" height="290" rx="8" fill="#0a0a10" stroke="#2a2a36" stroke-width="1" stroke-dasharray="4,5"/>
-  <text x="360" y="135" text-anchor="middle" font-family="'Playfair Display',serif" font-style="italic" font-size="22" fill="#5a5a6a">infinite canvas</text>
-  <!-- demo nodes -->
-  <g>
-    <rect x="200" y="200" width="100" height="60" rx="8" fill="#16161f" stroke="#8b8bff" stroke-width="1.3"/>
-    <text x="250" y="225" text-anchor="middle" font-size="14">🎨</text>
-    <text x="250" y="248" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="11" fill="#e8e8f0">生图</text>
-    <line x1="300" y1="230" x2="420" y2="230" stroke="#8b8bff" stroke-width="1.5" opacity="0.7"/>
-    <polygon points="416,226 422,230 416,234" fill="#8b8bff" opacity="0.7"/>
-    <rect x="422" y="200" width="100" height="60" rx="8" fill="#16161f" stroke="#8b8bff" stroke-width="1.3"/>
-    <text x="472" y="225" text-anchor="middle" font-size="14">🎬</text>
-    <text x="472" y="248" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="11" fill="#e8e8f0">生视频</text>
+  <!-- 外框 -->
+  <rect x="14" y="14" width="852" height="452" rx="14" fill="#0a0a10" stroke="#2a2a36" stroke-width="1"/>
+
+  <!-- 顶栏（站点级） -->
+  <rect x="14" y="14" width="852" height="42" rx="14" fill="#0d0d14"/>
+  <rect x="14" y="42" width="852" height="14" fill="#0d0d14"/>
+  <line x1="14" y1="56" x2="866" y2="56" stroke="#1f1f2a" stroke-width="1"/>
+  <text x="36" y="40" font-family="'Playfair Display',serif" font-style="italic" font-weight="900" font-size="18" fill="#e8e8f0">🦋 Wonderverse</text>
+  <g transform="translate(770,30)">
+    <rect x="0" y="-12" width="40" height="20" rx="10" fill="#16161f" stroke="#2a2a36"/>
+    <text x="20" y="2" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#9a9aaa">EN ▾</text>
+    <circle cx="56" cy="-2" r="7" fill="none" stroke="#3a3a4a"/>
+    <text x="56" y="1" text-anchor="middle" font-size="9" fill="#9a9aaa">🔔</text>
+    <circle cx="76" cy="-2" r="9" fill="#3a3a4a"/>
   </g>
-  <!-- bottom bar -->
-  <rect x="40" y="400" width="640" height="30" rx="8" fill="#16161f" stroke="#3a3a4a" stroke-width="1"/>
-  <text x="60" y="420" font-family="'Inter',sans-serif" font-size="11" fill="#9a9aaa">缩放：100%</text>
-  <text x="180" y="420" font-family="'Inter',sans-serif" font-size="11" fill="#9a9aaa">位置：(0,0)</text>
-  <text x="620" y="420" font-family="'Inter','Noto Serif SC',sans-serif" font-size="11" fill="#9a9aaa">🔍 节点搜索</text>
+
+  <!-- 左主菜单 -->
+  <rect x="14" y="56" width="78" height="410" fill="#0d0d14"/>
+  <line x1="92" y1="56" x2="92" y2="466" stroke="#1f1f2a" stroke-width="1"/>
+  <g font-family="Inter,sans-serif" font-size="9" fill="#9a9aaa" text-anchor="middle">
+    <text x="53" y="84">🔧</text>
+    <text x="53" y="98">AI Tools</text>
+    <text x="53" y="120">✨</text>
+    <text x="53" y="134">Create</text>
+    <!-- Studio active -->
+    <rect x="22" y="146" width="62" height="38" rx="10" fill="#16161f" stroke="#3a3a4a"/>
+    <rect x="38" y="148" width="30" height="10" rx="5" fill="#7ee787"/>
+    <text x="53" y="155.5" text-anchor="middle" font-family="Inter,sans-serif" font-size="6.5" font-weight="700" fill="#0a0a0a">NEW</text>
+    <text x="53" y="172">🎨</text>
+    <text x="53" y="180" fill="#e8e8f0" font-weight="600">Studio</text>
+    <text x="53" y="200" fill="#666" font-size="8.5" letter-spacing="1.2">SCENARIOS</text>
+    <text x="53" y="218">🛒</text>
+    <text x="53" y="232">E-commerce</text>
+    <text x="53" y="252">🏆</text>
+    <text x="53" y="266">AI Highlights</text>
+    <rect x="40" y="270" width="26" height="9" rx="4.5" fill="#3a3a4a"/>
+    <text x="53" y="277" font-family="Inter,sans-serif" font-size="6.5" font-weight="700" fill="#a8a8b8">BETA</text>
+    <text x="53" y="294">🎬</text>
+    <text x="53" y="308">AI Drama</text>
+    <text x="53" y="328" fill="#666" font-size="8.5" letter-spacing="1.2">LIBRARY</text>
+    <text x="53" y="346">📦</text>
+    <text x="53" y="360">Assets</text>
+  </g>
+
+  <!-- 画布操作栏 -->
+  <rect x="92" y="56" width="774" height="42" fill="#0a0a10"/>
+  <line x1="92" y1="98" x2="866" y2="98" stroke="#1f1f2a" stroke-width="1"/>
+  <g font-family="Inter,sans-serif" font-size="11" fill="#e8e8f0">
+    <!-- 状态点 + Studio -->
+    <circle cx="116" cy="77" r="3.5" fill="#7ee787"/>
+    <text x="126" y="80.5" fill="#e8e8f0">Studio</text>
+    <line x1="170" y1="66" x2="170" y2="90" stroke="#2a2a36"/>
+    <!-- 画布名下拉 -->
+    <rect x="184" y="66" width="142" height="22" rx="6" fill="#16161f" stroke="#2a2a36"/>
+    <text x="195" y="81" fill="#e8e8f0">Untitled canvas</text>
+    <text x="316" y="81" fill="#9a9aaa">▾</text>
+    <!-- Cases -->
+    <text x="346" y="80.5" fill="#9a9aaa">⚡ Cases</text>
+    <line x1="404" y1="66" x2="404" y2="90" stroke="#2a2a36"/>
+    <!-- Add Node 按钮（紫色描边突出） -->
+    <rect x="418" y="66" width="100" height="22" rx="6" fill="#16161f" stroke="#8b8bff" stroke-width="1.2"/>
+    <text x="468" y="81" text-anchor="middle" fill="#e8e8f0" font-weight="500">+ Add Node</text>
+    <!-- 撤销重做 -->
+    <text x="536" y="80.5" fill="#9a9aaa">↶</text>
+    <text x="554" y="80.5" fill="#9a9aaa">↷</text>
+    <!-- 右侧 -->
+    <text x="660" y="80.5" fill="#9a9aaa">⬇ 导出案例</text>
+    <text x="744" y="80.5" fill="#9a9aaa">🔍 −</text>
+    <text x="780" y="80.5" fill="#9a9aaa">79%</text>
+    <text x="808" y="80.5" fill="#9a9aaa">+</text>
+    <text x="828" y="80.5" fill="#9a9aaa">⛶</text>
+    <text x="848" y="80.5" fill="#9a9aaa">↻</text>
+  </g>
+
+  <!-- 画布主体（点阵背景） -->
+  <rect x="92" y="98" width="774" height="368" fill="url(#dotGrid)"/>
+
+  <!-- 中央提示 -->
+  <text x="479" y="252" text-anchor="middle" font-size="22" fill="#5a5a6a">✨</text>
+  <text x="479" y="282" text-anchor="middle" font-family="Inter,'Noto Serif SC','Noto Sans SC',sans-serif" font-size="12" fill="#9a9aaa">右键画布任意位置，或点击 + Add Node 开始</text>
+  <rect x="419" y="296" width="120" height="26" rx="13" fill="#16161f" stroke="#3a3a4a"/>
+  <text x="479" y="313" text-anchor="middle" font-family="Inter,'Noto Serif SC','Noto Sans SC',sans-serif" font-size="11" fill="#c8c8d8">加载 Demo 工作流</text>
+
+  <!-- MINIMAP -->
+  <rect x="780" y="408" width="76" height="48" rx="6" fill="#0d0d14" stroke="#2a2a36"/>
+  <text x="818" y="436" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#5a5a6a" letter-spacing="1.5">MINIMAP</text>
+
+  <!-- 注释引导 -->
+  <g font-family="Inter,'Noto Serif SC','Noto Sans SC',sans-serif" font-size="10" fill="#8b8bff">
+    <!-- 1 左主菜单 -->
+    <circle cx="53" cy="430" r="9" fill="#8b8bff"/>
+    <text x="53" y="433.5" text-anchor="middle" font-size="10" font-weight="700" fill="#0a0a0a">1</text>
+    <!-- 2 顶部操作栏 -->
+    <circle cx="468" cy="48" r="9" fill="#8b8bff"/>
+    <text x="468" y="51.5" text-anchor="middle" font-size="10" font-weight="700" fill="#0a0a0a">2</text>
+    <!-- 3 画布主体 -->
+    <circle cx="479" cy="160" r="9" fill="#8b8bff"/>
+    <text x="479" y="163.5" text-anchor="middle" font-size="10" font-weight="700" fill="#0a0a0a">3</text>
+    <!-- 4 MINIMAP -->
+    <circle cx="755" cy="432" r="9" fill="#8b8bff"/>
+    <text x="755" y="435.5" text-anchor="middle" font-size="10" font-weight="700" fill="#0a0a0a">4</text>
+  </g>
 </svg>
 </figure>
 
 | 区域 | 功能 |
 |---|---|
-| **左侧工具栏** | 节点库 · 工作流模板 · 资产快捷入口 |
-| **画布中央** | 拖拽、连线、缩放、平移；支持无限大小 |
-| **右侧资产面板** | 当前项目的素材、角色、声音、风格集合 |
-| **顶栏** | 项目名 / 撤销重做 / 团队协作 / 全局设置 |
-| **底栏** | 缩放比例 / 当前坐标 / 全局搜索 |
+| **① 左侧主菜单** | 站点级导航：AI 工具 / 创作 / Studio / 场景方案 / 资源库等 |
+| **② 顶部操作栏** | 画布名切换 / Cases / + Add Node / 撤销重做 / 导出案例 / 缩放控制 |
+| **③ 画布主体** | 无限点阵背景，节点拖拽、连线、平移、缩放 |
+| **④ MINIMAP** | 右下角缩略图，定位画布上的位置（节点多时尤其有用）|
+
+#### 「Untitled canvas ▾」画布名下拉
+
+点击画布名旁边的箭头，会展开**当前所有画布的列表**，并可执行：
+
+- **新建空白画布** —— 从零开始的全新画布
+- **新建 Demo 模板** 🚧 —— 即将上线，预置工作流的范例画布
+- **重命名当前画布** —— 给当前画布起一个好记的名字
+
+#### 「+ Add Node」节点选择器
+
+点击右上方的 + Add Node 按钮（或在画布任意位置右键），弹出节点库，分两大类：
+
+- **INPUT · 参考素材** — Image / Video / Audio / Text / Subject 🚧
+- **GENERATE · 生成** — Image / Video / Text
+
+不同节点用不同颜色 icon 区分；选中后节点出现在画布上，可立刻拖动、连线、运行。
+
+<figure class="diagram">
+<svg viewBox="0 0 480 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="画布列表下拉" class="wv-svg">
+  <defs>
+    <filter id="listShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  <!-- 触发按钮 -->
+  <rect x="40" y="22" width="160" height="32" rx="8" fill="#16161f" stroke="#3a3a4a"/>
+  <text x="56" y="42" font-family="Inter,sans-serif" font-size="13" fill="#e8e8f0">Untitled canvas</text>
+  <text x="184" y="42" font-family="Inter,sans-serif" font-size="13" fill="#9a9aaa">▾</text>
+
+  <!-- 连接线 -->
+  <line x1="120" y1="54" x2="120" y2="74" stroke="#2a2a36" stroke-dasharray="3,3"/>
+
+  <!-- 弹层 -->
+  <rect x="40" y="74" width="360" height="360" rx="12" fill="#16161f" stroke="#3a3a4a" stroke-width="1.2" filter="url(#listShadow)"/>
+
+  <!-- 标题 -->
+  <text x="60" y="102" font-family="Inter,'Noto Serif SC','Noto Sans SC',sans-serif" font-size="11" fill="#666">画布列表 (6)</text>
+
+  <!-- 列表项 -->
+  <g font-family="Inter,'Noto Serif SC','Noto Sans SC',sans-serif" font-size="13" fill="#e8e8f0">
+    <text x="60" y="132">Untitled canvas</text>
+    <text x="60" y="160" font-weight="600">Drama Demo</text>
+    <circle cx="340" cy="156" r="3" fill="#e8e8f0"/>
+    <text x="60" y="188">TikTok</text>
+    <text x="60" y="216">Product E-commerce</text>
+    <text x="60" y="244">test 副本</text>
+    <text x="60" y="272">Clothing E-commerce</text>
+  </g>
+
+  <line x1="60" y1="290" x2="380" y2="290" stroke="#2a2a36"/>
+
+  <!-- 操作 -->
+  <g font-family="Inter,'Noto Serif SC','Noto Sans SC',sans-serif" font-size="13" fill="#e8e8f0">
+    <text x="60" y="318" fill="#8b8bff" font-weight="600">＋</text>
+    <text x="80" y="318">新建空白画布</text>
+
+    <text x="60" y="350" fill="#5a5a6a">✨</text>
+    <text x="80" y="350" fill="#666">新建 Demo 模板</text>
+    <rect x="280" y="338" width="80" height="14" rx="7" fill="#2a2a36"/>
+    <text x="320" y="349" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" font-weight="700" fill="#888" letter-spacing="1">COMING SOON</text>
+
+    <text x="60" y="382" fill="#9a9aaa">✏</text>
+    <text x="80" y="382">重命名当前画布</text>
+  </g>
+</svg>
+</figure>
+
+<figure class="diagram">
+<svg viewBox="0 0 480 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="添加节点弹层" class="wv-svg">
+  <defs>
+    <filter id="addnodeShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  <!-- 按钮在顶部 -->
+  <rect x="40" y="22" width="118" height="32" rx="8" fill="#16161f" stroke="#8b8bff" stroke-width="1.3"/>
+  <text x="99" y="42" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" fill="#e8e8f0" font-weight="500">+ Add Node</text>
+
+  <!-- 连接线 -->
+  <line x1="99" y1="54" x2="99" y2="74" stroke="#2a2a36" stroke-dasharray="3,3"/>
+
+  <!-- 弹层 -->
+  <rect x="40" y="74" width="320" height="360" rx="12" fill="#16161f" stroke="#3a3a4a" stroke-width="1.2" filter="url(#addnodeShadow)"/>
+
+  <!-- INPUT 区 -->
+  <text x="60" y="102" font-family="Inter,sans-serif" font-size="10.5" font-weight="700" fill="#666" letter-spacing="1.5">INPUT · 参考素材</text>
+  <g font-family="Inter,'Noto Serif SC','Noto Sans SC',sans-serif" font-size="13" fill="#e8e8f0">
+    <rect x="60" y="112" width="22" height="22" rx="5" fill="#0a0a10" stroke="#2a2a36"/>
+    <text x="71" y="128" text-anchor="middle" font-size="10" fill="#9a9aaa">🖼</text>
+    <text x="92" y="128">Image</text>
+
+    <rect x="60" y="142" width="22" height="22" rx="5" fill="#0a0a10" stroke="#2a2a36"/>
+    <text x="71" y="158" text-anchor="middle" font-size="10" fill="#9a9aaa">📹</text>
+    <text x="92" y="158">Video</text>
+
+    <rect x="60" y="172" width="22" height="22" rx="5" fill="#0a0a10" stroke="#2a2a36"/>
+    <text x="71" y="188" text-anchor="middle" font-size="10" fill="#9a9aaa">🎵</text>
+    <text x="92" y="188">Audio</text>
+
+    <rect x="60" y="202" width="22" height="22" rx="5" fill="#0a0a10" stroke="#2a2a36"/>
+    <text x="71" y="218" text-anchor="middle" font-size="10" fill="#9a9aaa">📝</text>
+    <text x="92" y="218">Text</text>
+
+    <rect x="60" y="232" width="22" height="22" rx="5" fill="#0a0a10" stroke="#2a2a36"/>
+    <text x="71" y="248" text-anchor="middle" font-size="10" fill="#5a5a6a">👤</text>
+    <text x="92" y="248" fill="#666">Subject</text>
+    <rect x="240" y="237" width="80" height="14" rx="7" fill="#2a2a36"/>
+    <text x="280" y="247" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" font-weight="700" fill="#888" letter-spacing="1">COMING SOON</text>
+  </g>
+
+  <line x1="60" y1="270" x2="340" y2="270" stroke="#2a2a36" stroke-width="1"/>
+
+  <!-- GENERATE 区 -->
+  <text x="60" y="294" font-family="Inter,sans-serif" font-size="10.5" font-weight="700" fill="#666" letter-spacing="1.5">GENERATE · 生成</text>
+  <g font-family="Inter,'Noto Serif SC','Noto Sans SC',sans-serif" font-size="13" fill="#e8e8f0">
+    <rect x="60" y="304" width="22" height="22" rx="5" fill="#3a2a10" stroke="#a87830"/>
+    <text x="71" y="320" text-anchor="middle" font-size="10">🖼</text>
+    <text x="92" y="320">Image</text>
+
+    <rect x="60" y="334" width="22" height="22" rx="5" fill="#2a1a3a" stroke="#8b8bff"/>
+    <text x="71" y="350" text-anchor="middle" font-size="10">🎬</text>
+    <text x="92" y="350">Video</text>
+
+    <rect x="60" y="364" width="22" height="22" rx="5" fill="#1a2a3a" stroke="#6b9bff"/>
+    <text x="71" y="380" text-anchor="middle" font-size="10">📝</text>
+    <text x="92" y="380">Text</text>
+  </g>
+</svg>
+</figure>
 
 ### 你能在画布上做什么
 
@@ -1561,58 +1744,116 @@ Agent 输出 3-5 个版本的脚本，每版本含：
 ### 节点的解剖图
 
 <figure class="diagram">
-<svg viewBox="0 0 720 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="节点解剖图" class="wv-svg">
+<svg viewBox="0 0 880 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="无限画布主界面" class="wv-svg">
   <defs>
-    <filter id="softShadowNode" x="-30%" y="-30%" width="160%" height="160%">
-      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.5"/>
+    <filter id="canvasShadow1" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.45"/>
     </filter>
+    <pattern id="dotGrid" width="14" height="14" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.8" fill="#2a2a36"/>
+    </pattern>
   </defs>
-  <!-- node body -->
-  <rect x="200" y="50" width="320" height="370" rx="14" fill="#16161f" stroke="#8b8bff" stroke-width="1.5" filter="url(#softShadowNode)"/>
-  <!-- toolbar -->
-  <rect x="210" y="60" width="300" height="36" rx="8" fill="#0f0f15" stroke="#2a2a36"/>
-  <text x="225" y="83" font-size="13">🛠️</text>
-  <text x="248" y="83" font-family="'Inter','Noto Serif SC',sans-serif" font-size="11" fill="#9a9aaa">全屏 · 下载 · 抠图 · 高清</text>
-  <!-- preview area -->
-  <rect x="210" y="104" width="300" height="180" rx="8" fill="#0a0a10" stroke="#2a2a36" stroke-dasharray="3,5"/>
-  <text x="360" y="195" text-anchor="middle" font-size="42">📸</text>
-  <text x="360" y="225" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="12" fill="#5a5a6a">输 出 预 览</text>
-  <text x="360" y="248" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="10.5" fill="#5a5a6a">图 / 视频 / 文字</text>
-  <!-- input box -->
-  <rect x="210" y="292" width="300" height="60" rx="8" fill="#0f0f15" stroke="#2a2a36"/>
-  <text x="222" y="312" font-size="12">💬</text>
-  <text x="240" y="312" font-family="'Inter','Noto Serif SC',sans-serif" font-size="11" fill="#9a9aaa">粘贴或输入指令…</text>
-  <rect x="222" y="324" width="80" height="20" rx="10" fill="#1a1a26" stroke="#3a3a4a"/>
-  <text x="262" y="338" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="10" fill="#a8a8b8">快捷指令</text>
-  <rect x="310" y="324" width="80" height="20" rx="10" fill="#1a1a26" stroke="#3a3a4a"/>
-  <text x="350" y="338" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="10" fill="#a8a8b8">快捷指令</text>
-  <!-- operation bar -->
-  <rect x="210" y="360" width="300" height="48" rx="8" fill="#0f0f15" stroke="#2a2a36"/>
-  <text x="222" y="389" font-family="'Inter','Noto Serif SC',sans-serif" font-size="11" fill="#9a9aaa">⚙ 参数</text>
-  <text x="282" y="389" font-family="'Inter','Noto Serif SC',sans-serif" font-size="11" fill="#9a9aaa">1× ▼</text>
-  <rect x="430" y="372" width="68" height="24" rx="6" fill="#8b8bff"/>
-  <text x="464" y="389" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="11" font-weight="600" fill="#0a0a0a">▶ 运 行</text>
-  <!-- input port (left) -->
-  <circle cx="200" cy="230" r="7" fill="#8b8bff" stroke="#0a0a10" stroke-width="2"/>
-  <!-- output port (right) -->
-  <circle cx="520" cy="230" r="7" fill="#8b8bff" stroke="#0a0a10" stroke-width="2"/>
-  <!-- annotations: left side -->
-  <g font-family="'Inter','Noto Serif SC',sans-serif" font-size="11" fill="#a8a8b8">
-    <line x1="120" y1="78" x2="208" y2="78" stroke="#6e6eff66" stroke-width="1"/>
-    <text x="115" y="82" text-anchor="end">工具栏</text>
-    <line x1="120" y1="194" x2="208" y2="194" stroke="#6e6eff66" stroke-width="1"/>
-    <text x="115" y="198" text-anchor="end">输出预览</text>
-    <line x1="120" y1="322" x2="208" y2="322" stroke="#6e6eff66" stroke-width="1"/>
-    <text x="115" y="326" text-anchor="end">输入框</text>
-    <line x1="120" y1="384" x2="208" y2="384" stroke="#6e6eff66" stroke-width="1"/>
-    <text x="115" y="388" text-anchor="end">操作栏</text>
-    <line x1="180" y1="230" x2="195" y2="230" stroke="#8b8bff" stroke-width="1.2"/>
-    <text x="175" y="234" text-anchor="end" fill="#c8c8d8">输入端口</text>
+  <!-- 外框 -->
+  <rect x="14" y="14" width="852" height="452" rx="14" fill="#0a0a10" stroke="#2a2a36" stroke-width="1"/>
+
+  <!-- 顶栏（站点级） -->
+  <rect x="14" y="14" width="852" height="42" rx="14" fill="#0d0d14"/>
+  <rect x="14" y="42" width="852" height="14" fill="#0d0d14"/>
+  <line x1="14" y1="56" x2="866" y2="56" stroke="#1f1f2a" stroke-width="1"/>
+  <text x="36" y="40" font-family="'Playfair Display',serif" font-style="italic" font-weight="900" font-size="18" fill="#e8e8f0">🦋 Wonderverse</text>
+  <g transform="translate(770,30)">
+    <rect x="0" y="-12" width="40" height="20" rx="10" fill="#16161f" stroke="#2a2a36"/>
+    <text x="20" y="2" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#9a9aaa">EN ▾</text>
+    <circle cx="56" cy="-2" r="7" fill="none" stroke="#3a3a4a"/>
+    <text x="56" y="1" text-anchor="middle" font-size="9" fill="#9a9aaa">🔔</text>
+    <circle cx="76" cy="-2" r="9" fill="#3a3a4a"/>
   </g>
-  <!-- annotations: right side -->
-  <g font-family="'Inter','Noto Serif SC',sans-serif" font-size="11" fill="#a8a8b8">
-    <line x1="525" y1="230" x2="540" y2="230" stroke="#8b8bff" stroke-width="1.2"/>
-    <text x="545" y="234" fill="#c8c8d8">输出端口</text>
+
+  <!-- 左主菜单 -->
+  <rect x="14" y="56" width="78" height="410" fill="#0d0d14"/>
+  <line x1="92" y1="56" x2="92" y2="466" stroke="#1f1f2a" stroke-width="1"/>
+  <g font-family="Inter,sans-serif" font-size="9" fill="#9a9aaa" text-anchor="middle">
+    <text x="53" y="84">🔧</text>
+    <text x="53" y="98">AI Tools</text>
+    <text x="53" y="120">✨</text>
+    <text x="53" y="134">Create</text>
+    <!-- Studio active -->
+    <rect x="22" y="146" width="62" height="38" rx="10" fill="#16161f" stroke="#3a3a4a"/>
+    <rect x="38" y="148" width="30" height="10" rx="5" fill="#7ee787"/>
+    <text x="53" y="155.5" text-anchor="middle" font-family="Inter,sans-serif" font-size="6.5" font-weight="700" fill="#0a0a0a">NEW</text>
+    <text x="53" y="172">🎨</text>
+    <text x="53" y="180" fill="#e8e8f0" font-weight="600">Studio</text>
+    <text x="53" y="200" fill="#666" font-size="8.5" letter-spacing="1.2">SCENARIOS</text>
+    <text x="53" y="218">🛒</text>
+    <text x="53" y="232">E-commerce</text>
+    <text x="53" y="252">🏆</text>
+    <text x="53" y="266">AI Highlights</text>
+    <rect x="40" y="270" width="26" height="9" rx="4.5" fill="#3a3a4a"/>
+    <text x="53" y="277" font-family="Inter,sans-serif" font-size="6.5" font-weight="700" fill="#a8a8b8">BETA</text>
+    <text x="53" y="294">🎬</text>
+    <text x="53" y="308">AI Drama</text>
+    <text x="53" y="328" fill="#666" font-size="8.5" letter-spacing="1.2">LIBRARY</text>
+    <text x="53" y="346">📦</text>
+    <text x="53" y="360">Assets</text>
+  </g>
+
+  <!-- 画布操作栏 -->
+  <rect x="92" y="56" width="774" height="42" fill="#0a0a10"/>
+  <line x1="92" y1="98" x2="866" y2="98" stroke="#1f1f2a" stroke-width="1"/>
+  <g font-family="Inter,sans-serif" font-size="11" fill="#e8e8f0">
+    <!-- 状态点 + Studio -->
+    <circle cx="116" cy="77" r="3.5" fill="#7ee787"/>
+    <text x="126" y="80.5" fill="#e8e8f0">Studio</text>
+    <line x1="170" y1="66" x2="170" y2="90" stroke="#2a2a36"/>
+    <!-- 画布名下拉 -->
+    <rect x="184" y="66" width="142" height="22" rx="6" fill="#16161f" stroke="#2a2a36"/>
+    <text x="195" y="81" fill="#e8e8f0">Untitled canvas</text>
+    <text x="316" y="81" fill="#9a9aaa">▾</text>
+    <!-- Cases -->
+    <text x="346" y="80.5" fill="#9a9aaa">⚡ Cases</text>
+    <line x1="404" y1="66" x2="404" y2="90" stroke="#2a2a36"/>
+    <!-- Add Node 按钮（紫色描边突出） -->
+    <rect x="418" y="66" width="100" height="22" rx="6" fill="#16161f" stroke="#8b8bff" stroke-width="1.2"/>
+    <text x="468" y="81" text-anchor="middle" fill="#e8e8f0" font-weight="500">+ Add Node</text>
+    <!-- 撤销重做 -->
+    <text x="536" y="80.5" fill="#9a9aaa">↶</text>
+    <text x="554" y="80.5" fill="#9a9aaa">↷</text>
+    <!-- 右侧 -->
+    <text x="660" y="80.5" fill="#9a9aaa">⬇ 导出案例</text>
+    <text x="744" y="80.5" fill="#9a9aaa">🔍 −</text>
+    <text x="780" y="80.5" fill="#9a9aaa">79%</text>
+    <text x="808" y="80.5" fill="#9a9aaa">+</text>
+    <text x="828" y="80.5" fill="#9a9aaa">⛶</text>
+    <text x="848" y="80.5" fill="#9a9aaa">↻</text>
+  </g>
+
+  <!-- 画布主体（点阵背景） -->
+  <rect x="92" y="98" width="774" height="368" fill="url(#dotGrid)"/>
+
+  <!-- 中央提示 -->
+  <text x="479" y="252" text-anchor="middle" font-size="22" fill="#5a5a6a">✨</text>
+  <text x="479" y="282" text-anchor="middle" font-family="Inter,'Noto Serif SC','Noto Sans SC',sans-serif" font-size="12" fill="#9a9aaa">右键画布任意位置，或点击 + Add Node 开始</text>
+  <rect x="419" y="296" width="120" height="26" rx="13" fill="#16161f" stroke="#3a3a4a"/>
+  <text x="479" y="313" text-anchor="middle" font-family="Inter,'Noto Serif SC','Noto Sans SC',sans-serif" font-size="11" fill="#c8c8d8">加载 Demo 工作流</text>
+
+  <!-- MINIMAP -->
+  <rect x="780" y="408" width="76" height="48" rx="6" fill="#0d0d14" stroke="#2a2a36"/>
+  <text x="818" y="436" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#5a5a6a" letter-spacing="1.5">MINIMAP</text>
+
+  <!-- 注释引导 -->
+  <g font-family="Inter,'Noto Serif SC','Noto Sans SC',sans-serif" font-size="10" fill="#8b8bff">
+    <!-- 1 左主菜单 -->
+    <circle cx="53" cy="430" r="9" fill="#8b8bff"/>
+    <text x="53" y="433.5" text-anchor="middle" font-size="10" font-weight="700" fill="#0a0a0a">1</text>
+    <!-- 2 顶部操作栏 -->
+    <circle cx="468" cy="48" r="9" fill="#8b8bff"/>
+    <text x="468" y="51.5" text-anchor="middle" font-size="10" font-weight="700" fill="#0a0a0a">2</text>
+    <!-- 3 画布主体 -->
+    <circle cx="479" cy="160" r="9" fill="#8b8bff"/>
+    <text x="479" y="163.5" text-anchor="middle" font-size="10" font-weight="700" fill="#0a0a0a">3</text>
+    <!-- 4 MINIMAP -->
+    <circle cx="755" cy="432" r="9" fill="#8b8bff"/>
+    <text x="755" y="435.5" text-anchor="middle" font-size="10" font-weight="700" fill="#0a0a0a">4</text>
   </g>
 </svg>
 </figure>

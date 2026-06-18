@@ -1398,8 +1398,6 @@ One cut → all platforms:
 All your "script → assets → editing" used to happen in scattered tool pages;
 here, they merge onto **the same infinitely expanding canvas** — connected by you, completed by AI.
 
-[Diagram: Studio full-screen view — nodes and connections scattered across the canvas]
-
 ### How it differs from traditional creation tools
 
 | Dimension | Traditional tools | Studio |
@@ -1426,15 +1424,257 @@ is stored in the **Library**. Any node can call any asset. Your team's style car
 
 ### Canvas layout
 
-[Diagram: Canvas main interface layout]
+<figure class="diagram">
+<svg viewBox="0 0 880 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Studio canvas main view" class="wv-svg">
+  <defs>
+    <filter id="canvasShadow1" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+    <pattern id="dotGrid" width="14" height="14" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.8" fill="#2a2a36"/>
+    </pattern>
+  </defs>
+  <!-- 外框 -->
+  <rect x="14" y="14" width="852" height="452" rx="14" fill="#0a0a10" stroke="#2a2a36" stroke-width="1"/>
+
+  <!-- 顶栏（站点级） -->
+  <rect x="14" y="14" width="852" height="42" rx="14" fill="#0d0d14"/>
+  <rect x="14" y="42" width="852" height="14" fill="#0d0d14"/>
+  <line x1="14" y1="56" x2="866" y2="56" stroke="#1f1f2a" stroke-width="1"/>
+  <text x="36" y="40" font-family="'Playfair Display',serif" font-style="italic" font-weight="900" font-size="18" fill="#e8e8f0">🦋 Wonderverse</text>
+  <g transform="translate(770,30)">
+    <rect x="0" y="-12" width="40" height="20" rx="10" fill="#16161f" stroke="#2a2a36"/>
+    <text x="20" y="2" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#9a9aaa">EN ▾</text>
+    <circle cx="56" cy="-2" r="7" fill="none" stroke="#3a3a4a"/>
+    <text x="56" y="1" text-anchor="middle" font-size="9" fill="#9a9aaa">🔔</text>
+    <circle cx="76" cy="-2" r="9" fill="#3a3a4a"/>
+  </g>
+
+  <!-- 左主菜单 -->
+  <rect x="14" y="56" width="78" height="410" fill="#0d0d14"/>
+  <line x1="92" y1="56" x2="92" y2="466" stroke="#1f1f2a" stroke-width="1"/>
+  <g font-family="Inter,sans-serif" font-size="9" fill="#9a9aaa" text-anchor="middle">
+    <text x="53" y="84">🔧</text>
+    <text x="53" y="98">AI Tools</text>
+    <text x="53" y="120">✨</text>
+    <text x="53" y="134">Create</text>
+    <!-- Studio active -->
+    <rect x="22" y="146" width="62" height="38" rx="10" fill="#16161f" stroke="#3a3a4a"/>
+    <rect x="38" y="148" width="30" height="10" rx="5" fill="#7ee787"/>
+    <text x="53" y="155.5" text-anchor="middle" font-family="Inter,sans-serif" font-size="6.5" font-weight="700" fill="#0a0a0a">NEW</text>
+    <text x="53" y="172">🎨</text>
+    <text x="53" y="180" fill="#e8e8f0" font-weight="600">Studio</text>
+    <text x="53" y="200" fill="#666" font-size="8.5" letter-spacing="1.2">SCENARIOS</text>
+    <text x="53" y="218">🛒</text>
+    <text x="53" y="232">E-commerce</text>
+    <text x="53" y="252">🏆</text>
+    <text x="53" y="266">AI Highlights</text>
+    <rect x="40" y="270" width="26" height="9" rx="4.5" fill="#3a3a4a"/>
+    <text x="53" y="277" font-family="Inter,sans-serif" font-size="6.5" font-weight="700" fill="#a8a8b8">BETA</text>
+    <text x="53" y="294">🎬</text>
+    <text x="53" y="308">AI Drama</text>
+    <text x="53" y="328" fill="#666" font-size="8.5" letter-spacing="1.2">LIBRARY</text>
+    <text x="53" y="346">📦</text>
+    <text x="53" y="360">Assets</text>
+  </g>
+
+  <!-- 画布操作栏 -->
+  <rect x="92" y="56" width="774" height="42" fill="#0a0a10"/>
+  <line x1="92" y1="98" x2="866" y2="98" stroke="#1f1f2a" stroke-width="1"/>
+  <g font-family="Inter,sans-serif" font-size="11" fill="#e8e8f0">
+    <!-- 状态点 + Studio -->
+    <circle cx="116" cy="77" r="3.5" fill="#7ee787"/>
+    <text x="126" y="80.5" fill="#e8e8f0">Studio</text>
+    <line x1="170" y1="66" x2="170" y2="90" stroke="#2a2a36"/>
+    <!-- 画布名下拉 -->
+    <rect x="184" y="66" width="142" height="22" rx="6" fill="#16161f" stroke="#2a2a36"/>
+    <text x="195" y="81" fill="#e8e8f0">Untitled canvas</text>
+    <text x="316" y="81" fill="#9a9aaa">▾</text>
+    <!-- Cases -->
+    <text x="346" y="80.5" fill="#9a9aaa">⚡ Cases</text>
+    <line x1="404" y1="66" x2="404" y2="90" stroke="#2a2a36"/>
+    <!-- Add Node 按钮（紫色描边突出） -->
+    <rect x="418" y="66" width="100" height="22" rx="6" fill="#16161f" stroke="#8b8bff" stroke-width="1.2"/>
+    <text x="468" y="81" text-anchor="middle" fill="#e8e8f0" font-weight="500">+ Add Node</text>
+    <!-- 撤销重做 -->
+    <text x="536" y="80.5" fill="#9a9aaa">↶</text>
+    <text x="554" y="80.5" fill="#9a9aaa">↷</text>
+    <!-- 右侧 -->
+    <text x="660" y="80.5" fill="#9a9aaa">⬇ Export Case</text>
+    <text x="744" y="80.5" fill="#9a9aaa">🔍 −</text>
+    <text x="780" y="80.5" fill="#9a9aaa">79%</text>
+    <text x="808" y="80.5" fill="#9a9aaa">+</text>
+    <text x="828" y="80.5" fill="#9a9aaa">⛶</text>
+    <text x="848" y="80.5" fill="#9a9aaa">↻</text>
+  </g>
+
+  <!-- 画布主体（点阵背景） -->
+  <rect x="92" y="98" width="774" height="368" fill="url(#dotGrid)"/>
+
+  <!-- 中央提示 -->
+  <text x="479" y="252" text-anchor="middle" font-size="22" fill="#5a5a6a">✨</text>
+  <text x="479" y="282" text-anchor="middle" font-family="Inter,'Noto Serif SC','Noto Sans SC',sans-serif" font-size="12" fill="#9a9aaa">Right-click anywhere or hit + Add Node to start</text>
+  <rect x="419" y="296" width="120" height="26" rx="13" fill="#16161f" stroke="#3a3a4a"/>
+  <text x="479" y="313" text-anchor="middle" font-family="Inter,'Noto Serif SC','Noto Sans SC',sans-serif" font-size="11" fill="#c8c8d8">Load demo workflow</text>
+
+  <!-- MINIMAP -->
+  <rect x="780" y="408" width="76" height="48" rx="6" fill="#0d0d14" stroke="#2a2a36"/>
+  <text x="818" y="436" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#5a5a6a" letter-spacing="1.5">MINIMAP</text>
+
+  <!-- 注释引导 -->
+  <g font-family="Inter,'Noto Serif SC','Noto Sans SC',sans-serif" font-size="10" fill="#8b8bff">
+    <!-- 1 左主菜单 -->
+    <circle cx="53" cy="430" r="9" fill="#8b8bff"/>
+    <text x="53" y="433.5" text-anchor="middle" font-size="10" font-weight="700" fill="#0a0a0a">1</text>
+    <!-- 2 顶部操作栏 -->
+    <circle cx="468" cy="48" r="9" fill="#8b8bff"/>
+    <text x="468" y="51.5" text-anchor="middle" font-size="10" font-weight="700" fill="#0a0a0a">2</text>
+    <!-- 3 画布主体 -->
+    <circle cx="479" cy="160" r="9" fill="#8b8bff"/>
+    <text x="479" y="163.5" text-anchor="middle" font-size="10" font-weight="700" fill="#0a0a0a">3</text>
+    <!-- 4 MINIMAP -->
+    <circle cx="755" cy="432" r="9" fill="#8b8bff"/>
+    <text x="755" y="435.5" text-anchor="middle" font-size="10" font-weight="700" fill="#0a0a0a">4</text>
+  </g>
+</svg>
+</figure>
 
 | Area | Function |
 |---|---|
-| **Left toolbar** | Node library · Workflow templates · Library quick access |
-| **Central canvas** | Drag, connect, zoom, pan; infinite size |
-| **Right asset panel** | Current project's materials, characters, voices, styles |
-| **Top bar** | Project name / Undo-redo / Team collab / Global settings |
-| **Bottom bar** | Zoom level / Coordinates / Global search |
+| **① Left main menu** | Site-wide nav: AI Tools / Create / Studio / Scenarios / Library and more |
+| **② Top action bar** | Canvas switcher / Cases / + Add Node / Undo · Redo / Export Case / zoom controls |
+| **③ Canvas body** | Infinite dot grid background; drag, connect, pan, zoom nodes freely |
+| **④ MINIMAP** | Bottom-right thumbnail. Locate your position when the canvas gets crowded |
+
+#### "Untitled canvas ▾" canvas switcher
+
+Click the arrow next to the canvas name to expand **a list of all your canvases**, with these actions:
+
+- **New blank canvas** — start fresh from a blank slate
+- **New Demo template** 🚧 — coming soon, prebuilt workflow examples
+- **Rename current canvas** — give the active canvas a memorable name
+
+#### "+ Add Node" node picker
+
+Click the + Add Node button (or right-click anywhere on the canvas) to open the node library, organized into two categories:
+
+- **INPUT · Reference** — Image / Video / Audio / Text / Subject 🚧
+- **GENERATE** — Image / Video / Text
+
+Each node type has a color-coded icon. Once selected, it appears on the canvas, ready to drag, connect, and run.
+
+<figure class="diagram">
+<svg viewBox="0 0 480 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Canvas list dropdown" class="wv-svg">
+  <defs>
+    <filter id="listShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  <!-- 触发按钮 -->
+  <rect x="40" y="22" width="160" height="32" rx="8" fill="#16161f" stroke="#3a3a4a"/>
+  <text x="56" y="42" font-family="Inter,sans-serif" font-size="13" fill="#e8e8f0">Untitled canvas</text>
+  <text x="184" y="42" font-family="Inter,sans-serif" font-size="13" fill="#9a9aaa">▾</text>
+
+  <!-- 连接线 -->
+  <line x1="120" y1="54" x2="120" y2="74" stroke="#2a2a36" stroke-dasharray="3,3"/>
+
+  <!-- 弹层 -->
+  <rect x="40" y="74" width="360" height="360" rx="12" fill="#16161f" stroke="#3a3a4a" stroke-width="1.2" filter="url(#listShadow)"/>
+
+  <!-- 标题 -->
+  <text x="60" y="102" font-family="Inter,'Noto Serif SC','Noto Sans SC',sans-serif" font-size="11" fill="#666">Canvas List (6)</text>
+
+  <!-- 列表项 -->
+  <g font-family="Inter,'Noto Serif SC','Noto Sans SC',sans-serif" font-size="13" fill="#e8e8f0">
+    <text x="60" y="132">Untitled canvas</text>
+    <text x="60" y="160" font-weight="600">Drama Demo</text>
+    <circle cx="340" cy="156" r="3" fill="#e8e8f0"/>
+    <text x="60" y="188">TikTok</text>
+    <text x="60" y="216">Product E-commerce</text>
+    <text x="60" y="244">test copy</text>
+    <text x="60" y="272">Clothing E-commerce</text>
+  </g>
+
+  <line x1="60" y1="290" x2="380" y2="290" stroke="#2a2a36"/>
+
+  <!-- 操作 -->
+  <g font-family="Inter,'Noto Serif SC','Noto Sans SC',sans-serif" font-size="13" fill="#e8e8f0">
+    <text x="60" y="318" fill="#8b8bff" font-weight="600">＋</text>
+    <text x="80" y="318">New blank canvas</text>
+
+    <text x="60" y="350" fill="#5a5a6a">✨</text>
+    <text x="80" y="350" fill="#666">New Demo template</text>
+    <rect x="280" y="338" width="80" height="14" rx="7" fill="#2a2a36"/>
+    <text x="320" y="349" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" font-weight="700" fill="#888" letter-spacing="1">COMING SOON</text>
+
+    <text x="60" y="382" fill="#9a9aaa">✏</text>
+    <text x="80" y="382">Rename current canvas</text>
+  </g>
+</svg>
+</figure>
+
+<figure class="diagram">
+<svg viewBox="0 0 480 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Add Node dropdown" class="wv-svg">
+  <defs>
+    <filter id="addnodeShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  <!-- 按钮在顶部 -->
+  <rect x="40" y="22" width="118" height="32" rx="8" fill="#16161f" stroke="#8b8bff" stroke-width="1.3"/>
+  <text x="99" y="42" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" fill="#e8e8f0" font-weight="500">+ Add Node</text>
+
+  <!-- 连接线 -->
+  <line x1="99" y1="54" x2="99" y2="74" stroke="#2a2a36" stroke-dasharray="3,3"/>
+
+  <!-- 弹层 -->
+  <rect x="40" y="74" width="320" height="360" rx="12" fill="#16161f" stroke="#3a3a4a" stroke-width="1.2" filter="url(#addnodeShadow)"/>
+
+  <!-- INPUT 区 -->
+  <text x="60" y="102" font-family="Inter,sans-serif" font-size="10.5" font-weight="700" fill="#666" letter-spacing="1.5">INPUT · Reference</text>
+  <g font-family="Inter,'Noto Serif SC','Noto Sans SC',sans-serif" font-size="13" fill="#e8e8f0">
+    <rect x="60" y="112" width="22" height="22" rx="5" fill="#0a0a10" stroke="#2a2a36"/>
+    <text x="71" y="128" text-anchor="middle" font-size="10" fill="#9a9aaa">🖼</text>
+    <text x="92" y="128">Image</text>
+
+    <rect x="60" y="142" width="22" height="22" rx="5" fill="#0a0a10" stroke="#2a2a36"/>
+    <text x="71" y="158" text-anchor="middle" font-size="10" fill="#9a9aaa">📹</text>
+    <text x="92" y="158">Video</text>
+
+    <rect x="60" y="172" width="22" height="22" rx="5" fill="#0a0a10" stroke="#2a2a36"/>
+    <text x="71" y="188" text-anchor="middle" font-size="10" fill="#9a9aaa">🎵</text>
+    <text x="92" y="188">Audio</text>
+
+    <rect x="60" y="202" width="22" height="22" rx="5" fill="#0a0a10" stroke="#2a2a36"/>
+    <text x="71" y="218" text-anchor="middle" font-size="10" fill="#9a9aaa">📝</text>
+    <text x="92" y="218">Text</text>
+
+    <rect x="60" y="232" width="22" height="22" rx="5" fill="#0a0a10" stroke="#2a2a36"/>
+    <text x="71" y="248" text-anchor="middle" font-size="10" fill="#5a5a6a">👤</text>
+    <text x="92" y="248" fill="#666">Subject</text>
+    <rect x="240" y="237" width="80" height="14" rx="7" fill="#2a2a36"/>
+    <text x="280" y="247" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" font-weight="700" fill="#888" letter-spacing="1">COMING SOON</text>
+  </g>
+
+  <line x1="60" y1="270" x2="340" y2="270" stroke="#2a2a36" stroke-width="1"/>
+
+  <!-- GENERATE 区 -->
+  <text x="60" y="294" font-family="Inter,sans-serif" font-size="10.5" font-weight="700" fill="#666" letter-spacing="1.5">GENERATE · Generate</text>
+  <g font-family="Inter,'Noto Serif SC','Noto Sans SC',sans-serif" font-size="13" fill="#e8e8f0">
+    <rect x="60" y="304" width="22" height="22" rx="5" fill="#3a2a10" stroke="#a87830"/>
+    <text x="71" y="320" text-anchor="middle" font-size="10">🖼</text>
+    <text x="92" y="320">Image</text>
+
+    <rect x="60" y="334" width="22" height="22" rx="5" fill="#2a1a3a" stroke="#8b8bff"/>
+    <text x="71" y="350" text-anchor="middle" font-size="10">🎬</text>
+    <text x="92" y="350">Video</text>
+
+    <rect x="60" y="364" width="22" height="22" rx="5" fill="#1a2a3a" stroke="#6b9bff"/>
+    <text x="71" y="380" text-anchor="middle" font-size="10">📝</text>
+    <text x="92" y="380">Text</text>
+  </g>
+</svg>
+</figure>
 
 ### What you can do on the canvas
 
