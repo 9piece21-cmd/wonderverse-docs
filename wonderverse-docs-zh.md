@@ -2019,7 +2019,7 @@ Agent 输出 3-5 个版本的脚本，每版本含：
   <text x="18" y="24" fill="#b89dff" font-family="'Playfair Display','Noto Sans SC','Noto Sans JP',serif" font-style="italic" font-size="15">🦋 Wonderverse</text>
   <g transform="translate(790 12)">
     <rect width="32" height="18" rx="4" fill="#1c1c25" stroke="#2a2a35"/>
-    <text x="16" y="13" fill="#c9c9d3" font-family="-apple-system,'Noto Sans SC','Noto Sans JP'" font-size="9" text-anchor="middle">EN ▾</text>
+    <text x="16" y="13" fill="#c9c9d3" font-family="-apple-system,'Noto Sans SC','Noto Sans JP'" font-size="9" text-anchor="middle">中 ▾</text>
   </g>
   <circle cx="836" cy="20" r="3.5" fill="none" stroke="#7a7a8a" stroke-width="1.2"/>
   <circle cx="860" cy="20" r="6" fill="#2a2a35" stroke="#7a7a8a" stroke-width="1"/>
@@ -2059,9 +2059,9 @@ Agent 输出 3-5 个版本的脚本，每版本含：
   <g font-family="-apple-system,'Noto Sans SC','Noto Sans JP'" font-size="11">
     <!-- 左半 -->
     <circle cx="166" cy="58" r="4" fill="#7cd97c"/>
-    <text x="176" y="62" fill="#c9c9d3">Studio</text>
+    <text x="176" y="62" fill="#c9c9d3">无限画布</text>
     <text x="218" y="62" fill="#7a7a8a">|</text>
-    <text x="232" y="62" fill="#c9c9d3">Untitled canvas ▾</text>
+    <text x="232" y="62" fill="#c9c9d3">未命名画布 ▾</text>
     <text x="356" y="62" fill="#a0a0b0">⚡ 案例</text>
     <rect x="402" y="46" width="80" height="22" rx="5" fill="#2d2347" stroke="#5b3d96"/>
     <text x="442" y="62" fill="#d4c4ff" text-anchor="middle">+ 添加节点</text>
@@ -2103,12 +2103,12 @@ Agent 输出 3-5 个版本的脚本，每版本含：
 
 | 区域 | 功能 |
 |---|---|
-| **① 左侧主菜单** | 站点级导航：AI 工具 / 创作 / Studio / 场景方案 / 资源库等 |
+| **① 左侧主菜单** | 站点级导航：AI 工具 / 创作 / 无限画布 / 场景方案 / 资源库等 |
 | **② 顶部操作栏** | 画布名切换 / Cases / + Add Node / 撤销重做 / 导出案例 / 缩放控制 |
 | **③ 画布主体** | 无限点阵背景，节点拖拽、连线、平移、缩放 |
 | **④ MINIMAP** | 右下角缩略图，定位画布上的位置（节点多时尤其有用）|
 
-#### 「Untitled canvas ▾」画布名下拉
+#### 「未命名画布 ▾」画布名下拉
 
 点击画布名旁边的箭头，会展开**当前所有画布的列表**，并可执行：
 
@@ -2155,10 +2155,10 @@ Agent 输出 3-5 个版本的脚本，每版本含：
     <rect x="64" y="22" width="336" height="22" fill="#13131a"/>
     <line x1="64" y1="44" x2="400" y2="44" stroke="#23232e"/>
     <circle cx="76" cy="33" r="2.5" fill="#7cd97c"/>
-    <text x="84" y="36" fill="#c9c9d3" font-family="-apple-system,'Noto Sans SC','Noto Sans JP'" font-size="7">Studio</text>
+    <text x="84" y="36" fill="#c9c9d3" font-family="-apple-system,'Noto Sans SC','Noto Sans JP'" font-size="7">无限画布</text>
     <!-- 高亮触发按钮 -->
     <rect x="110" y="26" width="92" height="14" rx="3" fill="#2d2347" stroke="#8b8bff" stroke-width="1.5"/>
-    <text x="156" y="36" fill="#d4c4ff" font-family="-apple-system,'Noto Sans SC','Noto Sans JP'" font-size="7" text-anchor="middle">Untitled canvas ▾</text>
+    <text x="156" y="36" fill="#d4c4ff" font-family="-apple-system,'Noto Sans SC','Noto Sans JP'" font-size="7" text-anchor="middle">未命名画布 ▾</text>
     <!-- 画布主体（虚化） -->
     <rect x="64" y="44" width="336" height="276" fill="url(#dots-cl)" opacity="0.5"/>
     <!-- 引出线 -->
@@ -2177,7 +2177,7 @@ Agent 输出 3-5 个版本的脚本，每版本含：
     <g font-family="-apple-system,'Noto Sans SC','Noto Sans JP'" font-size="12">
       <!-- 当前选中 -->
       <rect x="14" y="52" width="392" height="26" rx="5" fill="#1c1736"/>
-      <text x="28" y="69" fill="#d4c4ff">▣ Untitled canvas</text>
+      <text x="28" y="69" fill="#d4c4ff">▣ 未命名画布</text>
       <text x="394" y="69" fill="#b89dff" text-anchor="end">✓</text>
 
       <text x="28" y="98" fill="#c9c9d3">▢ Drama Demo</text>
@@ -2235,8 +2235,8 @@ Agent 输出 3-5 个版本的脚本，每版本含：
     <rect x="64" y="22" width="336" height="22" fill="#13131a"/>
     <line x1="64" y1="44" x2="400" y2="44" stroke="#23232e"/>
     <circle cx="76" cy="33" r="2.5" fill="#7cd97c"/>
-    <text x="84" y="36" fill="#c9c9d3" font-family="-apple-system,'Noto Sans SC','Noto Sans JP'" font-size="7">Studio</text>
-    <text x="116" y="36" fill="#7a7a8a" font-family="-apple-system,'Noto Sans SC','Noto Sans JP'" font-size="6.5">Untitled canvas ▾</text>
+    <text x="84" y="36" fill="#c9c9d3" font-family="-apple-system,'Noto Sans SC','Noto Sans JP'" font-size="7">无限画布</text>
+    <text x="116" y="36" fill="#7a7a8a" font-family="-apple-system,'Noto Sans SC','Noto Sans JP'" font-size="6.5">未命名画布 ▾</text>
     <text x="200" y="36" fill="#7a7a8a" font-family="-apple-system,'Noto Sans SC','Noto Sans JP'" font-size="6.5">⚡ 案例</text>
     <!-- 高亮 +Add Node -->
     <rect x="230" y="26" width="76" height="14" rx="3" fill="#2d2347" stroke="#8b8bff" stroke-width="1.5"/>
