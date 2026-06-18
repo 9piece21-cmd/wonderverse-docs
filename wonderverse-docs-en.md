@@ -511,17 +511,6 @@ A high-quality prompt usually has 5 elements:
 
 More tips in [Prompt Techniques](#24-prompt-techniques).
 
-### FAQ
-
-**Q: How many reference images max?**
-A: Up to 14 — varies by model.
-
-**Q: Can I lock the same character across images?**
-A: Yes — save the character to [Personal Assets](#22-personal-assets) and reference it whenever needed.
-
-**Q: Who owns the commercial rights?**
-A: Paid users own commercial rights to their generated images 〔See ToS for details〕.
-
 ### Next
 
 → [Video Generation](#8-video-generation)
