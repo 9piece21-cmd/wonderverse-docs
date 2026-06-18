@@ -241,12 +241,12 @@ body.drawer-open .sidebar-mask{opacity:1;pointer-events:auto}
 <ul class="nav-list">
 <li><a href="javascript:void(0)" onclick="goto(5)" data-ch="5">Overview</a></li>
 </ul>
-<div class="nav-subgroup expanded" data-subgroup="subgroup-73956"><button class="nav-subgroup-title" type="button" onclick="toggleSubgroup(this)"><svg class="nav-caret" viewBox="0 0 12 12" width="10" height="10"><path d="M3 4.5 L6 7.5 L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Generate</span></button><ul class="nav-list nav-sublist">
+<div class="nav-subgroup expanded" data-subgroup="subgroup-24556"><button class="nav-subgroup-title" type="button" onclick="toggleSubgroup(this)"><svg class="nav-caret" viewBox="0 0 12 12" width="10" height="10"><path d="M3 4.5 L6 7.5 L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Generate</span></button><ul class="nav-list nav-sublist">
 <li><a href="javascript:void(0)" onclick="goto(6)" data-ch="6">Supported Models</a></li>
 <li><a href="javascript:void(0)" onclick="goto(7)" data-ch="7">Image Generation</a></li>
 <li><a href="javascript:void(0)" onclick="goto(8)" data-ch="8">Video Generation</a></li>
 </ul></div>
-<div class="nav-subgroup expanded" data-subgroup="subgroup-77792"><button class="nav-subgroup-title" type="button" onclick="toggleSubgroup(this)"><svg class="nav-caret" viewBox="0 0 12 12" width="10" height="10"><path d="M3 4.5 L6 7.5 L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Edit</span></button><ul class="nav-list nav-sublist">
+<div class="nav-subgroup expanded" data-subgroup="subgroup-37365"><button class="nav-subgroup-title" type="button" onclick="toggleSubgroup(this)"><svg class="nav-caret" viewBox="0 0 12 12" width="10" height="10"><path d="M3 4.5 L6 7.5 L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Edit</span></button><ul class="nav-list nav-sublist">
 <li><a href="javascript:void(0)" onclick="goto(9)" data-ch="9">Super Resolution</a></li>
 <li><a href="javascript:void(0)" onclick="goto(10)" data-ch="10">Subtitles & Translation</a></li>
 <li><a href="javascript:void(0)" onclick="goto(11)" data-ch="11">AI Dubbing & Translation</a></li>
@@ -269,7 +269,7 @@ body.drawer-open .sidebar-mask{opacity:1;pointer-events:auto}
 <li><a href="javascript:void(0)" onclick="goto(20)" data-ch="20">Meet the Node</a></li>
 <li><a href="javascript:void(0)" onclick="goto(21)" data-ch="21">Build a Workflow</a></li>
 <li><a href="javascript:void(0)" onclick="goto(22)" data-ch="22">Personal Assets</a></li>
-<li><a href="javascript:void(0)" onclick="goto(23)" data-ch="23">Sharing & Collaboration</a></li>
+<li class="disabled"><span data-ch="23">🚧 Sharing & Collaboration</span></li>
 </ul>
 </div>
 <div class="nav-group"><div class="nav-group-title"><span class="nav-emoji">💡</span>Best Practices</div>
@@ -336,7 +336,7 @@ function escapeHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;
 function titleHtml(t){return escapeHtml(t).split('|||').join('<br>');}
 function titleText(t){return String(t).split('|||').join(' ');}
 
-const DISABLED = [4, 18, 27, 28, 29];
+const DISABLED = [4, 18, 23, 27, 28, 29];
 function isDisabled(n){return DISABLED.indexOf(n) !== -1;}
 function toggleSubgroup(btn){
   const group = btn.closest('.nav-subgroup');

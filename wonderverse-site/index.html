@@ -241,12 +241,12 @@ body.drawer-open .sidebar-mask{opacity:1;pointer-events:auto}
 <ul class="nav-list">
 <li><a href="javascript:void(0)" onclick="goto(5)" data-ch="5">总览</a></li>
 </ul>
-<div class="nav-subgroup expanded" data-subgroup="subgroup-20677"><button class="nav-subgroup-title" type="button" onclick="toggleSubgroup(this)"><svg class="nav-caret" viewBox="0 0 12 12" width="10" height="10"><path d="M3 4.5 L6 7.5 L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>生成</span></button><ul class="nav-list nav-sublist">
+<div class="nav-subgroup expanded" data-subgroup="subgroup-80655"><button class="nav-subgroup-title" type="button" onclick="toggleSubgroup(this)"><svg class="nav-caret" viewBox="0 0 12 12" width="10" height="10"><path d="M3 4.5 L6 7.5 L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>生成</span></button><ul class="nav-list nav-sublist">
 <li><a href="javascript:void(0)" onclick="goto(6)" data-ch="6">主流模型支持</a></li>
 <li><a href="javascript:void(0)" onclick="goto(7)" data-ch="7">生图</a></li>
 <li><a href="javascript:void(0)" onclick="goto(8)" data-ch="8">生视频</a></li>
 </ul></div>
-<div class="nav-subgroup expanded" data-subgroup="subgroup-72144"><button class="nav-subgroup-title" type="button" onclick="toggleSubgroup(this)"><svg class="nav-caret" viewBox="0 0 12 12" width="10" height="10"><path d="M3 4.5 L6 7.5 L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>编辑</span></button><ul class="nav-list nav-sublist">
+<div class="nav-subgroup expanded" data-subgroup="subgroup-40771"><button class="nav-subgroup-title" type="button" onclick="toggleSubgroup(this)"><svg class="nav-caret" viewBox="0 0 12 12" width="10" height="10"><path d="M3 4.5 L6 7.5 L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>编辑</span></button><ul class="nav-list nav-sublist">
 <li><a href="javascript:void(0)" onclick="goto(9)" data-ch="9">超分增强</a></li>
 <li><a href="javascript:void(0)" onclick="goto(10)" data-ch="10">字幕生成 / 译制</a></li>
 <li><a href="javascript:void(0)" onclick="goto(11)" data-ch="11">AI 译制配音</a></li>
@@ -269,7 +269,7 @@ body.drawer-open .sidebar-mask{opacity:1;pointer-events:auto}
 <li><a href="javascript:void(0)" onclick="goto(20)" data-ch="20">认识节点</a></li>
 <li><a href="javascript:void(0)" onclick="goto(21)" data-ch="21">创建工作流</a></li>
 <li><a href="javascript:void(0)" onclick="goto(22)" data-ch="22">个人资产</a></li>
-<li><a href="javascript:void(0)" onclick="goto(23)" data-ch="23">分享与协作</a></li>
+<li class="disabled"><span data-ch="23">🚧 分享与协作</span></li>
 </ul>
 </div>
 <div class="nav-group"><div class="nav-group-title"><span class="nav-emoji">💡</span>最佳实践</div>
@@ -336,7 +336,7 @@ function escapeHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;
 function titleHtml(t){return escapeHtml(t).split('|||').join('<br>');}
 function titleText(t){return String(t).split('|||').join(' ');}
 
-const DISABLED = [4, 18, 27, 28, 29];
+const DISABLED = [4, 18, 23, 27, 28, 29];
 function isDisabled(n){return DISABLED.indexOf(n) !== -1;}
 function toggleSubgroup(btn){
   const group = btn.closest('.nav-subgroup');
