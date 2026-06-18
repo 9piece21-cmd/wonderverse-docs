@@ -2638,7 +2638,7 @@ Templates can be forked into your canvas for customization.
 
 > 📍 Accessed from the **Library** entry in the left sidebar (with the **Materials** sub-folder).
 
-Library is where Wonderverse crystallizes **your team's style and productivity**.
+Library is where Wonderverse crystallizes **your style and productivity**.
 Characters, scenes, voices, styles, templates — every reusable artifact goes here, **so you get faster and more uniquely "you" the more you use it**.
 
 ### Asset types
@@ -2674,19 +2674,6 @@ Write `@character:LeadA` in the prompt to lock the asset.
 
 #### 3. Bind to workflow
 When saving a workflow, bind specific assets — re-running the workflow auto-applies them.
-
-### Asset hierarchy
-
-[Diagram: Asset hierarchy]
-
-Any **personal asset** can be promoted to a **team asset** (requires team admin permission).
-
-### Version management
-
-Every asset has version history:
-- 10 most recent versions auto-retained
-- Manually pin a "main version"
-- Workflows can reference specific version IDs
 
 ### Next
 

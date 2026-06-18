@@ -2637,8 +2637,8 @@ Wonderverse 内置多种工作流模板，按场景分类：
 
 > 📍 对应产品左侧菜单的「**资源库**」入口（包含「素材」目录）。
 
-资产中心是 Wonderverse 沉淀**团队风格与生产力**的地方。
-角色、场景、声音、风格、模板——所有可复用的成果都归入资产，让你和团队**越用越快、越用越像"你们家"的内容**。
+资产中心是 Wonderverse 沉淀**风格与生产力**的地方。
+角色、场景、声音、风格、模板——所有可复用的成果都归入资产，让你**越用越快、越用越像"你们家"的内容**。
 
 ### 资产类型
 
@@ -2673,50 +2673,6 @@ Wonderverse 内置多种工作流模板，按场景分类：
 
 #### 3. 工作流绑定
 保存工作流时可绑定固定资产，下次调用此工作流自动套用。
-
-### 资产层级
-
-<figure class="diagram">
-<svg viewBox="0 0 720 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="资产层级图" class="wv-svg">
-  <defs>
-    <filter id="softShadowAsset" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/>
-    </filter>
-  </defs>
-  <g class="wv-card">
-    <rect x="60" y="60" width="180" height="110" rx="12" fill="#16161f" stroke="#3a3a4a" stroke-width="1.2" filter="url(#softShadowAsset)"/>
-    <text x="150" y="98" text-anchor="middle" font-size="26">👤</text>
-    <text x="150" y="128" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="14" font-weight="600" fill="#e8e8f0">个人资产</text>
-    <text x="150" y="150" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="11" fill="#9a9aaa">仅创建者可见</text>
-  </g>
-  <line x1="240" y1="115" x2="280" y2="115" stroke="#8b8bff" stroke-width="1.5" opacity="0.7"/>
-  <polygon points="274,111 282,115 274,119" fill="#8b8bff" opacity="0.7"/>
-  <text x="260" y="100" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="10" fill="#8b8bff" letter-spacing="1">升级</text>
-  <g class="wv-card">
-    <rect x="290" y="60" width="180" height="110" rx="12" fill="#16161f" stroke="#3a3a4a" stroke-width="1.2" filter="url(#softShadowAsset)"/>
-    <text x="380" y="98" text-anchor="middle" font-size="26">👥</text>
-    <text x="380" y="128" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="14" font-weight="600" fill="#e8e8f0">团队资产</text>
-    <text x="380" y="150" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="11" fill="#9a9aaa">团队可调用</text>
-  </g>
-  <line x1="470" y1="115" x2="510" y2="115" stroke="#9a9aaa" stroke-width="1" opacity="0.4" stroke-dasharray="3,3"/>
-  <g class="wv-card">
-    <rect x="520" y="60" width="180" height="110" rx="12" fill="#16161f" stroke="#3a3a4a" stroke-width="1.2" filter="url(#softShadowAsset)"/>
-    <text x="610" y="98" text-anchor="middle" font-size="26">🌐</text>
-    <text x="610" y="128" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="14" font-weight="600" fill="#e8e8f0">平台资产</text>
-    <text x="610" y="150" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="11" fill="#9a9aaa">官方音色 / 风格库</text>
-  </g>
-</svg>
-</figure>
-
-任何**个人资产**都可以一键升级为**团队资产**（需团队管理员权限）。
-
-### 版本管理
-
-每份资产都有版本历史：
-
-- 自动保留最近 10 个版本
-- 可手动锁定某个版本为"主版本"
-- 工作流引用资产时可指定具体版本号
 
 ### 下一步
 
