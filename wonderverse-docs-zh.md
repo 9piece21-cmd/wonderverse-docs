@@ -1744,117 +1744,131 @@ Agent 输出 3-5 个版本的脚本，每版本含：
 ### 节点的解剖图
 
 <figure class="diagram">
-<svg viewBox="0 0 880 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="无限画布主界面" class="wv-svg">
+<svg viewBox="0 0 880 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="节点解剖图" class="wv-svg">
   <defs>
-    <filter id="canvasShadow1" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.45"/>
+    <filter id="nodeShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000" flood-opacity="0.5"/>
     </filter>
-    <pattern id="dotGrid" width="14" height="14" patternUnits="userSpaceOnUse">
-      <circle cx="1" cy="1" r="0.8" fill="#2a2a36"/>
+    <pattern id="nodeGrid" width="14" height="14" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.8" fill="#1f1f2a"/>
     </pattern>
   </defs>
-  <!-- 外框 -->
-  <rect x="14" y="14" width="852" height="452" rx="14" fill="#0a0a10" stroke="#2a2a36" stroke-width="1"/>
 
-  <!-- 顶栏（站点级） -->
-  <rect x="14" y="14" width="852" height="42" rx="14" fill="#0d0d14"/>
-  <rect x="14" y="42" width="852" height="14" fill="#0d0d14"/>
-  <line x1="14" y1="56" x2="866" y2="56" stroke="#1f1f2a" stroke-width="1"/>
-  <text x="36" y="40" font-family="'Playfair Display',serif" font-style="italic" font-weight="900" font-size="18" fill="#e8e8f0">🦋 Wonderverse</text>
-  <g transform="translate(770,30)">
-    <rect x="0" y="-12" width="40" height="20" rx="10" fill="#16161f" stroke="#2a2a36"/>
-    <text x="20" y="2" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#9a9aaa">EN ▾</text>
-    <circle cx="56" cy="-2" r="7" fill="none" stroke="#3a3a4a"/>
-    <text x="56" y="1" text-anchor="middle" font-size="9" fill="#9a9aaa">🔔</text>
-    <circle cx="76" cy="-2" r="9" fill="#3a3a4a"/>
+  <!-- 背景画布 -->
+  <rect x="0" y="0" width="880" height="600" fill="#0a0a10"/>
+  <rect x="0" y="0" width="880" height="600" fill="url(#nodeGrid)"/>
+
+  <!-- ============ 1. 顶部工具栏（5 按钮） ============ -->
+  <g filter="url(#nodeShadow)">
+    <rect x="160" y="30" width="490" height="48" rx="14" fill="#16161f" stroke="#2a2a36" stroke-width="1"/>
+  </g>
+  <g font-family="Inter,'Noto Serif SC','Noto Sans JP',sans-serif" font-size="13" fill="#c8c8d8">
+    <!-- Edit -->
+    <text x="186" y="60" font-size="14" fill="#a8a8b8">⚡</text>
+    <text x="206" y="60">编辑</text>
+    <!-- Expand -->
+    <text x="266" y="60" font-size="14" fill="#a8a8b8">⤢</text>
+    <text x="286" y="60">扩图</text>
+    <!-- Crop -->
+    <text x="346" y="60" font-size="14" fill="#a8a8b8">✂</text>
+    <text x="366" y="60">裁剪</text>
+    <!-- Split Grid -->
+    <text x="416" y="60" font-size="14" fill="#a8a8b8">▥</text>
+    <text x="436" y="60">拆分多宫格</text>
+    <!-- Enhance -->
+    <text x="548" y="60" font-size="14" fill="#a8a8b8">✨</text>
+    <text x="568" y="60">增强</text>
+  </g>
+  <!-- 标注线：工具栏 -->
+  <line x1="655" y1="54" x2="730" y2="54" stroke="#8b8bff" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+  <circle cx="744" cy="54" r="10" fill="#8b8bff"/>
+  <text x="744" y="58" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#0a0a0a">1</text>
+  <text x="762" y="58" font-family="Inter,'Noto Serif SC','Noto Sans JP',sans-serif" font-size="11.5" fill="#a8a8b8">① 节点工具栏</text>
+
+  <!-- ============ 2. 节点主体 ============ -->
+  <g filter="url(#nodeShadow)">
+    <rect x="220" y="92" width="380" height="280" rx="12" fill="#16161f" stroke="#8b8bff" stroke-width="1.4"/>
+  </g>
+  <!-- 节点头：● Image + 复制/删除 -->
+  <circle cx="240" cy="115" r="4" fill="#8b8bff"/>
+  <text x="252" y="119" font-family="Inter,'Noto Serif SC','Noto Sans JP',sans-serif" font-size="12.5" fill="#e8e8f0" font-weight="500">Image</text>
+  <text x="554" y="119" font-family="Inter,sans-serif" font-size="13" fill="#9a9aaa">📋</text>
+  <text x="574" y="119" font-family="Inter,sans-serif" font-size="13" fill="#9a9aaa">🗑</text>
+
+  <!-- 主预览区（图片占位） -->
+  <rect x="240" y="132" width="340" height="220" rx="8" fill="#0a0a10" stroke="#2a2a36"/>
+  <text x="410" y="240" text-anchor="middle" font-family="Inter,'Noto Serif SC','Noto Sans JP',sans-serif" font-size="36" fill="#3a3a4a">🖼</text>
+  <text x="410" y="268" text-anchor="middle" font-family="Inter,'Noto Serif SC','Noto Sans JP',sans-serif" font-size="11" fill="#5a5a6a" letter-spacing="2">输出预览</text>
+  <!-- 右上角：下载 / 全屏 -->
+  <rect x="528" y="142" width="44" height="22" rx="6" fill="#16161fcc"/>
+  <text x="540" y="158" font-family="Inter,sans-serif" font-size="11" fill="#c8c8d8">⬇</text>
+  <text x="558" y="158" font-family="Inter,sans-serif" font-size="11" fill="#c8c8d8">⛶</text>
+
+  <!-- 左右端口 + 号圆 -->
+  <circle cx="220" cy="232" r="11" fill="#16161f" stroke="#8b8bff" stroke-width="1.3"/>
+  <text x="220" y="237" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" fill="#8b8bff">+</text>
+  <circle cx="600" cy="232" r="11" fill="#16161f" stroke="#8b8bff" stroke-width="1.3"/>
+  <text x="600" y="237" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" fill="#8b8bff">+</text>
+
+  <!-- 标注线：节点主体 -->
+  <line x1="600" y1="232" x2="700" y2="232" stroke="#8b8bff" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+  <circle cx="714" cy="232" r="10" fill="#8b8bff"/>
+  <text x="714" y="236" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#0a0a0a">2</text>
+  <text x="732" y="236" font-family="Inter,'Noto Serif SC','Noto Sans JP',sans-serif" font-size="11.5" fill="#a8a8b8">② 节点主体</text>
+
+  <!-- 标注线：输出端口 -->
+  <line x1="231" y1="232" x2="180" y2="232" stroke="#8b8bff" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+  <circle cx="166" cy="232" r="10" fill="#8b8bff"/>
+  <text x="166" y="236" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#0a0a0a">3</text>
+  <text x="146" y="220" text-anchor="end" font-family="Inter,'Noto Serif SC','Noto Sans JP',sans-serif" font-size="11.5" fill="#a8a8b8">③ 输入 / 输出端口</text>
+
+  <!-- ============ 3. Prompt 编辑栏 ============ -->
+  <g filter="url(#nodeShadow)">
+    <rect x="160" y="400" width="560" height="170" rx="14" fill="#16161f" stroke="#2a2a36" stroke-width="1"/>
   </g>
 
-  <!-- 左主菜单 -->
-  <rect x="14" y="56" width="78" height="410" fill="#0d0d14"/>
-  <line x1="92" y1="56" x2="92" y2="466" stroke="#1f1f2a" stroke-width="1"/>
-  <g font-family="Inter,sans-serif" font-size="9" fill="#9a9aaa" text-anchor="middle">
-    <text x="53" y="84">🔧</text>
-    <text x="53" y="98">AI Tools</text>
-    <text x="53" y="120">✨</text>
-    <text x="53" y="134">Create</text>
-    <!-- Studio active -->
-    <rect x="22" y="146" width="62" height="38" rx="10" fill="#16161f" stroke="#3a3a4a"/>
-    <rect x="38" y="148" width="30" height="10" rx="5" fill="#7ee787"/>
-    <text x="53" y="155.5" text-anchor="middle" font-family="Inter,sans-serif" font-size="6.5" font-weight="700" fill="#0a0a0a">NEW</text>
-    <text x="53" y="172">🎨</text>
-    <text x="53" y="180" fill="#e8e8f0" font-weight="600">Studio</text>
-    <text x="53" y="200" fill="#666" font-size="8.5" letter-spacing="1.2">SCENARIOS</text>
-    <text x="53" y="218">🛒</text>
-    <text x="53" y="232">E-commerce</text>
-    <text x="53" y="252">🏆</text>
-    <text x="53" y="266">AI Highlights</text>
-    <rect x="40" y="270" width="26" height="9" rx="4.5" fill="#3a3a4a"/>
-    <text x="53" y="277" font-family="Inter,sans-serif" font-size="6.5" font-weight="700" fill="#a8a8b8">BETA</text>
-    <text x="53" y="294">🎬</text>
-    <text x="53" y="308">AI Drama</text>
-    <text x="53" y="328" fill="#666" font-size="8.5" letter-spacing="1.2">LIBRARY</text>
-    <text x="53" y="346">📦</text>
-    <text x="53" y="360">Assets</text>
-  </g>
+  <!-- 顶部：魔法棒（不标注） + 参考图缩略图 + + 加号 ... 全屏 关闭 -->
+  <rect x="182" y="418" width="30" height="30" rx="7" fill="#2a1a3a" stroke="#8b8bff" stroke-width="1"/>
+  <text x="197" y="438" text-anchor="middle" font-size="14">✨</text>
 
-  <!-- 画布操作栏 -->
-  <rect x="92" y="56" width="774" height="42" fill="#0a0a10"/>
-  <line x1="92" y1="98" x2="866" y2="98" stroke="#1f1f2a" stroke-width="1"/>
-  <g font-family="Inter,sans-serif" font-size="11" fill="#e8e8f0">
-    <!-- 状态点 + Studio -->
-    <circle cx="116" cy="77" r="3.5" fill="#7ee787"/>
-    <text x="126" y="80.5" fill="#e8e8f0">Studio</text>
-    <line x1="170" y1="66" x2="170" y2="90" stroke="#2a2a36"/>
-    <!-- 画布名下拉 -->
-    <rect x="184" y="66" width="142" height="22" rx="6" fill="#16161f" stroke="#2a2a36"/>
-    <text x="195" y="81" fill="#e8e8f0">Untitled canvas</text>
-    <text x="316" y="81" fill="#9a9aaa">▾</text>
-    <!-- Cases -->
-    <text x="346" y="80.5" fill="#9a9aaa">⚡ Cases</text>
-    <line x1="404" y1="66" x2="404" y2="90" stroke="#2a2a36"/>
-    <!-- Add Node 按钮（紫色描边突出） -->
-    <rect x="418" y="66" width="100" height="22" rx="6" fill="#16161f" stroke="#8b8bff" stroke-width="1.2"/>
-    <text x="468" y="81" text-anchor="middle" fill="#e8e8f0" font-weight="500">+ Add Node</text>
-    <!-- 撤销重做 -->
-    <text x="536" y="80.5" fill="#9a9aaa">↶</text>
-    <text x="554" y="80.5" fill="#9a9aaa">↷</text>
-    <!-- 右侧 -->
-    <text x="660" y="80.5" fill="#9a9aaa">⬇ 导出案例</text>
-    <text x="744" y="80.5" fill="#9a9aaa">🔍 −</text>
-    <text x="780" y="80.5" fill="#9a9aaa">79%</text>
-    <text x="808" y="80.5" fill="#9a9aaa">+</text>
-    <text x="828" y="80.5" fill="#9a9aaa">⛶</text>
-    <text x="848" y="80.5" fill="#9a9aaa">↻</text>
-  </g>
+  <rect x="222" y="418" width="30" height="30" rx="6" fill="#1a2a3a" stroke="#3a3a4a"/>
+  <text x="237" y="437" text-anchor="middle" font-size="13" fill="#6b9bff">🖼</text>
 
-  <!-- 画布主体（点阵背景） -->
-  <rect x="92" y="98" width="774" height="368" fill="url(#dotGrid)"/>
+  <rect x="262" y="418" width="30" height="30" rx="6" fill="#0a0a10" stroke="#2a2a36" stroke-dasharray="3,3"/>
+  <text x="277" y="437" text-anchor="middle" font-size="14" fill="#5a5a6a">+</text>
 
-  <!-- 中央提示 -->
-  <text x="479" y="252" text-anchor="middle" font-size="22" fill="#5a5a6a">✨</text>
-  <text x="479" y="282" text-anchor="middle" font-family="Inter,'Noto Serif SC','Noto Sans SC',sans-serif" font-size="12" fill="#9a9aaa">右键画布任意位置，或点击 + Add Node 开始</text>
-  <rect x="419" y="296" width="120" height="26" rx="13" fill="#16161f" stroke="#3a3a4a"/>
-  <text x="479" y="313" text-anchor="middle" font-family="Inter,'Noto Serif SC','Noto Sans SC',sans-serif" font-size="11" fill="#c8c8d8">加载 Demo 工作流</text>
+  <text x="678" y="437" text-anchor="end" font-family="Inter,sans-serif" font-size="13" fill="#9a9aaa">⤢</text>
+  <text x="698" y="437" text-anchor="end" font-family="Inter,sans-serif" font-size="13" fill="#9a9aaa">✕</text>
 
-  <!-- MINIMAP -->
-  <rect x="780" y="408" width="76" height="48" rx="6" fill="#0d0d14" stroke="#2a2a36"/>
-  <text x="818" y="436" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#5a5a6a" letter-spacing="1.5">MINIMAP</text>
+  <!-- Prompt 输入区 -->
+  <text x="182" y="478" font-family="Inter,'Noto Serif SC','Noto Sans JP',sans-serif" font-size="13" fill="#5a5a6a">prompt</text>
 
-  <!-- 注释引导 -->
-  <g font-family="Inter,'Noto Serif SC','Noto Sans SC',sans-serif" font-size="10" fill="#8b8bff">
-    <!-- 1 左主菜单 -->
-    <circle cx="53" cy="430" r="9" fill="#8b8bff"/>
-    <text x="53" y="433.5" text-anchor="middle" font-size="10" font-weight="700" fill="#0a0a0a">1</text>
-    <!-- 2 顶部操作栏 -->
-    <circle cx="468" cy="48" r="9" fill="#8b8bff"/>
-    <text x="468" y="51.5" text-anchor="middle" font-size="10" font-weight="700" fill="#0a0a0a">2</text>
-    <!-- 3 画布主体 -->
-    <circle cx="479" cy="160" r="9" fill="#8b8bff"/>
-    <text x="479" y="163.5" text-anchor="middle" font-size="10" font-weight="700" fill="#0a0a0a">3</text>
-    <!-- 4 MINIMAP -->
-    <circle cx="755" cy="432" r="9" fill="#8b8bff"/>
-    <text x="755" y="435.5" text-anchor="middle" font-size="10" font-weight="700" fill="#0a0a0a">4</text>
-  </g>
+  <!-- 底部参数行 -->
+  <line x1="182" y1="510" x2="698" y2="510" stroke="#1f1f2a" stroke-width="1"/>
+  <text x="182" y="538" font-family="Inter,sans-serif" font-size="11.5" fill="#9a9aaa">📊 GPT-Image Medium</text>
+  <text x="318" y="538" font-family="Inter,sans-serif" font-size="11.5" fill="#c8c8d8">9:16</text>
+  <text x="352" y="538" font-family="Inter,sans-serif" font-size="11.5" fill="#5a5a6a">·</text>
+  <text x="362" y="538" font-family="Inter,sans-serif" font-size="11.5" fill="#c8c8d8">1K</text>
+  <text x="382" y="538" font-family="Inter,sans-serif" font-size="11.5" fill="#5a5a6a">·</text>
+  <text x="392" y="538" font-family="Inter,sans-serif" font-size="11.5" fill="#c8c8d8">×1</text>
+
+  <!-- 右下：积分 + 运行按钮 -->
+  <rect x="568" y="525" width="50" height="22" rx="11" fill="#0a0a10" stroke="#2a2a36"/>
+  <text x="593" y="540" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8c8d8">💰 ¥0</text>
+  <circle cx="680" cy="536" r="14" fill="#f4c542"/>
+  <text x="680" y="541" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="#0a0a0a">▶</text>
+
+  <!-- 标注线：prompt 编辑栏 -->
+  <line x1="720" y1="485" x2="754" y2="485" stroke="#8b8bff" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+  <circle cx="768" cy="485" r="10" fill="#8b8bff"/>
+  <text x="768" y="489" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#0a0a0a">4</text>
+  <text x="786" y="489" font-family="Inter,'Noto Serif SC','Noto Sans JP',sans-serif" font-size="11.5" fill="#a8a8b8">④ Prompt 编辑栏</text>
+
+  <!-- 标注线：底部参数 -->
+  <line x1="450" y1="538" x2="450" y2="585" stroke="#8b8bff" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+  <circle cx="450" cy="585" r="10" fill="#8b8bff"/>
+  <text x="450" y="589" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#0a0a0a">5</text>
+  <text x="465" y="589" font-family="Inter,'Noto Serif SC','Noto Sans JP',sans-serif" font-size="11.5" fill="#a8a8b8">⑤ 模型 / 比例 / 画质 / 批次</text>
 </svg>
 </figure>
 

@@ -1708,7 +1708,134 @@ Master the node, and you've mastered 90% of Studio.
 
 ### Node anatomy
 
-[Diagram: Node anatomy]
+<figure class="diagram">
+<svg viewBox="0 0 880 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Node anatomy" class="wv-svg">
+  <defs>
+    <filter id="nodeShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+    <pattern id="nodeGrid" width="14" height="14" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.8" fill="#1f1f2a"/>
+    </pattern>
+  </defs>
+
+  <!-- 背景画布 -->
+  <rect x="0" y="0" width="880" height="600" fill="#0a0a10"/>
+  <rect x="0" y="0" width="880" height="600" fill="url(#nodeGrid)"/>
+
+  <!-- ============ 1. 顶部工具栏（5 按钮） ============ -->
+  <g filter="url(#nodeShadow)">
+    <rect x="160" y="30" width="490" height="48" rx="14" fill="#16161f" stroke="#2a2a36" stroke-width="1"/>
+  </g>
+  <g font-family="Inter,'Noto Serif SC','Noto Sans JP',sans-serif" font-size="13" fill="#c8c8d8">
+    <!-- Edit -->
+    <text x="186" y="60" font-size="14" fill="#a8a8b8">⚡</text>
+    <text x="206" y="60">Edit</text>
+    <!-- Expand -->
+    <text x="266" y="60" font-size="14" fill="#a8a8b8">⤢</text>
+    <text x="286" y="60">Expand</text>
+    <!-- Crop -->
+    <text x="346" y="60" font-size="14" fill="#a8a8b8">✂</text>
+    <text x="366" y="60">Crop</text>
+    <!-- Split Grid -->
+    <text x="416" y="60" font-size="14" fill="#a8a8b8">▥</text>
+    <text x="436" y="60">Split Grid</text>
+    <!-- Enhance -->
+    <text x="548" y="60" font-size="14" fill="#a8a8b8">✨</text>
+    <text x="568" y="60">Enhance</text>
+  </g>
+  <!-- 标注线：工具栏 -->
+  <line x1="655" y1="54" x2="730" y2="54" stroke="#8b8bff" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+  <circle cx="744" cy="54" r="10" fill="#8b8bff"/>
+  <text x="744" y="58" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#0a0a0a">1</text>
+  <text x="762" y="58" font-family="Inter,'Noto Serif SC','Noto Sans JP',sans-serif" font-size="11.5" fill="#a8a8b8">① Node toolbar</text>
+
+  <!-- ============ 2. 节点主体 ============ -->
+  <g filter="url(#nodeShadow)">
+    <rect x="220" y="92" width="380" height="280" rx="12" fill="#16161f" stroke="#8b8bff" stroke-width="1.4"/>
+  </g>
+  <!-- 节点头：● Image + 复制/删除 -->
+  <circle cx="240" cy="115" r="4" fill="#8b8bff"/>
+  <text x="252" y="119" font-family="Inter,'Noto Serif SC','Noto Sans JP',sans-serif" font-size="12.5" fill="#e8e8f0" font-weight="500">Image</text>
+  <text x="554" y="119" font-family="Inter,sans-serif" font-size="13" fill="#9a9aaa">📋</text>
+  <text x="574" y="119" font-family="Inter,sans-serif" font-size="13" fill="#9a9aaa">🗑</text>
+
+  <!-- 主预览区（图片占位） -->
+  <rect x="240" y="132" width="340" height="220" rx="8" fill="#0a0a10" stroke="#2a2a36"/>
+  <text x="410" y="240" text-anchor="middle" font-family="Inter,'Noto Serif SC','Noto Sans JP',sans-serif" font-size="36" fill="#3a3a4a">🖼</text>
+  <text x="410" y="268" text-anchor="middle" font-family="Inter,'Noto Serif SC','Noto Sans JP',sans-serif" font-size="11" fill="#5a5a6a" letter-spacing="2">Output preview</text>
+  <!-- 右上角：下载 / 全屏 -->
+  <rect x="528" y="142" width="44" height="22" rx="6" fill="#16161fcc"/>
+  <text x="540" y="158" font-family="Inter,sans-serif" font-size="11" fill="#c8c8d8">⬇</text>
+  <text x="558" y="158" font-family="Inter,sans-serif" font-size="11" fill="#c8c8d8">⛶</text>
+
+  <!-- 左右端口 + 号圆 -->
+  <circle cx="220" cy="232" r="11" fill="#16161f" stroke="#8b8bff" stroke-width="1.3"/>
+  <text x="220" y="237" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" fill="#8b8bff">+</text>
+  <circle cx="600" cy="232" r="11" fill="#16161f" stroke="#8b8bff" stroke-width="1.3"/>
+  <text x="600" y="237" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" fill="#8b8bff">+</text>
+
+  <!-- 标注线：节点主体 -->
+  <line x1="600" y1="232" x2="700" y2="232" stroke="#8b8bff" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+  <circle cx="714" cy="232" r="10" fill="#8b8bff"/>
+  <text x="714" y="236" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#0a0a0a">2</text>
+  <text x="732" y="236" font-family="Inter,'Noto Serif SC','Noto Sans JP',sans-serif" font-size="11.5" fill="#a8a8b8">② Node body</text>
+
+  <!-- 标注线：输出端口 -->
+  <line x1="231" y1="232" x2="180" y2="232" stroke="#8b8bff" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+  <circle cx="166" cy="232" r="10" fill="#8b8bff"/>
+  <text x="166" y="236" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#0a0a0a">3</text>
+  <text x="146" y="220" text-anchor="end" font-family="Inter,'Noto Serif SC','Noto Sans JP',sans-serif" font-size="11.5" fill="#a8a8b8">③ I/O ports</text>
+
+  <!-- ============ 3. Prompt 编辑栏 ============ -->
+  <g filter="url(#nodeShadow)">
+    <rect x="160" y="400" width="560" height="170" rx="14" fill="#16161f" stroke="#2a2a36" stroke-width="1"/>
+  </g>
+
+  <!-- 顶部：魔法棒（不标注） + 参考图缩略图 + + 加号 ... 全屏 关闭 -->
+  <rect x="182" y="418" width="30" height="30" rx="7" fill="#2a1a3a" stroke="#8b8bff" stroke-width="1"/>
+  <text x="197" y="438" text-anchor="middle" font-size="14">✨</text>
+
+  <rect x="222" y="418" width="30" height="30" rx="6" fill="#1a2a3a" stroke="#3a3a4a"/>
+  <text x="237" y="437" text-anchor="middle" font-size="13" fill="#6b9bff">🖼</text>
+
+  <rect x="262" y="418" width="30" height="30" rx="6" fill="#0a0a10" stroke="#2a2a36" stroke-dasharray="3,3"/>
+  <text x="277" y="437" text-anchor="middle" font-size="14" fill="#5a5a6a">+</text>
+
+  <text x="678" y="437" text-anchor="end" font-family="Inter,sans-serif" font-size="13" fill="#9a9aaa">⤢</text>
+  <text x="698" y="437" text-anchor="end" font-family="Inter,sans-serif" font-size="13" fill="#9a9aaa">✕</text>
+
+  <!-- Prompt 输入区 -->
+  <text x="182" y="478" font-family="Inter,'Noto Serif SC','Noto Sans JP',sans-serif" font-size="13" fill="#5a5a6a">prompt</text>
+
+  <!-- 底部参数行 -->
+  <line x1="182" y1="510" x2="698" y2="510" stroke="#1f1f2a" stroke-width="1"/>
+  <text x="182" y="538" font-family="Inter,sans-serif" font-size="11.5" fill="#9a9aaa">📊 GPT-Image Medium</text>
+  <text x="318" y="538" font-family="Inter,sans-serif" font-size="11.5" fill="#c8c8d8">9:16</text>
+  <text x="352" y="538" font-family="Inter,sans-serif" font-size="11.5" fill="#5a5a6a">·</text>
+  <text x="362" y="538" font-family="Inter,sans-serif" font-size="11.5" fill="#c8c8d8">1K</text>
+  <text x="382" y="538" font-family="Inter,sans-serif" font-size="11.5" fill="#5a5a6a">·</text>
+  <text x="392" y="538" font-family="Inter,sans-serif" font-size="11.5" fill="#c8c8d8">×1</text>
+
+  <!-- 右下：积分 + 运行按钮 -->
+  <rect x="568" y="525" width="50" height="22" rx="11" fill="#0a0a10" stroke="#2a2a36"/>
+  <text x="593" y="540" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#c8c8d8">💰 ¥0</text>
+  <circle cx="680" cy="536" r="14" fill="#f4c542"/>
+  <text x="680" y="541" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="#0a0a0a">▶</text>
+
+  <!-- 标注线：prompt 编辑栏 -->
+  <line x1="720" y1="485" x2="754" y2="485" stroke="#8b8bff" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+  <circle cx="768" cy="485" r="10" fill="#8b8bff"/>
+  <text x="768" y="489" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#0a0a0a">4</text>
+  <text x="786" y="489" font-family="Inter,'Noto Serif SC','Noto Sans JP',sans-serif" font-size="11.5" fill="#a8a8b8">④ Prompt editor</text>
+
+  <!-- 标注线：底部参数 -->
+  <line x1="450" y1="538" x2="450" y2="585" stroke="#8b8bff" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+  <circle cx="450" cy="585" r="10" fill="#8b8bff"/>
+  <text x="450" y="589" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#0a0a0a">5</text>
+  <text x="465" y="589" font-family="Inter,'Noto Serif SC','Noto Sans JP',sans-serif" font-size="11.5" fill="#a8a8b8">⑤ Model / aspect / quality / batch</text>
+</svg>
+</figure>
 
 | Part | Function |
 |---|---|
@@ -1760,7 +1887,41 @@ Try the same prompt 4 times, pick the best. Faster than re-running manually, als
 
 ### Connection rules
 
-[Diagram: Node connection example]
+<figure class="diagram">
+<svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Node connection example" class="wv-svg">
+  <defs>
+    <filter id="softShadowConn" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  <g class="wv-card">
+    <rect x="40" y="60" width="160" height="80" rx="12" fill="#16161f" stroke="#3a3a4a" stroke-width="1.2" filter="url(#softShadowConn)"/>
+    <text x="120" y="95" text-anchor="middle" font-size="24">🎨</text>
+    <text x="120" y="120" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="13" font-weight="600" fill="#e8e8f0">Image Gen</text>
+    <text x="120" y="160" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="11" fill="#9a9aaa">Out · Image</text>
+    <circle cx="200" cy="100" r="6" fill="#8b8bff" stroke="#0a0a10" stroke-width="2"/>
+  </g>
+  <line x1="200" y1="100" x2="270" y2="100" stroke="#8b8bff" stroke-width="1.5" opacity="0.8"/>
+  <polygon points="264,96 272,100 264,104" fill="#8b8bff" opacity="0.8"/>
+  <g class="wv-card">
+    <rect x="280" y="60" width="160" height="80" rx="12" fill="#16161f" stroke="#3a3a4a" stroke-width="1.2" filter="url(#softShadowConn)"/>
+    <circle cx="280" cy="100" r="6" fill="#8b8bff" stroke="#0a0a10" stroke-width="2"/>
+    <text x="360" y="95" text-anchor="middle" font-size="24">🔍</text>
+    <text x="360" y="120" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="13" font-weight="600" fill="#e8e8f0">Super Resolution</text>
+    <text x="360" y="160" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="11" fill="#9a9aaa">In · Image</text>
+    <circle cx="440" cy="100" r="6" fill="#8b8bff" stroke="#0a0a10" stroke-width="2"/>
+  </g>
+  <line x1="440" y1="100" x2="510" y2="100" stroke="#8b8bff" stroke-width="1.5" opacity="0.8"/>
+  <polygon points="504,96 512,100 504,104" fill="#8b8bff" opacity="0.8"/>
+  <g class="wv-card">
+    <rect x="520" y="60" width="160" height="80" rx="12" fill="#16161f" stroke="#3a3a4a" stroke-width="1.2" filter="url(#softShadowConn)"/>
+    <circle cx="520" cy="100" r="6" fill="#8b8bff" stroke="#0a0a10" stroke-width="2"/>
+    <text x="600" y="95" text-anchor="middle" font-size="24">🎬</text>
+    <text x="600" y="120" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="13" font-weight="600" fill="#e8e8f0">视频生成</text>
+    <text x="600" y="160" text-anchor="middle" font-family="'Inter','Noto Serif SC',sans-serif" font-size="11" fill="#9a9aaa">In · First frame图</text>
+  </g>
+</svg>
+</figure>
 
 - 🟢 **Only type-matched ports connect**: image → image, video → video, text → text
 - 🔀 **One output can connect to multiple downstreams**: fork for parallel testing
