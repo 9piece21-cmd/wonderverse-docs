@@ -67,6 +67,15 @@ body{display:flex;min-height:100vh}
 .nav-list li.disabled span{display:block;padding:8px 12px;color:#555;font-size:13.5px;cursor:not-allowed;border-radius:6px;user-select:none}
 .nav-list li.disabled span:hover{background:transparent}
 
+/* 二级折叠子组（生成 / 编辑） */
+.nav-subgroup{margin:6px 0 2px}
+.nav-subgroup-title{display:flex;align-items:center;gap:6px;width:100%;background:none;border:none;color:var(--text-muted);font-family:inherit;font-size:11.5px;font-weight:600;letter-spacing:1.5px;padding:6px 12px;margin:4px 0 2px;cursor:pointer;text-align:left;text-transform:uppercase;border-radius:5px;transition:color .15s}
+.nav-subgroup-title:hover{color:var(--text-dim)}
+.nav-caret{flex-shrink:0;color:var(--text-muted);transition:transform .2s ease;transform:rotate(0deg)}
+.nav-subgroup.collapsed .nav-caret{transform:rotate(-90deg)}
+.nav-sublist{padding-left:10px;border-left:1px solid var(--border);margin-left:14px;overflow:hidden;transition:max-height .25s ease, opacity .2s ease;max-height:500px;opacity:1}
+.nav-subgroup.collapsed .nav-sublist{max-height:0;opacity:0;pointer-events:none;margin-top:0;margin-bottom:0}
+
 .main{flex:1;margin-left:280px;padding:80px 0 120px;min-height:100vh}
 .page{max-width:760px;margin:0 auto;padding:0 64px}
 .crumb{font-size:12px;color:var(--text-muted);letter-spacing:1px;margin-bottom:16px;font-weight:500;font-feature-settings:"lnum" 1,"tnum" 1}
@@ -220,47 +229,63 @@ body.drawer-open .sidebar-mask{opacity:1;pointer-events:auto}
     </div>
     <div class="brand-tag">User Manual · v0.1</div>
   </a>
-  <div class="nav-group"><div class="nav-group-title"><span class="nav-emoji">🚀</span>Getting Started</div><ul class="nav-list">
+  <div class="nav-group"><div class="nav-group-title"><span class="nav-emoji">🚀</span>Getting Started</div>
+<ul class="nav-list">
 <li><a href="javascript:void(0)" onclick="goto(1)" data-ch="1">Welcome to Wonderverse</a></li>
 <li><a href="javascript:void(0)" onclick="goto(2)" data-ch="2">Who it's for</a></li>
 <li><a href="javascript:void(0)" onclick="goto(3)" data-ch="3">5-Minute Quick Start</a></li>
 <li class="disabled"><span data-ch="4">🚧 Team & Permissions</span></li>
-</ul></div>
-<div class="nav-group"><div class="nav-group-title"><span class="nav-emoji">🧰</span>AI Tools</div><ul class="nav-list">
+</ul>
+</div>
+<div class="nav-group"><div class="nav-group-title"><span class="nav-emoji">🧰</span>AI Tools</div>
+<ul class="nav-list">
 <li><a href="javascript:void(0)" onclick="goto(5)" data-ch="5">Overview</a></li>
+</ul>
+<div class="nav-subgroup expanded" data-subgroup="subgroup-61629"><button class="nav-subgroup-title" type="button" onclick="toggleSubgroup(this)"><svg class="nav-caret" viewBox="0 0 12 12" width="10" height="10"><path d="M3 4.5 L6 7.5 L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Generate</span></button><ul class="nav-list nav-sublist">
 <li><a href="javascript:void(0)" onclick="goto(6)" data-ch="6">Supported Models</a></li>
 <li><a href="javascript:void(0)" onclick="goto(7)" data-ch="7">Image Generation</a></li>
 <li><a href="javascript:void(0)" onclick="goto(8)" data-ch="8">Video Generation</a></li>
+</ul></div>
+<div class="nav-subgroup expanded" data-subgroup="subgroup-75023"><button class="nav-subgroup-title" type="button" onclick="toggleSubgroup(this)"><svg class="nav-caret" viewBox="0 0 12 12" width="10" height="10"><path d="M3 4.5 L6 7.5 L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Edit</span></button><ul class="nav-list nav-sublist">
 <li><a href="javascript:void(0)" onclick="goto(9)" data-ch="9">Super Resolution</a></li>
 <li><a href="javascript:void(0)" onclick="goto(10)" data-ch="10">Subtitles & Translation</a></li>
 <li><a href="javascript:void(0)" onclick="goto(11)" data-ch="11">AI Dubbing & Translation</a></li>
 <li><a href="javascript:void(0)" onclick="goto(12)" data-ch="12">Horizontal → Vertical</a></li>
 <li><a href="javascript:void(0)" onclick="goto(13)" data-ch="13">Smart Erase</a></li>
 </ul></div>
-<div class="nav-group"><div class="nav-group-title"><span class="nav-emoji">🎯</span>Scenarios</div><ul class="nav-list">
+</div>
+<div class="nav-group"><div class="nav-group-title"><span class="nav-emoji">🎯</span>Scenarios</div>
+<ul class="nav-list">
 <li><a href="javascript:void(0)" onclick="goto(14)" data-ch="14">Overview</a></li>
 <li><a href="javascript:void(0)" onclick="goto(15)" data-ch="15">🎬 AI Drama Generator Agent</a></li>
 <li><a href="javascript:void(0)" onclick="goto(16)" data-ch="16">🎮 Game / Match Highlights</a></li>
 <li><a href="javascript:void(0)" onclick="goto(17)" data-ch="17">🛒 E-commerce Content</a></li>
 <li class="disabled"><span data-ch="18">🚧 📢 Marketing Videos</span></li>
-</ul></div>
-<div class="nav-group"><div class="nav-group-title"><span class="nav-emoji">🎨</span>Studio</div><ul class="nav-list">
+</ul>
+</div>
+<div class="nav-group"><div class="nav-group-title"><span class="nav-emoji">🎨</span>Studio</div>
+<ul class="nav-list">
 <li><a href="javascript:void(0)" onclick="goto(19)" data-ch="19">Meet the Canvas</a></li>
 <li><a href="javascript:void(0)" onclick="goto(20)" data-ch="20">Meet the Node</a></li>
 <li><a href="javascript:void(0)" onclick="goto(21)" data-ch="21">Build a Workflow</a></li>
 <li><a href="javascript:void(0)" onclick="goto(22)" data-ch="22">Personal Assets</a></li>
 <li><a href="javascript:void(0)" onclick="goto(23)" data-ch="23">Sharing & Collaboration</a></li>
-</ul></div>
-<div class="nav-group"><div class="nav-group-title"><span class="nav-emoji">💡</span>Best Practices</div><ul class="nav-list">
+</ul>
+</div>
+<div class="nav-group"><div class="nav-group-title"><span class="nav-emoji">💡</span>Best Practices</div>
+<ul class="nav-list">
 <li><a href="javascript:void(0)" onclick="goto(24)" data-ch="24">Prompt Techniques</a></li>
 <li><a href="javascript:void(0)" onclick="goto(25)" data-ch="25">Multilingual Localization</a></li>
 <li><a href="javascript:void(0)" onclick="goto(26)" data-ch="26">Style Guide</a></li>
-</ul></div>
-<div class="nav-group"><div class="nav-group-title"><span class="nav-emoji">📚</span>Help</div><ul class="nav-list">
+</ul>
+</div>
+<div class="nav-group"><div class="nav-group-title"><span class="nav-emoji">📚</span>Help</div>
+<ul class="nav-list">
 <li class="disabled"><span data-ch="27">🚧 FAQ</span></li>
 <li class="disabled"><span data-ch="28">🚧 Billing & Invoices</span></li>
 <li class="disabled"><span data-ch="29">🚧 Contact Us</span></li>
-</ul></div>
+</ul>
+</div>
 </aside>
 
 <header class="topbar">
@@ -313,6 +338,10 @@ function titleText(t){return String(t).split('|||').join(' ');}
 
 const DISABLED = [4, 18, 27, 28, 29];
 function isDisabled(n){return DISABLED.indexOf(n) !== -1;}
+function toggleSubgroup(btn){
+  const group = btn.closest('.nav-subgroup');
+  group.classList.toggle('collapsed');
+}
 function nextEnabled(n, dir){
   let i = n + dir;
   while(i >= 1 && i <= CHAPTERS.length){

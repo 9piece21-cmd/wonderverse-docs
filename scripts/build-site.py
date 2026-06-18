@@ -46,7 +46,13 @@ LANGS = {
         'og_description': '一键全流程生成，轻松将创意转化为完整故事、成片视频或营销活动方案。',
         'groups': [
             ('🚀', '开始使用', list(range(1, 5))),
-            ('🧰', 'AI 工具', list(range(5, 14))),
+            ('🧰', 'AI 工具', {
+                'flat': [5],
+                'sub': [
+                    ('生成', [6, 7, 8]),
+                    ('编辑', [9, 10, 11, 12, 13]),
+                ],
+            }),
             ('🎯', '场景方案', list(range(14, 19))),
             ('🎨', '无限画布', list(range(19, 24))),
             ('💡', '最佳实践', list(range(24, 27))),
@@ -74,7 +80,13 @@ LANGS = {
         'og_description': 'ワンクリックで、アイデアを物語・映像・キャンペーンへ。',
         'groups': [
             ('🚀', 'はじめに', list(range(1, 5))),
-            ('🧰', 'AI ツール', list(range(5, 14))),
+            ('🧰', 'AI ツール', {
+                'flat': [5],
+                'sub': [
+                    ('生成', [6, 7, 8]),
+                    ('編集', [9, 10, 11, 12, 13]),
+                ],
+            }),
             ('🎯', 'シナリオ', list(range(14, 19))),
             ('🎨', '無限キャンバス', list(range(19, 24))),
             ('💡', 'ベストプラクティス', list(range(24, 27))),
@@ -102,7 +114,13 @@ LANGS = {
         'og_description': 'Turn an idea into a finished story, video, or campaign — generated end-to-end in a single click.',
         'groups': [
             ('🚀', 'Getting Started', list(range(1, 5))),
-            ('🧰', 'AI Tools', list(range(5, 14))),
+            ('🧰', 'AI Tools', {
+                'flat': [5],
+                'sub': [
+                    ('Generate', [6, 7, 8]),
+                    ('Edit', [9, 10, 11, 12, 13]),
+                ],
+            }),
             ('🎯', 'Scenarios', list(range(14, 19))),
             ('🎨', 'Studio', list(range(19, 24))),
             ('💡', 'Best Practices', list(range(24, 27))),
@@ -203,6 +221,15 @@ body{display:flex;min-height:100vh}
 .nav-list a.active{background:var(--accent-soft);color:var(--accent);font-weight:500}
 .nav-list li.disabled span{display:block;padding:8px 12px;color:#555;font-size:13.5px;cursor:not-allowed;border-radius:6px;user-select:none}
 .nav-list li.disabled span:hover{background:transparent}
+
+/* 二级折叠子组（生成 / 编辑） */
+.nav-subgroup{margin:6px 0 2px}
+.nav-subgroup-title{display:flex;align-items:center;gap:6px;width:100%;background:none;border:none;color:var(--text-muted);font-family:inherit;font-size:11.5px;font-weight:600;letter-spacing:1.5px;padding:6px 12px;margin:4px 0 2px;cursor:pointer;text-align:left;text-transform:uppercase;border-radius:5px;transition:color .15s}
+.nav-subgroup-title:hover{color:var(--text-dim)}
+.nav-caret{flex-shrink:0;color:var(--text-muted);transition:transform .2s ease;transform:rotate(0deg)}
+.nav-subgroup.collapsed .nav-caret{transform:rotate(-90deg)}
+.nav-sublist{padding-left:10px;border-left:1px solid var(--border);margin-left:14px;overflow:hidden;transition:max-height .25s ease, opacity .2s ease;max-height:500px;opacity:1}
+.nav-subgroup.collapsed .nav-sublist{max-height:0;opacity:0;pointer-events:none;margin-top:0;margin-bottom:0}
 
 .main{flex:1;margin-left:280px;padding:80px 0 120px;min-height:100vh}
 .page{max-width:760px;margin:0 auto;padding:0 64px}
@@ -410,6 +437,10 @@ function titleText(t){return String(t).split('|||').join(' ');}
 
 const DISABLED = __DISABLED_JSON__;
 function isDisabled(n){return DISABLED.indexOf(n) !== -1;}
+function toggleSubgroup(btn){
+  const group = btn.closest('.nav-subgroup');
+  group.classList.toggle('collapsed');
+}
 function nextEnabled(n, dir){
   let i = n + dir;
   while(i >= 1 && i <= CHAPTERS.length){
@@ -496,17 +527,49 @@ def build_for_lang(lang_code, cfg):
 
     groups = cfg['groups']
     sidebar_parts = []
-    for emoji, label, nums in groups:
-        sidebar_parts.append(f'<div class="nav-group"><div class="nav-group-title"><span class="nav-emoji">{emoji}</span>{label}</div><ul class="nav-list">')
-        for n in nums:
-            if n <= len(chapters):
-                c = chapters[n-1]
-                sidebar_title = c["title"].replace("|||", " ")
-                if n in DISABLED_CHAPTERS:
-                    sidebar_parts.append(f'<li class="disabled"><span data-ch="{n}">🚧 {sidebar_title}</span></li>')
-                else:
-                    sidebar_parts.append(f'<li><a href="javascript:void(0)" onclick="goto({n})" data-ch="{n}">{sidebar_title}</a></li>')
-        sidebar_parts.append('</ul></div>')
+
+    def render_chapter_li(n):
+        if n > len(chapters):
+            return ''
+        c = chapters[n-1]
+        sidebar_title = c["title"].replace("|||", " ")
+        if n in DISABLED_CHAPTERS:
+            return f'<li class="disabled"><span data-ch="{n}">🚧 {sidebar_title}</span></li>'
+        return f'<li><a href="javascript:void(0)" onclick="goto({n})" data-ch="{n}">{sidebar_title}</a></li>'
+
+    for emoji, label, payload in groups:
+        sidebar_parts.append(f'<div class="nav-group"><div class="nav-group-title"><span class="nav-emoji">{emoji}</span>{label}</div>')
+        if isinstance(payload, list):
+            # 普通组：扁平章节列表
+            sidebar_parts.append('<ul class="nav-list">')
+            for n in payload:
+                sidebar_parts.append(render_chapter_li(n))
+            sidebar_parts.append('</ul>')
+        else:
+            # 二级组：dict 形式 {flat: [...], sub: [(label, [nums])]}
+            # flat 部分
+            if payload.get('flat'):
+                sidebar_parts.append('<ul class="nav-list">')
+                for n in payload['flat']:
+                    sidebar_parts.append(render_chapter_li(n))
+                sidebar_parts.append('</ul>')
+            # sub 子组（可折叠，默认展开）
+            for sub_label, sub_nums in payload.get('sub', []):
+                sub_id = f'subgroup-{abs(hash(label + sub_label)) % 100000}'
+                sidebar_parts.append(
+                    f'<div class="nav-subgroup expanded" data-subgroup="{sub_id}">'
+                    f'<button class="nav-subgroup-title" type="button" onclick="toggleSubgroup(this)">'
+                    f'<svg class="nav-caret" viewBox="0 0 12 12" width="10" height="10"><path d="M3 4.5 L6 7.5 L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+                    f'<span>{sub_label}</span>'
+                    f'</button>'
+                    f'<ul class="nav-list nav-sublist">'
+                )
+                for n in sub_nums:
+                    sidebar_parts.append(render_chapter_li(n))
+                sidebar_parts.append('</ul></div>')
+
+        sidebar_parts.append('</div>')
+
     sidebar_html = '\n'.join(sidebar_parts)
 
     for c in chapters:
@@ -524,7 +587,16 @@ def build_for_lang(lang_code, cfg):
         c['html'] = add_future_class(c['html'])
 
     chapters_data = [{'num': c['num'], 'title': c['title'], 'html': c['html']} for c in chapters]
-    groups_for_js = [{'label': g[1], 'nums': g[2]} for g in groups]
+
+    def flatten_nums(payload):
+        if isinstance(payload, list):
+            return list(payload)
+        nums = list(payload.get('flat', []))
+        for _, sub_nums in payload.get('sub', []):
+            nums.extend(sub_nums)
+        return nums
+
+    groups_for_js = [{'label': g[1], 'nums': flatten_nums(g[2])} for g in groups]
 
     # 拼接 chapter format JS
     if lang_code == 'en':
