@@ -11,8 +11,8 @@ os.makedirs(f'{OUT_DIR}/ja', exist_ok=True)
 os.makedirs(f'{OUT_DIR}/en', exist_ok=True)
 
 # 暂时禁用的章节（规则未定，灰显示 + 不可点击 + 加 🚧 标签）
-# 4 = 团队与权限, 18 = 营销视频, 23 = 分享与协作, 27 = FAQ, 28 = 计费与发票, 29 = 联系我们
-DISABLED_CHAPTERS = {4, 18, 23, 27, 28, 29}
+# 4 = 团队与权限, 18 = 营销视频, 22 = 个人资产, 23 = 分享与协作, 27 = FAQ, 28 = 计费与发票, 29 = 联系我们
+DISABLED_CHAPTERS = {4, 18, 22, 23, 27, 28, 29}
 
 # 资源版本戳
 def asset_hash(path):

@@ -2304,6 +2304,13 @@ Save your team's smoothest workflow as a template. New members open it ready-to-
 Export a canvas link. External teams open the same canvas to view, copy, modify.
 Every iteration is visible — **transparent collaboration** replaces email loops.
 
+### Canvas shortcuts
+
+Two right-click moves that will speed you up on the canvas:
+
+- **Add a node** — right-click **any empty area** of the canvas to open the node menu, then pick the node you want to drop in.
+- **Create a group** — right-click **any existing node** to bundle nodes into a group; nodes inside a group can be dragged, duplicated, or deleted together.
+
 ### Get started
 
 → [Meet the Node](#20-meet-the-node) | Get the "brick" right first
